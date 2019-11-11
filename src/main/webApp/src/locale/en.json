@@ -1,7 +1,7 @@
 {
     "customers": "Customers",
     "products": "Products",
-    "orders": "Orders",
+    "newOrder": "New Order",
     "language": "language",
     "welcomeUser": "Welcome back <b>&nbsp;{user}</b>",
     "logout": "Sign Out",
