@@ -1,5 +1,5 @@
-### You can find the complete tutorial here:
-https://writecleancode.com/spring-boot-react-web-application/
+# Shypr
+
 ### To run the backend:
 `mvn spring-boot:run`
 
