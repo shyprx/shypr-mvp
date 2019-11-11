@@ -30,6 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .authorizeRequests()
                     .antMatchers("/h2-console/**").permitAll()
+                    .antMatchers("/", "/*.ico", "/*.json",  "/*.js", "/index.html", "/login", "/login.*", "/static/**").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .logout()

@@ -1,7 +1,7 @@
 {
     "customers": "العملاء",
     "products": "المنتجات",
-    "orders": "الطلبات",
+    "newOrder": "طلب جديد",
     "language": "اللغة",
     "welcomeUser": "مرحبا <b>&nbsp;{user}</b>",
     "logout": "خروج",
