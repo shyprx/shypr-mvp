@@ -32,3 +32,5 @@ build/
 
 ### React ###
 /src/main/webApp/node_modules/
+node_modules/
+node_modules
