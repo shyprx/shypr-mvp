@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { FormattedMessage } from 'react-intl';
 import { Paper, Typography, Tabs, Tab} from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -22,9 +23,16 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(1),
     width: 415,
   },
+  button: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
+  },
 }));
 
-export default function ShipmentDetailsComponents() {
+export default function ShipmentOriginComponents() {
   const classes = useStyles();
   const [value, setValue] = React.useState(2);
 
@@ -46,9 +54,9 @@ export default function ShipmentDetailsComponents() {
             onChange={handleChange}
             aria-label="disabled tabs example"
           >
+            <Tab label={<FormattedMessage id='shipmenntOrigin' />} onClick="/from-destination"/>
             <Tab label="Active" />
-            <Tab label="Disabled" disabled />
-            <Tab label="Active" />
+            <Tab label={<FormattedMessage id='shipmenntDestination' />} onClick="/to-destination" />
           </Tabs>
           <form className={classes.container} noValidate autoComplete="on">
         <div>
@@ -57,6 +65,19 @@ export default function ShipmentDetailsComponents() {
             id="outlined-basic"
             className={classes.textFieldBig}
             label={<FormattedMessage id="fullName" />}
+            margin="normal"
+            variant="outlined"
+            />
+            </React.Fragment>
+        </div>
+        </form>
+        <form className={classes.container} noValidate autoComplete="off">
+        <div>
+            <React.Fragment>
+            <TextField
+            id="outlined-basic"
+            className={classes.textFieldBig}
+            label={<FormattedMessage id="pickupAddress" />}
             margin="normal"
             variant="outlined"
             />
@@ -83,6 +104,26 @@ export default function ShipmentDetailsComponents() {
         </React.Fragment>
       </div>
     </form>
+    <form className={classes.container} noValidate autoComplete="off">
+      <div>
+        <React.Fragment>
+        <TextField
+          id="outlined-basic"
+          className={classes.textField}
+          label={<FormattedMessage id="district" />}
+          margin="normal"
+          variant="outlined"
+        />
+         <TextField
+          id="outlined-basic"
+          className={classes.textField}
+          label={<FormattedMessage id="zipCode" />}
+          margin="normal"
+          variant="outlined"
+        />
+        </React.Fragment>
+      </div>
+    </form>
         <form className={classes.container} noValidate autoComplete="off">
         <div>
           <React.Fragment>
@@ -103,8 +144,19 @@ export default function ShipmentDetailsComponents() {
           </React.Fragment>
         </div>
       </form>
+      <form className={classes.container} noValidate autoComplete="off">
+      <div>
+      <Button variant="outlined" className={classes.button}>
+        <FormattedMessage id="back" />
+      </Button>
+      <Button variant="outlined" color="primary" className={classes.button}>
+        <FormattedMessage id="next" />
+      </Button>
+    </div>
+    </form>
           </Typography>
         </Paper>
       </div>
   );
 }
+ 

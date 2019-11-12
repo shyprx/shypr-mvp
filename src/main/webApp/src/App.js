@@ -22,6 +22,8 @@ import UserProvider from './common/provider/UserProvider';
 import HomeComponent from './components/HomeComponent';
 import { Switch } from 'react-router-dom';
 import ShipmentDetailsComponents from './components/ShipmentDetailsComponents/ShipmentDetailsComponents';
+import ShipmentDestinationComponents from './components/ShipmentDetailsComponents/ShipmentDestinationComponents';
+import ShipmentOriginComponents from './components/ShipmentDetailsComponents/ShipmentOriginComponents';
 
 const messages = {
   'ar': messages_ar,
@@ -71,7 +73,8 @@ function App() {
                     <Route path="/" exact component={HomeComponent} />
                     <Route path="/login" exact component={LoginComponent} className="center" />
                     <Route path="/home" exact component={HomeComponent} />
-                    <Route path="/from-destination" exact component={ShipmentDetailsComponents} />
+                    <Route path="/from-destination" exact component={ShipmentOriginComponents} />
+                    <Route path="/to-destination" exact component={ShipmentDestinationComponents} />
                     <AuthenticatedRoute path="/customers/" component={CustomerComponent} />
                     <AuthenticatedRoute path="/orders/" component={OrderComponent} />
                     <AuthenticatedRoute path="/products/" component={ProductComponent} />
