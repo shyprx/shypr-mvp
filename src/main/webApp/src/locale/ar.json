@@ -27,8 +27,8 @@
     "lastNamerequired": "اللقب اجباري",
     "birthdateRequired": "تاريخ الولادة اجباري",
     "birthdateFormatError" : "dd/MM/yyyy",
-    "badCredentials": "خطأ في اسم المستخدم او كلمة المرور"
-
-
+    "badCredentials": "خطأ في اسم المستخدم او كلمة المرور",
+    "fromCity": "من مدينة",
+    "toCity": "الى مدينة"
 
 }

@@ -14,7 +14,7 @@ const OrderComponent = ()=> {
 
    
     return(
-        <div>
+        <div className="text-center">
             <ParcelDetailsComponent />
        </div>
     )
