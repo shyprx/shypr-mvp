@@ -36,6 +36,6 @@
     "district":"District ",
     "email":"Email",
     "zipCode": "ZIP Code",
-
+    "useDefaultOrigin":"Use Default Address",
     "region":"Region"
 }

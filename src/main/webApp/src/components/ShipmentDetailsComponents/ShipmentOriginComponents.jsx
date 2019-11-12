@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { FormattedMessage } from 'react-intl';
-import { Paper, Typography, Tabs, Tab} from '@material-ui/core';
+import { Paper, Typography, Tabs, Tab, FormGroup, FormControlLabel, Switch, FormControl} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
@@ -35,6 +35,10 @@ const useStyles = makeStyles(theme => ({
 export default function ShipmentOriginComponents() {
   const classes = useStyles();
   const [value, setValue] = React.useState(2);
+  const [state, setState] = React.useState({
+    checkedA: true,
+    checkedB: true,
+  });
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -42,12 +46,12 @@ export default function ShipmentOriginComponents() {
 
   return (
       <div>
-        <Paper className={classes.root}>
-          <Typography variant="h5" component="h3">
+        <Paper  className={classes.root}>
+          <Typography className={classes.container} variant="h5" component="h3">
             <FormattedMessage id='shipmenntOrigin' />
           </Typography>
           <Typography component="p">
-          <Tabs
+          {/* <Tabs
             value={value}
             indicatorColor="primary"
             textColor="primary"
@@ -57,7 +61,19 @@ export default function ShipmentOriginComponents() {
             <Tab label={<FormattedMessage id='shipmenntOrigin' />} onClick="/from-destination"/>
             <Tab label="Active" />
             <Tab label={<FormattedMessage id='shipmenntDestination' />} onClick="/to-destination" />
-          </Tabs>
+          </Tabs> */}
+           <form className={classes.container} noValidate autoComplete="on">
+              <FormControl component="fieldset">
+                <FormGroup aria-label="position" row>
+                  <FormControlLabel
+                    value="start"
+                    control={<Switch color="primary" />}
+                    label={<FormattedMessage id="useDefaultOrigin" />}
+                    labelPlacement="start"
+                  />
+                </FormGroup>
+              </FormControl>
+              </form>
           <form className={classes.container} noValidate autoComplete="on">
         <div>
             <React.Fragment>
@@ -137,7 +153,7 @@ export default function ShipmentOriginComponents() {
            <TextField
             id="outlined-basic"
             className={classes.textField} 
-            label={<FormattedMessage id="birthdateRequired" />}
+            label={<FormattedMessage id="email" />}
             margin="normal"
             variant="outlined"
           />
@@ -146,10 +162,10 @@ export default function ShipmentOriginComponents() {
       </form>
       <form className={classes.container} noValidate autoComplete="off">
       <div>
-      <Button variant="outlined" className={classes.button}>
+      <Button variant="contained" className={classes.button}>
         <FormattedMessage id="back" />
       </Button>
-      <Button variant="outlined" color="primary" className={classes.button}>
+      <Button variant="contained" color="primary"  href="/to-destination"  className={classes.button}>
         <FormattedMessage id="next" />
       </Button>
     </div>
