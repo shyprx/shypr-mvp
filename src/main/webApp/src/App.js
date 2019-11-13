@@ -21,9 +21,9 @@ import DirectionProvider, { DIRECTIONS } from 'react-with-direction/dist/Directi
 import UserProvider from './common/provider/UserProvider';
 import HomeComponent from './components/HomeComponent';
 import { Switch } from 'react-router-dom';
+import ShipmentDestinationComponents from './components/ShipiingDetailsComponents/ShipmentDestinationComponents';
+import ShipmentOriginComponents from './components/ShipiingDetailsComponents/ShipmentOriginComponents';
 import ShipmentDetailsComponents from './components/ShipmentDetailsComponents/ShipmentDetailsComponents';
-import ShipmentDestinationComponents from './components/ShipmentDetailsComponents/ShipmentDestinationComponents';
-import ShipmentOriginComponents from './components/ShipmentDetailsComponents/ShipmentOriginComponents';
 
 const messages = {
   'ar': messages_ar,
@@ -75,6 +75,7 @@ function App() {
                     <Route path="/home" exact component={HomeComponent} />
                     <Route path="/from-destination" exact component={ShipmentOriginComponents} />
                     <Route path="/to-destination" exact component={ShipmentDestinationComponents} />
+                    <Route path="/shipment-details" exact component={ShipmentDetailsComponents} />
                     <AuthenticatedRoute path="/customers/" component={CustomerComponent} />
                     <AuthenticatedRoute path="/orders/" component={OrderComponent} />
                     <AuthenticatedRoute path="/products/" component={ProductComponent} />
