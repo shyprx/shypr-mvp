@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
 const tileData = [
 {img: ARAMEX,title: 'ARAMEX',price: '34',date: '10-12-2019',day:<FormattedMessage id='SATURDAY'/>},
 {img: DHL,title: 'DHL',price: '54',date: '22-1-2019',day:<FormattedMessage id='SUNDAY'/>},
-{img: SMSA,title: 'SMSA',price: '39',date: '21-11-2019',day:<FormattedMessage id='MONADY'/>},
+{img: SMSA,title: 'SMSA',price: '39',date: '21-11-2019',day:<FormattedMessage id='MONDAY'/>},
 {img: ARAMEX,title: 'ARAMEX',price: '24',date: '21-12-2019',day:<FormattedMessage id='TUESDAY'/>},
 {img: DHL,title: 'DHL',price: '55',date: '19-11-2019',day:<FormattedMessage id='WEDNESDAY'/>},
 {img: SMSA,title: 'SMSA',price: '44',date: '29-11-2019',day:<FormattedMessage id='THURSDAY'/>},

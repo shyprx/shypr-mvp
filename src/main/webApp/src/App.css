@@ -1,7 +1,11 @@
 .navbar-nav.navbar-center {
     margin: auto;
 }
-
+.container{
+    background-image: url("../src/assets/images/background-parcels.jpg");
+    background-repeat: no-repeat;
+    background-size: 150%
+}
 #myNavBar {
     margin: 0 0 50px 0;
 }
