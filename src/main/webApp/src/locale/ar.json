@@ -27,8 +27,14 @@
     "lastNamerequired": "اللقب اجباري",
     "birthdateRequired": "تاريخ الولادة اجباري",
     "birthdateFormatError" : "dd/MM/yyyy",
-    "badCredentials": "خطأ في اسم المستخدم او كلمة المرور"
-
-
-
+    "badCredentials": "خطأ في اسم المستخدم او كلمة المرور",
+    "SATURDAY":"السبت",
+    "SUNDAY":"الأحد",
+    "MONDAY":"الأثنين",
+    "TUESDAY":"الثلاثاء",
+    "WEDNESDAY":"الإربعاء",
+    "THURSDAY":"الخميس",
+    "FRIDAY":"الجمعة",
+    "deliveryOn":"التوصيل يوم ",
+    "SAR":"ريال"
 }
