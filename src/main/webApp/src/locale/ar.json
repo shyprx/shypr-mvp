@@ -45,7 +45,7 @@
     "cashOnDelivery":" الدفع عند الاستلام",
     "pickupDropoff":" تسليم للفرع / من المستودع",
     "sizeOfShipment":" وزن الشحتة",
-    "shipmentValue":" قيمة الشحنة",
+    "shipmentValue":" قيمة الشحنة بالريال ",
     "shippingDuration":" وقت التوصيل",
 
     "region":"المنطقة"

@@ -3,41 +3,41 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import { FormattedMessage } from 'react-intl';
-import { Paper, Typography, Tabs, Tab} from '@material-ui/core';
+import { Paper, Typography, Tabs, Tab, Button} from '@material-ui/core';
 
-const currencies = [
+const Cities = [
   {
-    value: '1',
+    value: 'Riyadh',
     label: 'Riyadh'
   },
   {
-    value: '2',
+    value: 'Jeddah',
     label: 'Jeddah',
   },
   {
-    value: '3',
+    value: 'Dammam',
     label: 'Dammam',
   },
   {
-    value: '4',
+    value: 'Qassim',
     label: 'Qassim',
   },
 ];
-const weight = [
+const weights = [
   {
-    value: '1',
+    value: '5k',
     label: 'Less than 5Kg'
   },
   {
-    value: '2',
+    value: '10k',
     label: 'Less than 10Kg'
   },
   {
-    value: '3',
+    value: '15k',
     label: 'Less than 15Kg'
   },
   {
-    value: '4',
+    value: '30k',
     label: 'Less than 30Kg'
   },
 ];
@@ -59,13 +59,13 @@ const duration = [
     label: '6-9 Days'
   },
 ];
-const enableCashOnD = [
+const enableCashOnDs = [
   {
-    value: '1',
+    value: 'COD',
     label: 'Cash on Delivery'
   },
   {
-    value: '2',
+    value: 'noCOD',
     label: 'no Cash on Delivery '
   },
 ];
@@ -75,6 +75,9 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexWrap: 'wrap',
   },
+  root: {
+    padding: theme.spacing(3, 2),
+  },
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
@@ -83,14 +86,36 @@ const useStyles = makeStyles(theme => ({
   menu: {
     width: 200,
   },
+  button: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
+  },
 }));
 
 export default function ShipmentDetailsComponents() {
   const classes = useStyles();
-  const [currency, setCurrency] = React.useState('EUR');
+  const [fromCity, setFromCity] = React.useState('Riyadh');
+  const [toCity, setToCity] = React.useState('Riyadh');
+  const [weight, setWeight] = React.useState('5k');
+  const [enableCashOnD, setEnableCashOnD] = React.useState('COD')
 
-  const handleChange = event => {
-    setCurrency(event.target.value);
+  const handleChangeWeight = event => {
+    setWeight(event.target.value)
+    console.log(event.target.name);  
+  };  const handleChangeCOD = event => {
+    setEnableCashOnD(event.target.value)
+    console.log(event.target.name);   
+  };
+   const handleChangeFromCity = event => {
+    setFromCity(event.target.value)
+    console.log(event.target.name);
+  };
+  const handleChangeToCity = event => {
+    setToCity(event.target.value)
+    console.log(event.target.name);
   };
 
   return (
@@ -107,8 +132,9 @@ export default function ShipmentDetailsComponents() {
           select
           label={<FormattedMessage id='fromCity' />}
           className={classes.textField}
-          value={currency}
-          onChange={handleChange}
+          value={fromCity}
+          name='fromCity'
+          onChange={handleChangeFromCity}
           SelectProps={{
             MenuProps: {
               className: classes.menu,
@@ -117,7 +143,7 @@ export default function ShipmentDetailsComponents() {
           helperText="From"
           margin="normal"
         >
-          {currencies.map(option => (
+          {Cities.map(option => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
@@ -128,8 +154,8 @@ export default function ShipmentDetailsComponents() {
           label={<FormattedMessage id='toCity' />}
           select
           className={classes.textField}
-          value={currency}
-          onChange={handleChange}
+          value={toCity}
+          onChange={handleChangeToCity}
           SelectProps={{
             MenuProps: {
               className: classes.menu,
@@ -138,7 +164,7 @@ export default function ShipmentDetailsComponents() {
           helperText="To"
           margin="normal"
         >
-          {currencies.map(option => (
+          {Cities.map(option => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
@@ -153,8 +179,8 @@ export default function ShipmentDetailsComponents() {
           select
           label={<FormattedMessage id='shipmentWight' />}
           className={classes.textField}
-          value={currency}
-          onChange={handleChange}
+          value={weight}
+          onChange={handleChangeWeight}
           SelectProps={{
             MenuProps: {
               className: classes.menu,
@@ -163,7 +189,7 @@ export default function ShipmentDetailsComponents() {
           helperText="From"
           margin="normal"
         >
-          {weight.map(option => (
+          {weights.map(option => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
@@ -174,8 +200,8 @@ export default function ShipmentDetailsComponents() {
           select
           label={<FormattedMessage id='cashOnDelivery' />}
           className={classes.textField}
-          value={currency}
-          onChange={handleChange}
+          value={enableCashOnD}
+          onChange={handleChangeCOD}
           SelectProps={{
             MenuProps: {
               className: classes.menu,
@@ -184,7 +210,7 @@ export default function ShipmentDetailsComponents() {
           helperText="From"
           margin="normal"
         >
-          {enableCashOnD.map(option => (
+          {enableCashOnDs.map(option => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
@@ -195,27 +221,23 @@ export default function ShipmentDetailsComponents() {
     <form className={classes.container} noValidate autoComplete="off">
       <div>
       <TextField
-          id="standard-select-currency"
-          select
-          label={<FormattedMessage id='shippingDuration' />}
+          id="outlined-basic"
           className={classes.textField}
-          value={currency}
-          onChange={handleChange}
-          SelectProps={{
-            MenuProps: {
-              className: classes.menu,
-            },
-          }}
-          helperText="From"
+          label={<FormattedMessage id="shipmentValue" />}
           margin="normal"
-        >
-          {duration.map(option => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
+          variant="standard"
+        />
       </div>
+    </form>
+    <form className={classes.container} noValidate autoComplete="off">
+      <div>
+      <Button variant="contained" className={classes.button}>
+        <FormattedMessage id="back" />
+      </Button>
+      <Button variant="contained" color="primary"  href="/to-destination"  className={classes.button}>
+        <FormattedMessage id="next" />
+      </Button>
+    </div>
     </form>
     </Typography>
         </Paper>
