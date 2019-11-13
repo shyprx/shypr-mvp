@@ -63,6 +63,7 @@ const ShippingRatesComponent = ()=> {
 
     const handleSelectRate = (rate) => {
         setCompany(rate);
+        this.props.selectedCompany()
     }
     console.log("company",company);
     

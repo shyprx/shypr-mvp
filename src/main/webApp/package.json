@@ -12,6 +12,7 @@
     "bootstrap": "^4.3.1",
     "bootstrap4-toggle": "^3.6.1",
     "classnames": "^2.2.6",
+    "css-baseline": "^1.1.10",
     "jquery": "^3.4.1",
     "popper": "^1.0.1",
     "popper.js": "^1.15.0",
