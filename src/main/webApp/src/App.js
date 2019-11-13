@@ -21,8 +21,8 @@ import DirectionProvider, { DIRECTIONS } from 'react-with-direction/dist/Directi
 import UserProvider from './common/provider/UserProvider';
 import HomeComponent from './components/HomeComponent';
 import { Switch } from 'react-router-dom';
-import ShipmentDestinationComponents from './components/ShipiingDetailsComponents/ShipmentDestinationComponents';
-import ShipmentOriginComponents from './components/ShipiingDetailsComponents/ShipmentOriginComponents';
+import ShipmentDestinationComponents from './components/ShippingDetailsComponents/ShipmentDestinationComponents';
+import ShipmentOriginComponents from './components/ShippingDetailsComponents/ShipmentOriginComponents';
 import ShipmentDetailsComponents from './components/ShipmentDetailsComponents/ShipmentDetailsComponents';
 
 const messages = {

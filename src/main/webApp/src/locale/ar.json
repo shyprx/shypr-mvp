@@ -38,7 +38,16 @@
     "email":"البريد الاكتروني",
     "zipCode": "الرمز البريدي",
     "useDefaultOrigin":"إستخدام عنوانك الإفتراضي",
-    "shipmenntDetails": "استعلام عن عرض سعر",
+    "shipmenntDetails": " استعلام عن عرض سعر",
+    "fromCity":" من مدينة",
+    "toCity":" الى مدينة",
+    "shipmentWight":" وزن الشحنه",
+    "cashOnDelivery":" الدفع عند الاستلام",
+    "pickupDropoff":" تسليم للفرع / من المستودع",
+    "sizeOfShipment":" وزن الشحتة",
+    "shipmentValue":" قيمة الشحنة",
+    "shippingDuration":" وقت التوصيل",
+
     "region":"المنطقة"
 
 
