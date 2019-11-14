@@ -76,10 +76,7 @@ function App() {
                     <Route path="/from-destination" exact component={ShipmentOriginComponents} />
                     <Route path="/to-destination" exact component={ShipmentDestinationComponents} />
                     <Route path="/shipment-details" exact component={ShipmentDetailsComponents} />
-                    <AuthenticatedRoute path="/customers/" component={CustomerComponent} />
-                    <AuthenticatedRoute path="/orders/" component={OrderComponent} />
-                    <AuthenticatedRoute path="/products/" component={ProductComponent} />
-                    <AuthenticatedRoute path="/add-edit-customer/:id?" component={AddCustomerComponent} />
+                    <AuthenticatedRoute path="/new-order/" component={OrderComponent} />
                   </Switch>
                 </div>
               </Router>
