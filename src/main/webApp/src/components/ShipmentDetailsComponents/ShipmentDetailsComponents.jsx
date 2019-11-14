@@ -7,65 +7,45 @@ import { Paper, Typography, Tabs, Tab, Button} from '@material-ui/core';
 
 const Cities = [
   {
-    value: 'Riyadh',
+    value: '1',
     label: 'Riyadh'
   },
   {
-    value: 'Jeddah',
+    value: '2',
     label: 'Jeddah',
   },
   {
-    value: 'Dammam',
+    value: '3',
     label: 'Dammam',
-  },
-  {
-    value: 'Qassim',
-    label: 'Qassim',
   },
 ];
 const weights = [
   {
-    value: '5k',
-    label: 'Less than 5Kg'
-  },
-  {
-    value: '10k',
-    label: 'Less than 10Kg'
-  },
-  {
-    value: '15k',
+    value: 'KG_0_15',
     label: 'Less than 15Kg'
   },
   {
-    value: '30k',
+    value: 'KG_15_30',
     label: 'Less than 30Kg'
   },
 ];
-const duration = [
+const dropPicks = [
   {
-    value: '1',
-    label: 'Express Same Day'
+    value: 'DropOff',
+    label: 'Drop-Off'
   },
   {
-    value: '2',
-    label: 'Next Day'
-  },
-  {
-    value: '3',
-    label: '2-5 Day'
-  },
-  {
-    value: '4',
-    label: '6-9 Days'
+    value: 'Pickup',
+    label: 'Pickup'
   },
 ];
 const enableCashOnDs = [
   {
-    value: 'COD',
+    value: '1',
     label: 'Cash on Delivery'
   },
   {
-    value: 'noCOD',
+    value: '0',
     label: 'no Cash on Delivery '
   },
 ];
@@ -87,6 +67,7 @@ const useStyles = makeStyles(theme => ({
     width: 200,
   },
   button: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
   },
@@ -101,22 +82,22 @@ export default function ShipmentDetailsComponents() {
   const [toCity, setToCity] = React.useState('Riyadh');
   const [weight, setWeight] = React.useState('5k');
   const [enableCashOnD, setEnableCashOnD] = React.useState('COD')
+  const [dropPick, setDropPick] = React.useState('DropOff')
 
   const handleChangeWeight = event => {
     setWeight(event.target.value)
-    console.log(event.target.name);  
   };  const handleChangeCOD = event => {
     setEnableCashOnD(event.target.value)
-    console.log(event.target.name);   
   };
    const handleChangeFromCity = event => {
     setFromCity(event.target.value)
-    console.log(event.target.name);
   };
   const handleChangeToCity = event => {
     setToCity(event.target.value)
-    console.log(event.target.name);
   };
+  const handleChangeDropPick = event => {
+    setDropPick(event.target.value)
+  }
 
   return (
       <div>
@@ -227,14 +208,35 @@ export default function ShipmentDetailsComponents() {
           margin="normal"
           variant="standard"
         />
+         <TextField
+          id="standard-select-currency"
+          select
+          label={<FormattedMessage id='cashOnDelivery' />}
+          className={classes.textField}
+          value={dropPick}
+          onChange={handleChangeDropPick}
+          SelectProps={{
+            MenuProps: {
+              className: classes.menu,
+            },
+          }}
+          helperText="From"
+          margin="normal"
+        >
+          {dropPicks.map(option => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
       </div>
     </form>
     <form className={classes.container} noValidate autoComplete="off">
       <div>
-      <Button variant="contained" className={classes.button}>
+      <Button variant="contained" href="/to-destination" className={classes.button}>
         <FormattedMessage id="back" />
       </Button>
-      <Button variant="contained" color="primary"  href="/to-destination"  className={classes.button}>
+      <Button variant="contained" color="primary"  href="/from-destination"  className={classes.button}>
         <FormattedMessage id="next" />
       </Button>
     </div>

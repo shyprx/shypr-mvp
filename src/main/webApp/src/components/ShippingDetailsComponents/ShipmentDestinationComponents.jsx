@@ -147,10 +147,10 @@ export default function ShipmentDestinationComponents() {
       </form>
       <form className={classes.container} noValidate autoComplete="off">
       <div>
-      <Button variant="outlined" className={classes.button}>
+      <Button variant="contained" href="/from-destination" className={classes.button}>
         <FormattedMessage id="back" />
       </Button>
-      <Button variant="outlined" color="primary" className={classes.button}>
+      <Button variant="contained" color="primary" className={classes.button}>
         <FormattedMessage id="next" />
       </Button>
     </div>

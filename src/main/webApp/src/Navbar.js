@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import { NavLink } from 'react-router-dom'
 import AuthenticationService from './components/authentication/AuthenticationService';
 import { AuthenticatedSubject } from './components/authentication/AuthenticatedSubject';
+import logoImg from '../src/assets/images/test-logo-white.png'
 import { UncontrolledDropdown, DropdownItem, DropdownToggle, DropdownMenu } from 'reactstrap/dist/reactstrap/'
 import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
 import LocaleContext from './common/context/LocaleContext';
@@ -22,6 +23,10 @@ const Navbar = () => {
         setAuthenticated(true)
         setUser(data)
     })
+    let logo = 
+    <a className='navbar-brand logo float-left' href='/'>
+        <img src={logoImg} className='d-inline-block align-top mb-3' width={20} alt='true' />
+    </a>
     let navbar =
         <nav id="myNavBar" className={classNames('navbar', 'navbar-expand-lg', 'navbar-light', 'bg-light')}>
             <button className={classNames('navbar-toggler')} type="button" data-toggle="collapse"
@@ -56,7 +61,7 @@ const Navbar = () => {
 
     return (
 
-        navbar
+        logo,navbar
     )
 }
 

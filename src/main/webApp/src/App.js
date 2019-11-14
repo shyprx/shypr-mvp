@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import Navbar from './Navbar'
 import './App.css'
 import { BrowserRouter as Router, Route } from "react-router-dom"
-import CustomerComponent from './components/CustomerComponent'
 import OrderComponent from './components/order/OrderComponent'
-import ProductComponent from './components/ProductComponent'
-import AddCustomerComponent from './components/AddCustomerComponent';
 import LoginComponent from './components/authentication/LoginComponent';
 import AuthenticatedRoute from './components/authentication/AuthenticatedRoute';
 import configureAxiosInterceptors from './components/authentication/AxiosConfig'
 import { Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 import LocaleProvider from './common/provider/LocaleProvider';
+import OrderProvider from './common/provider/OrderProvider';
 import { IntlProvider, addLocaleData } from "react-intl"
 import messages_ar from './locale/ar.json'
 import messages_en from './locale/en.json'
@@ -24,6 +22,7 @@ import { Switch } from 'react-router-dom';
 import ShipmentDestinationComponents from './components/ShippingDetailsComponents/ShipmentDestinationComponents';
 import ShipmentOriginComponents from './components/ShippingDetailsComponents/ShipmentOriginComponents';
 import ShipmentDetailsComponents from './components/ShipmentDetailsComponents/ShipmentDetailsComponents';
+import FooterComponents from './components/FooterComponrnt/FooterComponents';
 
 const messages = {
   'ar': messages_ar,
@@ -73,11 +72,14 @@ function App() {
                     <Route path="/" exact component={HomeComponent} />
                     <Route path="/login" exact component={LoginComponent} className="center" />
                     <Route path="/home" exact component={HomeComponent} />
-                    <Route path="/from-destination" exact component={ShipmentOriginComponents} />
-                    <Route path="/to-destination" exact component={ShipmentDestinationComponents} />
-                    <Route path="/shipment-details" exact component={ShipmentDetailsComponents} />
+                    <OrderProvider>
+                      <Route path="/from-destination" exact component={ShipmentOriginComponents} />
+                      <Route path="/to-destination" exact component={ShipmentDestinationComponents} />
+                      <Route path="/shipment-details" exact component={ShipmentDetailsComponents} />
+                    </OrderProvider>
                     <AuthenticatedRoute path="/new-order/" component={OrderComponent} />
                   </Switch>
+                  <FooterComponents />
                 </div>
               </Router>
             </AlertProvider>
