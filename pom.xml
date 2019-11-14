@@ -8,11 +8,11 @@
         <version>2.1.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.writecleancode</groupId>
-    <artifactId>webAppDemo</artifactId>
+    <groupId>com.elm</groupId>
+    <artifactId>shypr</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>webAppDemo</name>
-    <description>Demo project for Spring Boot</description>
+    <name>shypr</name>
+    <description>Shypr MVP product</description>
 
     <properties>
         <java.version>1.8</java.version>
