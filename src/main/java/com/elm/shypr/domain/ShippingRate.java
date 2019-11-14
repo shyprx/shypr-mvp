@@ -1,5 +1,6 @@
 package com.elm.shypr.domain;
 import com.elm.shypr.domain.enumeration.DeliveryLocation;
+import com.elm.shypr.domain.enumeration.DeliveryTime;
 import com.elm.shypr.domain.enumeration.WeightCategory;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -29,6 +30,10 @@ public class ShippingRate implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "CARRIER_ID")
+    private Carrier carrier;
+
     @Column(name = "DELIVERY_LOCATION")
     @Enumerated(EnumType.STRING)
     private DeliveryLocation deliveryLocation;
@@ -40,12 +45,12 @@ public class ShippingRate implements Serializable {
     @Column(name = "CASH_ON_DELIVERY")
     private Boolean cashOnDelivery;
 
+    @Column(name = "DELIVERY_TIME")
+    @Enumerated(EnumType.STRING)
+    private DeliveryTime deliveryTime;
+
     @Column(name = "PRICE", precision = 21, scale = 2)
     private BigDecimal price;
-
-    @ManyToOne
-    @JoinColumn(name = "CARRIER_ID")
-    private Carrier carrier;
 
     @Override
     public boolean equals(Object o) {
