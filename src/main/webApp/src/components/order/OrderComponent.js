@@ -14,8 +14,8 @@ const OrderComponent = ()=> {
 
    
     return(
-        <div>
-            <ParcelDetailsComponent />
+        <div className="text-center">
+            <ShippingRatesComponent />
        </div>
     )
 }

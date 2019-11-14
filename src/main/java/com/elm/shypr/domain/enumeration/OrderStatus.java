@@ -1,4 +1,4 @@
-package com.shypr.domain.enumeration;
+package com.elm.shypr.domain.enumeration;
 
 /**
  * The OrderStatus enumeration.

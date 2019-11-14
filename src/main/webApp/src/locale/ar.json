@@ -47,10 +47,18 @@
     "sizeOfShipment":" وزن الشحتة",
     "shipmentValue":" قيمة الشحنة بالريال ",
     "shippingDuration":" وقت التوصيل",
-
-    "region":"المنطقة"
-
-
-
-
+    "region":"المنطقة",
+    "badCredentials": "خطأ في اسم المستخدم او كلمة المرور",
+    "fromCity": "من مدينة",
+    "toCity": "الى مدينة",
+    "badCredentials": "خطأ في اسم المستخدم او كلمة المرور",
+    "SATURDAY":"السبت",
+    "SUNDAY":"الأحد",
+    "MONDAY":"الأثنين",
+    "TUESDAY":"الثلاثاء",
+    "WEDNESDAY":"الإربعاء",
+    "THURSDAY":"الخميس",
+    "FRIDAY":"الجمعة",
+    "deliveryOn":"التوصيل يوم ",
+    "SAR":"ريال"
 }

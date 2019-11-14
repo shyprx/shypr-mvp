@@ -10,10 +10,10 @@ import java.io.Serializable;
  * A Sender.
  */
 @Entity
-@Table(name = "sender")
+@Table(name = "SENDER")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @DiscriminatorValue("SENDER")
-public class Sender extends User implements Serializable {
+public class Sender extends User {
 
     private static final long serialVersionUID = 1L;
 
