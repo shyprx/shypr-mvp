@@ -32,10 +32,8 @@ const Navbar = () => {
             <div className={classNames('collapse', 'navbar-collapse')} id="myNavbar">
                 <div className={classNames('navbar-nav', 'navbar-center')} >
                     <NavLink to="/home" activeClassName='is-active' className={classNames('nav-item', 'nav-link')}><FormattedMessage id='home' /></NavLink>
-                    {isAuthenticated && <NavLink to="/customers" activeClassName='is-active' className={classNames('nav-item', 'nav-link')}><FormattedMessage id='customers' /></NavLink>}
                     {isAuthenticated && <NavLink to="/shipment-details" activeClassName='is-active' className={classNames('nav-item', 'nav-link')}><FormattedMessage id='newOrder' /></NavLink>}
-                    {isAuthenticated && <NavLink to="/orders" activeClassName='is-active' className={classNames('nav-item', 'nav-link')}><FormattedMessage id='newOrder' /></NavLink>}
-                    {isAuthenticated && <NavLink to="/products" activeClassName='is-active' className={classNames('nav-item', 'nav-link')}><FormattedMessage id='products' /></NavLink>}
+                    {isAuthenticated && <NavLink to="/new-order" activeClassName='is-active' className={classNames('nav-item', 'nav-link')}><FormattedMessage id='newOrder' /></NavLink>}
                     {!isAuthenticated && <NavLink to="/login" activeClassName='is-active' className={classNames('nav-item', 'nav-link')}><FormattedMessage id='login' /></NavLink>}
                     <UncontrolledDropdown nav inNavbar>
                         <DropdownToggle nav caret>

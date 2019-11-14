@@ -12,7 +12,7 @@ const Root = () => {
       <CssBaseline />
       <App />
     </React.Fragment>
-        
+
   )
 }
 

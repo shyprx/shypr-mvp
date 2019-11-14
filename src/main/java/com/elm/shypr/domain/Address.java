@@ -1,23 +1,35 @@
 package com.elm.shypr.domain;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 
+import java.io.Serializable;
+
+/**
+ * A Address.
+ */
 @Entity
 @Table(name = "ADDRESS")
-public class Address {
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+public class Address implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String country;
-    private String city;
-    private String district;
-    private String street;
-    private Integer postalCode;
+    @Column(name = "description")
+    private String description;
 
-    public Address() {}
+    @Column(name = "mobile_no")
+    private String mobileNo;
+
+    @ManyToOne
+    @JsonIgnoreProperties("addresses")
+    private City city;
 
     public Long getId() {
         return id;
@@ -27,43 +39,67 @@ public class Address {
         this.id = id;
     }
 
-    public String getCountry() {
-        return country;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public Address description(String description) {
+        this.description = description;
+        return this;
     }
 
-    public String getCity() {
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getMobileNo() {
+        return mobileNo;
+    }
+
+    public Address mobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
+        return this;
+    }
+
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
+    }
+
+    public City getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    public Address city(City city) {
+        this.city = city;
+        return this;
+    }
+
+    public void setCity(City city) {
         this.city = city;
     }
 
-    public String getDistrict() {
-        return district;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Address)) {
+            return false;
+        }
+        return id != null && id.equals(((Address) o).id);
     }
 
-    public void setDistrict(String district) {
-        this.district = district;
+    @Override
+    public int hashCode() {
+        return 31;
     }
 
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public Integer getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(Integer postalCode) {
-        this.postalCode = postalCode;
+    @Override
+    public String toString() {
+        return "Address{" +
+            "id=" + getId() +
+            ", description='" + getDescription() + "'" +
+            ", mobileNo='" + getMobileNo() + "'" +
+            "}";
     }
 }
