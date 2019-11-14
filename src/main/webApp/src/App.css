@@ -1,8 +1,24 @@
+/* @font-face {
+	font-family: "ElmRegular";
+    src: url('../src/assets/fonts//230163575-DINNextLTArabic-Regular.eot');
+    src: url('../src/assets/fonts/');
+	src: url('../src/assets/fonts//230163575-DINNextLTArabic-Regular.eot?#iefix') format('embedded-opentype'), url('../src/assets/fonts//230163575-DINNextLTArabic-Regular.svg#DIN Next LT Arabic') format('svg'), url('../src/assets/fonts//230163575-DINNextLTArabic-Regular.woff') format('woff'), url('../src/assets/fonts//230163575-DINNextLTArabic-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "ElmBold";
+	src: url('../src/assets/fonts//147277833-DINNextLTArabic-Medium.eot');
+	src: url('../src/assets/fonts//147277833-DINNextLTArabic-Medium.eot?#iefix') format('embedded-opentype'), url('../src/assets/fonts//147277833-DINNextLTArabic-Medium.svg#DIN Next LT Arabic') format('svg'), url('../src/assets/fonts//147277833-DINNextLTArabic-Medium.woff') format('woff'), url('../src/assets/fonts//147277833-DINNextLTArabic-Medium.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+} */
+
 .navbar-nav.navbar-center {
     margin: auto;
 }
 .container{
-    background-image: url("../src/assets/images/background-parcels.jpg");
+    background-image: url("../src/assets/images/riyadh-background.png");
     background-repeat: no-repeat;
     background-size: 150%
 }
