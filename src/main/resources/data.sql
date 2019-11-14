@@ -1,6 +1,6 @@
 -- Insert the initial data needed for the system
---USER
-insert into USERS(ID, USER_TYPE, USERNAME, PASSWORD, FIRST_NAME, LAST_NAME, EMAIL) values (4, 'user', 'SENDER', '$2a$10$jmNF/DOY4MrkTb37KHBZP.uZo0OOTJLC.P30zqAY/OeU0N.Y0lxem', 'Bacem', 'Ghali', 'bghali@elm.sa');
+--USERS
+insert into USERS(ID, USER_TYPE, USERNAME, PASSWORD, FIRST_NAME, LAST_NAME, EMAIL) values (4, 'SENDER', 'user', '$2a$10$jmNF/DOY4MrkTb37KHBZP.uZo0OOTJLC.P30zqAY/OeU0N.Y0lxem', 'Bacem', 'Ghali', 'bghali@elm.sa');
 insert into USERS(ID, USER_TYPE, USERNAME, PASSWORD, FIRST_NAME, LAST_NAME, EMAIL) values (1, 'CARRIER', 'quick', '$2a$10$jmNF/DOY4MrkTb37KHBZP.uZo0OOTJLC.P30zqAY/OeU0N.Y0lxem', 'Bacem', 'Ghali', 'bghali@elm.sa');
 insert into USERS(ID, USER_TYPE, USERNAME, PASSWORD, FIRST_NAME, LAST_NAME, EMAIL) values (2, 'CARRIER', 'aymakan', '$2a$10$jmNF/DOY4MrkTb37KHBZP.uZo0OOTJLC.P30zqAY/OeU0N.Y0lxem', 'Bacem', 'Ghali', 'bghali@elm.sa');
 insert into USERS(ID, USER_TYPE, USERNAME, PASSWORD, FIRST_NAME, LAST_NAME, EMAIL) values (3, 'CARRIER', 'tard', '$2a$10$jmNF/DOY4MrkTb37KHBZP.uZo0OOTJLC.P30zqAY/OeU0N.Y0lxem', 'Bacem', 'Ghali', 'bghali@elm.sa');
