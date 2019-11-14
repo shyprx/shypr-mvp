@@ -6,7 +6,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
-import InfoIcon from '@material-ui/icons/LocalShipping';
+// import InfoIcon from '@material-ui/icons/LocalShipping';
 import ARAMEX from './../../assets/images/aramex.svg'
 import SMSA from './../../assets/images/smsa-express.svg'
 import DHL from './../../assets/images/DHL_Logo.png'
@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   },
   gridList: {
     width: 500,
-    height: 450,
+    height: 900,
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
@@ -81,7 +81,7 @@ const ShippingRatesComponent = ()=> {
                 subtitle={<span className ={classes.subtitle}><FormattedMessage id='deliveryOn'/>{tile.day} <br/>{tile.date}</span>}
                 actionIcon={
                     <button className={classes.icon} onClick={() => handleSelectRate(tile)}>
-                        <InfoIcon />
+                        {/* <InfoIcon /> */}
                     </button>
                 }
               />

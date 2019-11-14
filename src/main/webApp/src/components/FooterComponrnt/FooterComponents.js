@@ -4,13 +4,14 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+import logoImg from '../../assets/images/test-logo-white.png'
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        www.Shypr.net
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -39,13 +40,19 @@ export default function FooterComponents() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+
       <footer className={classes.footer}>
         <Container maxWidth="sm">
-          <Typography variant="body1">My sticky footer can be found here.</Typography>
+        <div>
+          <a className=' logo float-left' href='/'>
+            <img src={logoImg} className='d-inline-block align-top mb-3' width={85} alt='true' />
+          </a>
+        </div>
+
+          <Typography variant="body1">Shypr is your shipping partner, We care ❤ .. Ship now</Typography>
           <Copyright />
         </Container>
       </footer>
-    </div>
+
   );
 }
