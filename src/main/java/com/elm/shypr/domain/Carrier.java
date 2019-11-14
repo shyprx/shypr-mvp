@@ -15,16 +15,15 @@ import java.util.Set;
 @Table(name = "carrier")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @DiscriminatorValue("CARRIER")
-public class Carrier extends User implements Serializable {
+public class Carrier extends User {
 
     private static final long serialVersionUID = 1L;
 
     @Column(name = "name")
     private String name;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private ShippingRate shippingRate;
+    @OneToMany(mappedBy = "carrier")
+    private Set<ShippingRate> shippingRates;
 
     @OneToMany(mappedBy = "carrier")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -43,17 +42,17 @@ public class Carrier extends User implements Serializable {
         this.name = name;
     }
 
-    public ShippingRate getShippingRate() {
-        return shippingRate;
+    public Set<ShippingRate> getShippingRates() {
+        return shippingRates;
     }
 
-    public Carrier shippingRate(ShippingRate shippingRate) {
-        this.shippingRate = shippingRate;
+    public void setShippingRates(Set<ShippingRate> shippingRates) {
+        this.shippingRates = shippingRates;
+    }
+
+    public Carrier shippingRate(Set<ShippingRate> shippingRates) {
+        this.shippingRates = shippingRates;
         return this;
-    }
-
-    public void setShippingRate(ShippingRate shippingRate) {
-        this.shippingRate = shippingRate;
     }
 
     public Set<ShippingLabel> getLabels() {
@@ -79,6 +78,18 @@ public class Carrier extends User implements Serializable {
 
     public void setLabels(Set<ShippingLabel> shippingLabels) {
         this.labels = shippingLabels;
+    }
+
+    public Carrier addShippingRates(ShippingRate shippingRate) {
+        this.shippingRates.add(shippingRate);
+        shippingRate.setCarrier(this);
+        return this;
+    }
+
+    public Carrier removeLabels(ShippingRate shippingRate) {
+        this.shippingRates.remove(shippingRate);
+        shippingRate.setCarrier(null);
+        return this;
     }
 
     @Override

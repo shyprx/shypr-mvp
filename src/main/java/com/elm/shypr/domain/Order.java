@@ -1,4 +1,5 @@
 package com.elm.shypr.domain;
+import com.elm.shypr.domain.enumeration.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -8,8 +9,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-
-import com.shypr.domain.enumeration.OrderStatus;
 
 /**
  * A Order.

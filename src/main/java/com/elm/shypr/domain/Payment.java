@@ -1,13 +1,12 @@
 package com.elm.shypr.domain;
+
+import com.elm.shypr.domain.enumeration.PaymentType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
-
-import com.shypr.domain.enumeration.PaymentType;
 
 /**
  * A Payment.

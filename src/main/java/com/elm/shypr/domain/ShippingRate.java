@@ -1,5 +1,10 @@
 package com.elm.shypr.domain;
+import com.elm.shypr.domain.enumeration.DeliveryLocation;
+import com.elm.shypr.domain.enumeration.WeightCategory;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -7,6 +12,7 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
  * A ShippingRate.
@@ -14,6 +20,7 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "shipping_rate")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Getter @Setter @NoArgsConstructor
 public class ShippingRate implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -22,85 +29,38 @@ public class ShippingRate implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "price_inside_city", precision = 21, scale = 2)
-    private BigDecimal priceInsideCity;
+    @Column(name = "DELIVERY_LOCATION")
+    @Enumerated(EnumType.STRING)
+    private DeliveryLocation deliveryLocation;
 
-    @Column(name = "price_outside_city", precision = 21, scale = 2)
-    private BigDecimal priceOutsideCity;
+    @Column(name = "WEIGHT_CATEGORY")
+    @Enumerated(EnumType.STRING)
+    private WeightCategory weightCategory;
 
-    @OneToOne(mappedBy = "shippingRate")
-    @JsonIgnore
+    @Column(name = "CASH_ON_DELIVERY")
+    private Boolean cashOnDelivery;
+
+    @Column(name = "PRICE", precision = 21, scale = 2)
+    private BigDecimal price;
+
+    @ManyToOne
+    @JoinColumn(name = "CARRIER_ID")
     private Carrier carrier;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public BigDecimal getPriceInsideCity() {
-        return priceInsideCity;
-    }
-
-    public ShippingRate priceInsideCity(BigDecimal priceInsideCity) {
-        this.priceInsideCity = priceInsideCity;
-        return this;
-    }
-
-    public void setPriceInsideCity(BigDecimal priceInsideCity) {
-        this.priceInsideCity = priceInsideCity;
-    }
-
-    public BigDecimal getPriceOutsideCity() {
-        return priceOutsideCity;
-    }
-
-    public ShippingRate priceOutsideCity(BigDecimal priceOutsideCity) {
-        this.priceOutsideCity = priceOutsideCity;
-        return this;
-    }
-
-    public void setPriceOutsideCity(BigDecimal priceOutsideCity) {
-        this.priceOutsideCity = priceOutsideCity;
-    }
-
-    public Carrier getCarrier() {
-        return carrier;
-    }
-
-    public ShippingRate carrier(Carrier carrier) {
-        this.carrier = carrier;
-        return this;
-    }
-
-    public void setCarrier(Carrier carrier) {
-        this.carrier = carrier;
-    }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof ShippingRate)) {
-            return false;
-        }
-        return id != null && id.equals(((ShippingRate) o).id);
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ShippingRate that = (ShippingRate) o;
+        return deliveryLocation == that.deliveryLocation &&
+                weightCategory == that.weightCategory &&
+                cashOnDelivery.equals(that.cashOnDelivery) &&
+                price.equals(that.price) &&
+                carrier.equals(that.carrier);
     }
 
     @Override
     public int hashCode() {
-        return 31;
-    }
-
-    @Override
-    public String toString() {
-        return "ShippingRate{" +
-            "id=" + getId() +
-            ", priceInsideCity=" + getPriceInsideCity() +
-            ", priceOutsideCity=" + getPriceOutsideCity() +
-            "}";
+        return Objects.hash(deliveryLocation, weightCategory, cashOnDelivery, price, carrier);
     }
 }
