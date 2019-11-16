@@ -236,7 +236,7 @@ export default function ShipmentDetailsComponents() {
       <Button variant="contained" href="/to-destination" className={classes.button}>
         <FormattedMessage id="back" />
       </Button>
-      <Button variant="contained" color="primary"  href="/from-destination"  className={classes.button}>
+      <Button variant="contained" color="primary"  href="/shipment-rates"  className={classes.button}>
         <FormattedMessage id="next" />
       </Button>
     </div>

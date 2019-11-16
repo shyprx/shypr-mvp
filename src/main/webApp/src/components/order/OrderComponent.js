@@ -1,10 +1,7 @@
 import React from 'react'
 import StepZilla from "react-stepzilla"
 import '../../assets/css/StepZilla.css'
-import ParcelDetailsComponent from './ParcelDetailsComponent'
-import ShippingRatesComponent from './ShippingRatesComponent'
-import FromToAddressComponent from './FromToAddressComponent'
-import ViewLabelComponent from './ViewLabelComponent'
+import Home from '../HomeComponent'
 import classnames from 'classnames'
 
 
@@ -15,7 +12,7 @@ const OrderComponent = ()=> {
    
     return(
         <div className="text-center">
-            <ShippingRatesComponent />
+            <Home/>
        </div>
     )
 }

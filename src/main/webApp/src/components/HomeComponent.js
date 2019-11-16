@@ -5,9 +5,9 @@ const HomeComponent = () => {
 
   return (
     <div>
-      <OrderComponent />
-      {/* <h1>SHYPR</h1>
-      <img src={ require('../assets/images/home.png') } className='center'></img> /> */}
+     
+      <h1>SHYPR</h1>
+      <img src={ require('../assets/images/home.png') } className='center'></img> />
     </div>
   )
 }

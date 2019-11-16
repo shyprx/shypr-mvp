@@ -5,11 +5,11 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import IconButton from '@material-ui/core/IconButton';
 // import InfoIcon from '@material-ui/icons/LocalShipping';
 import ARAMEX from './../../assets/images/aramex.svg'
 import SMSA from './../../assets/images/smsa-express.svg'
 import DHL from './../../assets/images/DHL_Logo.png'
+import { withRouter } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -43,6 +43,11 @@ const useStyles = makeStyles(theme => ({
   titleFont:{
     fontSize:'x-large'
   },
+  button: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+  },
 }));
 
 const tileData = [
@@ -56,17 +61,16 @@ const tileData = [
 {img: ARAMEX,title: 'ARAMEX',price: '24',date: '16-12-2019',day:<FormattedMessage id='SATURDAY'/>}];
 
 
-const ShippingRatesComponent = ()=> {
+const ShippingRatesComponent = (props)=> {
     const classes = useStyles();
     const sortedData = tileData.sort((a,b) => a.price < b.price)
     const [company,setCompany] = useState(null)
 
     const handleSelectRate = (rate) => {
         setCompany(rate);
-        this.props.selectedCompany()
+        props.history.push("/from-destination");
     }
-    console.log("company",company);
-    
+
     return (
       <div className={classes.root}>
         <GridList cellHeight={200} className={classes.gridList}>
@@ -88,8 +92,8 @@ const ShippingRatesComponent = ()=> {
             </GridListTile>
           ))}
         </GridList>
-      </div>
+        </div>
     );
 }
 
-export default ShippingRatesComponent
+export default withRouter(ShippingRatesComponent)

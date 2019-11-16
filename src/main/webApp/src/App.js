@@ -22,6 +22,7 @@ import { Switch } from 'react-router-dom';
 import ShipmentDestinationComponents from './components/ShippingDetailsComponents/ShipmentDestinationComponents';
 import ShipmentOriginComponents from './components/ShippingDetailsComponents/ShipmentOriginComponents';
 import ShipmentDetailsComponents from './components/ShipmentDetailsComponents/ShipmentDetailsComponents';
+import ShipmentRatesComponents from './components/order/ShippingRatesComponent'
 import FooterComponents from './components/FooterComponrnt/FooterComponents';
 
 const messages = {
@@ -76,6 +77,7 @@ function App() {
                       <Route path="/from-destination" exact component={ShipmentOriginComponents} />
                       <Route path="/to-destination" exact component={ShipmentDestinationComponents} />
                       <Route path="/shipment-details" exact component={ShipmentDetailsComponents} />
+                      <Route path="/shipment-rates" exact component={ShipmentRatesComponents} />
                     </OrderProvider>
                     <AuthenticatedRoute path="/new-order/" component={OrderComponent} />
                   </Switch>

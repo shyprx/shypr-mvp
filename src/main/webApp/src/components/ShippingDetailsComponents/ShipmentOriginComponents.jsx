@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ShipmentOriginComponents() {
+export default function ShipmentOriginComponents(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(2);
   const [state, setState] = React.useState({
@@ -43,6 +43,7 @@ export default function ShipmentOriginComponents() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+console.log("PROPS",props);
 
   return (
       <div>
@@ -165,7 +166,7 @@ export default function ShipmentOriginComponents() {
       </form>
       <form className={classes.container} noValidate autoComplete="off">
       <div>
-      <Button variant="contained" href="/shipment-details" className={classes.button}>
+      <Button variant="contained" href="/shipment-rates" className={classes.button}>
         <FormattedMessage id="back" />
       </Button>
       <Button variant="contained" color="primary"  href="/to-destination"  className={classes.button}>
