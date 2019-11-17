@@ -73,6 +73,12 @@
             <artifactId>barcodes</artifactId>
             <version>7.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.DINNextLT</groupId>
+            <artifactId>DINNextLT</artifactId>
+            <scope>system</scope>
+            <systemPath>${basedir}/libs/DINNextLT.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <profiles>
