@@ -73,6 +73,11 @@
             <artifactId>barcodes</artifactId>
             <version>7.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.elm</groupId>
+            <artifactId>shypr</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <profiles>
