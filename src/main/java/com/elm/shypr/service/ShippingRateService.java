@@ -66,7 +66,7 @@ public class ShippingRateService {
             map.put("IssuedBy", "issuedby");
             map.put("Packages", "noOfpkgs");
             map.put("Total", "total");
-            map.put("Weight", "weight");
+            map.put("Weight", 5.0);
             map.put("PkgWeight", 0.0);
             map.put("Chargeable", 2.0);
             map.put("Description", "desc");
