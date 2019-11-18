@@ -67,6 +67,7 @@ function App() {
             <AlertProvider template={AlertTemplate} {...alertOptions}>
               <Router>
                 <div className="container">
+                
                   <Navbar />
                   <Switch>
                     <Route path="/" exact component={HomeComponent} />
