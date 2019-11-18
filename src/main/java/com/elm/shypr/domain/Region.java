@@ -1,4 +1,7 @@
 package com.elm.shypr.domain;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -6,6 +9,7 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -14,6 +18,7 @@ import java.util.Set;
 @Entity
 @Table(name = "region")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Getter @Setter @NoArgsConstructor
 public class Region implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -32,87 +37,16 @@ public class Region implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<City> cities = new HashSet<>();
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNameAr() {
-        return nameAr;
-    }
-
-    public Region nameAr(String nameAr) {
-        this.nameAr = nameAr;
-        return this;
-    }
-
-    public void setNameAr(String nameAr) {
-        this.nameAr = nameAr;
-    }
-
-    public String getNameEn() {
-        return nameEn;
-    }
-
-    public Region nameEn(String nameEn) {
-        this.nameEn = nameEn;
-        return this;
-    }
-
-    public void setNameEn(String nameEn) {
-        this.nameEn = nameEn;
-    }
-
-    public Set<City> getCities() {
-        return cities;
-    }
-
-    public Region cities(Set<City> cities) {
-        this.cities = cities;
-        return this;
-    }
-
-    public Region addCity(City city) {
-        this.cities.add(city);
-        city.setRegion(this);
-        return this;
-    }
-
-    public Region removeCity(City city) {
-        this.cities.remove(city);
-        city.setRegion(null);
-        return this;
-    }
-
-    public void setCities(Set<City> cities) {
-        this.cities = cities;
-    }
-
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Region)) {
-            return false;
-        }
-        return id != null && id.equals(((Region) o).id);
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Region region = (Region) o;
+        return id.equals(region.id);
     }
 
     @Override
     public int hashCode() {
-        return 31;
-    }
-
-    @Override
-    public String toString() {
-        return "Region{" +
-            "id=" + getId() +
-            ", nameAr='" + getNameAr() + "'" +
-            ", nameEn='" + getNameEn() + "'" +
-            "}";
+        return Objects.hash(id);
     }
 }

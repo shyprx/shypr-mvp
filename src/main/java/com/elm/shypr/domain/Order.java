@@ -1,13 +1,16 @@
 package com.elm.shypr.domain;
+
 import com.elm.shypr.domain.enumeration.OrderStatus;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.elm.shypr.domain.enumeration.PaymentType;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-
-import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -16,7 +19,8 @@ import java.util.Set;
 @Entity
 @Table(name = "ORDERS")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Order implements Serializable {
+@Getter @Setter
+public class Order extends AbstractAuditingEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -28,111 +32,44 @@ public class Order implements Serializable {
     @Column(name = "status")
     private OrderStatus status;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Payment payment;
+    @Column(name = "total_price", precision = 21, scale = 2)
+    private BigDecimal totalPrice;
 
-    @OneToMany(mappedBy = "order")
+    @Enumerated(EnumType.STRING)
+    @Column(name = "payment_type")
+    private PaymentType paymentType;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Parcel> parcels = new HashSet<>();
+    private Set<OrderItem> orderItems = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties("orders")
+    @JoinColumn(name = "sender_id")
     private Sender sender;
 
-    public Long getId() {
-        return id;
+    @Column(name = "sender_name")
+    private String senderName;
+
+    public void addOrderItem(OrderItem orderItem) {
+        this.orderItems.add(orderItem);
+        orderItem.setOrder(this);
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public OrderStatus getStatus() {
-        return status;
-    }
-
-    public Order status(OrderStatus status) {
-        this.status = status;
-        return this;
-    }
-
-    public void setStatus(OrderStatus status) {
-        this.status = status;
-    }
-
-    public Payment getPayment() {
-        return payment;
-    }
-
-    public Order payment(Payment payment) {
-        this.payment = payment;
-        return this;
-    }
-
-    public void setPayment(Payment payment) {
-        this.payment = payment;
-    }
-
-    public Set<Parcel> getParcels() {
-        return parcels;
-    }
-
-    public Order parcels(Set<Parcel> parcels) {
-        this.parcels = parcels;
-        return this;
-    }
-
-    public Order addParcel(Parcel parcel) {
-        this.parcels.add(parcel);
-        parcel.setOrder(this);
-        return this;
-    }
-
-    public Order removeParcel(Parcel parcel) {
-        this.parcels.remove(parcel);
-        parcel.setOrder(null);
-        return this;
-    }
-
-    public void setParcels(Set<Parcel> parcels) {
-        this.parcels = parcels;
-    }
-
-    public Sender getSender() {
-        return sender;
-    }
-
-    public Order sender(Sender sender) {
-        this.sender = sender;
-        return this;
-    }
-
-    public void setSender(Sender sender) {
-        this.sender = sender;
+    public void removeOrderItem(OrderItem orderItem) {
+        this.orderItems.remove(orderItem);
+        orderItem.setOrder(null);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Order)) {
-            return false;
-        }
-        return id != null && id.equals(((Order) o).id);
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return id.equals(order.id);
     }
 
     @Override
     public int hashCode() {
-        return 31;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-            "id=" + getId() +
-            ", status='" + getStatus() + "'" +
-            "}";
+        return Objects.hash(id);
     }
 }
