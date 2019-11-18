@@ -23,7 +23,9 @@ public class OrderService {
 
     public void placeOrder(OrderDto orderDto) {
         Order order = orderMapper.toEntity(orderDto);
+
         order.setStatus(OrderStatus.CREATED);
+        order.getOrderItems().forEach(orderItem -> orderItem.setOrder(order));
         orderRepository.save(order);
     }
 }

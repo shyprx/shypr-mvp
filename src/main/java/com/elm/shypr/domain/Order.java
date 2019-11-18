@@ -39,7 +39,7 @@ public class Order extends AbstractAuditingEntity {
     @Column(name = "payment_type")
     private PaymentType paymentType;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<OrderItem> orderItems = new HashSet<>();
 
