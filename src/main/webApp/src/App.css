@@ -20,7 +20,8 @@
 .container{
     background-image: url("../src/assets/images/riyadh-background.png");
     background-repeat: no-repeat;
-    background-size: 100%
+    background-size: 100%;
+    margin: center
 }
 #myNavBar {
     margin: 0 0 50px 0;

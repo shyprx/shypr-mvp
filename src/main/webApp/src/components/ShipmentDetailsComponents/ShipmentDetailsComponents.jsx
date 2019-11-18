@@ -1,9 +1,11 @@
 import React from 'react';
+import FileSaver from 'file-saver'
+import axios from 'axios'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import { FormattedMessage } from 'react-intl';
-import { Paper, Typography, Tabs, Tab, Button} from '@material-ui/core';
+import { Paper, Typography, Tabs, Tab, Button } from '@material-ui/core';
 
 const Cities = [
   {
@@ -86,10 +88,10 @@ export default function ShipmentDetailsComponents() {
 
   const handleChangeWeight = event => {
     setWeight(event.target.value)
-  };  const handleChangeCOD = event => {
+  }; const handleChangeCOD = event => {
     setEnableCashOnD(event.target.value)
   };
-   const handleChangeFromCity = event => {
+  const handleChangeFromCity = event => {
     setFromCity(event.target.value)
   };
   const handleChangeToCity = event => {
@@ -98,14 +100,28 @@ export default function ShipmentDetailsComponents() {
   const handleChangeDropPick = event => {
     setDropPick(event.target.value)
   }
-
+  const doGenerateBarcode = (awbNumber) => {
+    const headers = { 'Accept': 'application/pdf' }
+    const params = { 'aWBId': awbNumber }
+    //  document.getElementById('blockScreen').style.display = 'block';
+    axios.get('/api/shipping-rates/print-barcode', { params, headers, responseType: 'arraybuffer' })
+      .then(response => {
+        const fileName = response.headers['content-disposition'].split(';')[1].split('=')[1];
+        var blob = new Blob([response.data], { type: 'application/pdf' });
+        FileSaver.saveAs(blob, fileName);
+        //   document.getElementById('blockScreen').style.display = 'none';
+      })
+      .catch(error => {
+        //     document.getElementById('blockScreen').style.display = 'none';
+      })
+  }
   return (
-      <div>
-        <Paper className={classes.root}>
-          <Typography className={classes.container} variant="h5" component="h3">
-            <FormattedMessage id='shipmenntDetails' />
-          </Typography>
-          <Typography component="p">
+    <div>
+      <Paper className={classes.root}>
+        <Typography className={classes.container} variant="h5" component="h3">
+          <FormattedMessage id='shipmenntDetails' />
+        </Typography>
+        <Typography component="p">
           <form className={classes.container} noValidate autoComplete="off">
       <div>
       <TextField
@@ -241,6 +257,9 @@ export default function ShipmentDetailsComponents() {
       </Button>
     </div>
     </form>
+    <button className={classes.button} onClick={() => doGenerateBarcode('123213')}>
+                print
+                  </button>
     </Typography>
         </Paper>
     </div>

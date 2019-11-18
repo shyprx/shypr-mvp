@@ -11,6 +11,9 @@ insert into CARRIER(ID, NAME) values (1, 'Quick');
 insert into CARRIER(ID, NAME) values (2, 'Aymakan');
 insert into CARRIER(ID, NAME) values (3, 'Tard');
 
+--SENDER
+insert into SENDER(ID, NAME) values (4, 'testSender');
+
 --SHIPPING_RATES
     --Quick
 insert into SHIPPING_RATE(DELIVERY_LOCATION, WEIGHT_CATEGORY, CASH_ON_DELIVERY, DELIVERY_TIME, PRICE, CARRIER_ID) values ('INSIDE_CITY', 'KG_0_15', 0, '_1_D', 26, 1);
@@ -67,4 +70,13 @@ insert into SHIPPING_RATE(DELIVERY_LOCATION, WEIGHT_CATEGORY, CASH_ON_DELIVERY, 
 insert into SHIPPING_RATE(DELIVERY_LOCATION, WEIGHT_CATEGORY, CASH_ON_DELIVERY, DELIVERY_TIME, PRICE, CARRIER_ID) values ('OUTSIDE_CITY', 'KG_15_30', 1, '_1_D', 58, 3);
 insert into SHIPPING_RATE(DELIVERY_LOCATION, WEIGHT_CATEGORY, CASH_ON_DELIVERY, DELIVERY_TIME, PRICE, CARRIER_ID) values ('OUTSIDE_CITY', 'KG_15_30', 1, '_3_D', 52, 3);
 
+--REGIONS
+insert into region(ID, NAME_AR, NAME_EN) values (1, 'الرياض', 'Al-Riyadh');
+insert into region(ID, NAME_AR, NAME_EN) values (2, 'المنطقة الشرقية', 'Al-Sharguia');
+insert into region(ID, NAME_AR, NAME_EN) values (3, 'مكة المكرمة', 'Al-Sharguia');
+
+--CITY
+insert into city(ID, NAME_AR, NAME_EN, REGION_ID) values (1, 'الرياض', 'Riyadh', 1);
+insert into city(ID, NAME_AR, NAME_EN, REGION_ID) values (2, 'الدمام', 'Dammam', 2);
+insert into city(ID, NAME_AR, NAME_EN, REGION_ID) values (3, 'جدة', 'Jeddah', 3);
 
