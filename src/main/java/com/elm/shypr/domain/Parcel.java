@@ -1,8 +1,8 @@
 package com.elm.shypr.domain;
+
 import com.elm.shypr.domain.enumeration.DeliveryLocation;
 import com.elm.shypr.domain.enumeration.DeliveryTime;
 import com.elm.shypr.domain.enumeration.WeightCategory;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,7 +10,6 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 

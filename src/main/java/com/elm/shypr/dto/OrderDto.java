@@ -1,7 +1,5 @@
 package com.elm.shypr.dto;
 
-import com.elm.shypr.domain.OrderItem;
-import com.elm.shypr.domain.Sender;
 import com.elm.shypr.domain.enumeration.OrderStatus;
 import com.elm.shypr.domain.enumeration.PaymentType;
 import lombok.Getter;

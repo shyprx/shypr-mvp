@@ -5,20 +5,18 @@ import com.elm.shypr.domain.enumeration.DeliveryLocation;
 import com.elm.shypr.dto.ParcelDetailsDto;
 import com.elm.shypr.dto.ShippingRateDto;
 import com.elm.shypr.repository.ShippingRateRepository;
+import net.sf.jasperreports.engine.*;
 import org.modelmapper.ModelMapper;
-import org.springframework.data.repository.query.Param;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.io.InputStream;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import java.io.InputStream;
-import java.text.ParseException;
-import net.sf.jasperreports.engine.*;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
 
 @Service
 @Transactional

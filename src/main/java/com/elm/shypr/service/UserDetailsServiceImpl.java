@@ -1,8 +1,8 @@
 package com.elm.shypr.service;
 
 import com.elm.shypr.config.security.UserDetailsImpl;
-import com.elm.shypr.repository.UserRepository;
 import com.elm.shypr.domain.User;
+import com.elm.shypr.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
