@@ -5,33 +5,28 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
-// import InfoIcon from '@material-ui/icons/LocalShipping';
-import ARAMEX from './../../assets/images/aramex.svg'
-import SMSA from './../../assets/images/smsa-express.svg'
-import DHL from './../../assets/images/DHL_Logo.png'
+import InfoIcon from '@material-ui/icons/LocalShipping';
+import ARAMEX from './../../assets/images/logoWithName.png'
+import SMSA from './../../assets/images/logoWithName.png'
+import DHL from './../../assets/images/logoWithName.png'
 import { withRouter } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
-  },
   gridList: {
-    width: 500,
+    //width: 500,
     height: 900,
   },
   icon: {
-    color: 'rgba(255, 255, 255, 0.54)',
+    marginLeft: '20px',
   },
   title:{
-    overflow: 'hidden',
-    fontSize: '1.2rem',
+    overflow: 'initial',
+    fontSize: '1.9rem',
     lineHeight: '24px',
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',
+    margin: '1% 0 0 68%',
+    
   },
   subtitle: {
     overflow: 'hidden',
@@ -39,9 +34,11 @@ const useStyles = makeStyles(theme => ({
     lineHeight: '1.5',
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',
+    margin: '0 0 0 28%',
+    fontFamily:'unset'
   },
   titleFont:{
-    fontSize:'x-large'
+    fontSize:'x-large',
   },
   button: {
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
@@ -72,27 +69,24 @@ const ShippingRatesComponent = (props)=> {
     }
 
     return (
-      <div className={classes.root}>
-        <GridList cellHeight={200} className={classes.gridList}>
+        <GridList cellHeight={180} className={classes.gridList}>
           <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-            <ListSubheader component="div" className={classes.titleFont}><b>Rates</b></ListSubheader>
           </GridListTile>
           {tileData.map(tile => (
             <GridListTile key={tile.img}>
               <img src={tile.img} alt={tile.title} />
-              <GridListTileBar
-                title={<span>{tile.price} <FormattedMessage id='SAR'/></span>}
-                subtitle={<span className ={classes.subtitle}><FormattedMessage id='deliveryOn'/>{tile.day} <br/>{tile.date}</span>}
+              <GridListTileBar 
+                title={<p className={classes.title}>{tile.price} <FormattedMessage id='SAR'/></p>}
+                subtitle={<p className ={classes.subtitle}><FormattedMessage id='deliveryOn'/>{tile.day}     {tile.date}</p>}
                 actionIcon={
-                    <button className={classes.icon} onClick={() => handleSelectRate(tile)}>
-                        {/* <InfoIcon /> */}
+                    <button className={`btn btn-outline-light ${classes.icon}`} type='submit' onClick={() => handleSelectRate(tile)}>
+                       <FormattedMessage id='shipNow'/>
                     </button>
                 }
               />
             </GridListTile>
           ))}
         </GridList>
-        </div>
     );
 }
 

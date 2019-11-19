@@ -50,5 +50,11 @@
     "THURSDAY":"Thursday",
     "FRIDAY":"Friday",
     "deliveryOn":"Delivery on ",
-    "SAR":"SR"
+    "SAR":"SR",
+    "requestNewShipment":"Request new Shipment",
+    "shipmentList":"Shipment List",
+    "getRate":"Get rate",
+    "shipNow":"Ship Now!",
+    "selectShippingCompany":"Select Shipping Company",
+    "shippingCompanies": "Shipping Companies"
 }
