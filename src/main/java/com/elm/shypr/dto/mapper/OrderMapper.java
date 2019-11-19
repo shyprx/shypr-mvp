@@ -5,7 +5,6 @@ import com.elm.shypr.domain.Sender;
 import com.elm.shypr.dto.OrderDto;
 import com.elm.shypr.service.UserService;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.PropertyMap;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -21,11 +20,10 @@ public class OrderMapper {
     public Order toEntity(OrderDto orderDto) {
         Order order = modelMapper.map(orderDto, Order.class);
         order.setSender(new Sender(userService.getCurrentUser().getId()));
-
         return order;
     }
 
-    public void toDto(Order order) {
-
+    public OrderDto toDto(Order order) {
+        return modelMapper.map(order, OrderDto.class);
     }
 }
