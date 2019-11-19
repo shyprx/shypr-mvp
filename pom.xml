@@ -78,6 +78,22 @@
             <artifactId>shypr</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.DINNextLT</groupId>
+            <artifactId>DINNextLT</artifactId>
+            <scope>system</scope>
+            <systemPath>${basedir}/libs/DINNextLT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.barcode4j</groupId>
+            <artifactId>barcode4j</artifactId>
+            <version>2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-bridge</artifactId>
+            <version>1.9</version>
+        </dependency>
     </dependencies>
 
     <profiles>

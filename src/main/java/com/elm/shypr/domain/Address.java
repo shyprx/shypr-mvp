@@ -1,11 +1,14 @@
 package com.elm.shypr.domain;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * A Address.
@@ -13,6 +16,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "ADDRESS")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Getter @Setter @NoArgsConstructor
 public class Address implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -21,6 +25,9 @@ public class Address implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "person_name")
+    private String personName;
+
     @Column(name = "description")
     private String description;
 
@@ -28,78 +35,21 @@ public class Address implements Serializable {
     private String mobileNo;
 
     @ManyToOne
-    @JsonIgnoreProperties("addresses")
     private City city;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Address description(String description) {
-        this.description = description;
-        return this;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getMobileNo() {
-        return mobileNo;
-    }
-
-    public Address mobileNo(String mobileNo) {
-        this.mobileNo = mobileNo;
-        return this;
-    }
-
-    public void setMobileNo(String mobileNo) {
-        this.mobileNo = mobileNo;
-    }
-
-    public City getCity() {
-        return city;
-    }
-
-    public Address city(City city) {
-        this.city = city;
-        return this;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Address)) {
-            return false;
-        }
-        return id != null && id.equals(((Address) o).id);
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return personName.equals(address.personName) &&
+                Objects.equals(description, address.description) &&
+                mobileNo.equals(address.mobileNo) &&
+                city.equals(address.city);
     }
 
     @Override
     public int hashCode() {
-        return 31;
-    }
-
-    @Override
-    public String toString() {
-        return "Address{" +
-            "id=" + getId() +
-            ", description='" + getDescription() + "'" +
-            ", mobileNo='" + getMobileNo() + "'" +
-            "}";
+        return Objects.hash(personName, description, mobileNo, city);
     }
 }

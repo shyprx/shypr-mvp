@@ -22,9 +22,6 @@ public class Payment implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "total_amount", precision = 21, scale = 2)
-    private BigDecimal totalAmount;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "payment_type")
     private PaymentType paymentType;
@@ -35,19 +32,6 @@ public class Payment implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public BigDecimal getTotalAmount() {
-        return totalAmount;
-    }
-
-    public Payment totalAmount(BigDecimal totalAmount) {
-        this.totalAmount = totalAmount;
-        return this;
-    }
-
-    public void setTotalAmount(BigDecimal totalAmount) {
-        this.totalAmount = totalAmount;
     }
 
     public PaymentType getPaymentType() {
@@ -83,7 +67,6 @@ public class Payment implements Serializable {
     public String toString() {
         return "Payment{" +
             "id=" + getId() +
-            ", totalAmount=" + getTotalAmount() +
             ", paymentType='" + getPaymentType() + "'" +
             "}";
     }

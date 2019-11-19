@@ -7,15 +7,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Getter @Setter @NoArgsConstructor
-public class ShippingRateDto {
-    private Long id;
-    private DeliveryLocation deliveryLocation;
+public class ParcelDto implements Serializable {
     private WeightCategory weightCategory;
+    private DeliveryLocation deliveryLocation;
     private Boolean cashOnDelivery;
     private DeliveryTime deliveryTime;
-    private BigDecimal price;
-    private CarrierDto carrierDto;
+    private BigDecimal parcelValue;
 }
