@@ -24,8 +24,8 @@ public class Sender extends User {
     private String name;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "SHIP_FROM_ADDRESS_ID")
-    private RegisteredAddress shipFromAddress;
+    @JoinColumn(name = "REGISTERED_ADDRESS_ID")
+    private RegisteredAddress registeredAddress;
 
     public Sender(Long id) {
         super.setId(id);

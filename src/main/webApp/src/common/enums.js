@@ -4,8 +4,8 @@ export const DeliveryLocation = {
 }
 
 export const DeliveryTime = {
-    _1_D: '_1_D',
-    _3_D: '_3_D'
+    _1_D: '_1_DAY',
+    _3_D: '_3_DAYS'
 }
 
 export const WeightCategory = {
@@ -13,3 +13,8 @@ export const WeightCategory = {
     KG_15_30: 'KG_15_30'
 }
 
+export const PaymentType = {
+    CASH: 'CASH',
+    CASH_ON_DELIVERY: 'CASH_ON_DELIVERY',
+    VISA: 'VISA'
+}

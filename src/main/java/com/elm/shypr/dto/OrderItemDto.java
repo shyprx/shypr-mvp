@@ -8,7 +8,6 @@ import java.io.Serializable;
 
 @Getter @Setter @NoArgsConstructor
 public class OrderItemDto implements Serializable {
-
     private Long id;
     private ParcelDto parcel;
     private AddressDto fromAddress;

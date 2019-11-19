@@ -74,15 +74,11 @@
             <version>7.0.0</version>
         </dependency>
         <dependency>
-            <groupId>com.elm</groupId>
-            <artifactId>shypr</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
             <groupId>com.DINNextLT</groupId>
             <artifactId>DINNextLT</artifactId>
             <scope>system</scope>
             <systemPath>${basedir}/libs/DINNextLT.jar</systemPath>
+            <version>1.0.0-RELEASE</version>
         </dependency>
         <dependency>
             <groupId>net.sf.barcode4j</groupId>

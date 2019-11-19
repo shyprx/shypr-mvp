@@ -13,11 +13,9 @@ import java.util.Set;
 
 @Getter @Setter @NoArgsConstructor
 public class OrderDto implements Serializable {
-
     private Long id;
     private OrderStatus status;
     private BigDecimal totalPrice;
     private PaymentType paymentType;
-    private String senderName;
     private Set<OrderItemDto> orderItems = new HashSet<>();
 }

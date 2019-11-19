@@ -1,6 +1,7 @@
 package com.elm.shypr.web;
 
 import com.elm.shypr.dto.OrderDto;
+import com.elm.shypr.exception.ShyprException;
 import com.elm.shypr.service.OrderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class OrderResource {
     }
 
     @PostMapping
-    public ResponseEntity placeOrder(@RequestBody OrderDto order) {
+    public ResponseEntity placeOrder(@RequestBody OrderDto order) throws ShyprException {
         orderService.placeOrder(order);
         return ResponseEntity.status(HttpStatus.OK).build();
     }

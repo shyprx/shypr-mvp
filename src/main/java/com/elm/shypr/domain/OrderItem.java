@@ -18,12 +18,12 @@ public class OrderItem extends AbstractAuditingEntity {
     @JoinColumn(name = "parcel_id")
     private Parcel parcel;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "from_address_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "from_address_id", nullable = false)
     private Address fromAddress;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "to_address_id")
+    @JoinColumn(name = "to_address_id", nullable = false)
     private Address toAddress;
 
     @ManyToOne(fetch = FetchType.LAZY)

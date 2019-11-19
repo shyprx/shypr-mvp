@@ -65,7 +65,7 @@ public class UserService {
             Sender sender = userMapper.toSenderEntity(userAddressDto.getUser());
             sender.setPassword(encodedPassword);
             if(registeredAddress != null && registeredAddress.getCity() != null) {
-                sender.setShipFromAddress(registeredAddress);
+                sender.setRegisteredAddress(registeredAddress);
             }
             senderRepository.save(sender);
         }
