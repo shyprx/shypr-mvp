@@ -19,6 +19,8 @@
         <npm.version>6.12.0</npm.version>
         <node.version>v12.13.0</node.version>
         <frontend-maven-plugin.version>1.8.0</frontend-maven-plugin.version>
+        <dinnextlt.version>1.0.0-RELEASE</dinnextlt.version>
+        <liquibase-maven-plugin.verison>3.4.1</liquibase-maven-plugin.verison>
     </properties>
 
     <dependencies>
@@ -74,15 +76,11 @@
             <version>7.0.0</version>
         </dependency>
         <dependency>
-            <groupId>com.elm</groupId>
-            <artifactId>shypr</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
             <groupId>com.DINNextLT</groupId>
             <artifactId>DINNextLT</artifactId>
             <scope>system</scope>
             <systemPath>${basedir}/libs/DINNextLT.jar</systemPath>
+            <version>${dinnextlt.version}}</version>
         </dependency>
         <dependency>
             <groupId>net.sf.barcode4j</groupId>
@@ -93,6 +91,15 @@
             <groupId>org.apache.xmlgraphics</groupId>
             <artifactId>batik-bridge</artifactId>
             <version>1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-maven-plugin</artifactId>
+            <version>${liquibase-maven-plugin.verison}</version>
         </dependency>
     </dependencies>
 
@@ -110,6 +117,14 @@
                     <plugin>
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.liquibase</groupId>
+                        <artifactId>liquibase-maven-plugin</artifactId>
+                        <version>${liquibase-maven-plugin.verison}</version>
+                        <configuration>
+                            <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>

@@ -47,9 +47,6 @@ public class Order extends AbstractAuditingEntity {
     @JoinColumn(name = "sender_id")
     private Sender sender;
 
-    @Column(name = "sender_name")
-    private String senderName;
-
     public void addOrderItem(OrderItem orderItem) {
         this.orderItems.add(orderItem);
         orderItem.setOrder(this);

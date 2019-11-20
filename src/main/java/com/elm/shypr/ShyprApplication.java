@@ -11,9 +11,6 @@ public class ShyprApplication {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ShyprApplication.class);
 
 	public static void main(String[] args) {
-
-		LOGGER.info("Starting ...............................................................................");
 		SpringApplication.run(ShyprApplication.class, args);
 	}
-
 }

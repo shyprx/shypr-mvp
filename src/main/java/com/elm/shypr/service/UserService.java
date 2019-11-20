@@ -1,9 +1,13 @@
 package com.elm.shypr.service;
 
-import com.elm.shypr.config.security.UserDetailsImpl;
+import com.elm.shypr.domain.Carrier;
+import com.elm.shypr.domain.RegisteredAddress;
+import com.elm.shypr.domain.Sender;
 import com.elm.shypr.domain.User;
 import com.elm.shypr.domain.enumeration.UserType;
+import com.elm.shypr.dto.UserAddressDto;
 import com.elm.shypr.dto.UserDto;
+import com.elm.shypr.dto.mapper.RegisteredAddressMapper;
 import com.elm.shypr.dto.mapper.UserMapper;
 import com.elm.shypr.exception.ErrorCodes;
 import com.elm.shypr.exception.ShyprException;
@@ -24,15 +28,20 @@ public class UserService {
     private SenderRepository senderRepository;
     private UserMapper userMapper;
     private PasswordEncoder passwordEncoder;
+    private RegisteredAddressMapper registeredAddressMapper;
 
-    public UserService(UserMapper userMapper,
-                       UserRepository userRepository,
+    public UserService(UserRepository userRepository,
                        CarrierRepository carrierRepository,
-                       SenderRepository senderRepository) {
-        this.userMapper = userMapper;
+                       SenderRepository senderRepository,
+                       UserMapper userMapper,
+                       PasswordEncoder passwordEncoder,
+                       RegisteredAddressMapper registeredAddressMapper) {
         this.userRepository = userRepository;
         this.carrierRepository = carrierRepository;
         this.senderRepository = senderRepository;
+        this.userMapper = userMapper;
+        this.passwordEncoder = passwordEncoder;
+        this.registeredAddressMapper = registeredAddressMapper;
     }
 
     public User getCurrentUser() {
@@ -44,14 +53,21 @@ public class UserService {
         return ((UserDetails)authentication.getPrincipal()).getUsername();
     }
 
-    public void createUser(UserDto userDto) throws ShyprException {
-        checkUserBeforeRegistration(userDto);
-        User user = userMapper.toEntity(userDto);
-        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
-        if(userDto.getUserType().equals(UserType.CARRIER)) {
-            carrierRepository.save(userMapper.toCarrierEntity(userDto));
-        } else if(userDto.getUserType().equals(UserType.SENDER)) {
-            senderRepository.save(userMapper.toSenderEntity(userDto));
+    public void createUser(UserAddressDto userAddressDto) throws ShyprException {
+        checkUserBeforeRegistration(userAddressDto.getUser());
+        RegisteredAddress registeredAddress = registeredAddressMapper.toEntity(userAddressDto.getShipFromAddress());
+        String encodedPassword = passwordEncoder.encode(userAddressDto.getUser().getPassword());
+        if(userAddressDto.getUser().getUserType().equals(UserType.CARRIER)) {
+            Carrier carrier = userMapper.toCarrierEntity(userAddressDto.getUser());
+            carrier.setPassword(encodedPassword);
+            carrierRepository.save(carrier);
+        } else if(userAddressDto.getUser().getUserType().equals(UserType.SENDER)) {
+            Sender sender = userMapper.toSenderEntity(userAddressDto.getUser());
+            sender.setPassword(encodedPassword);
+            if(registeredAddress != null && registeredAddress.getCity() != null) {
+                sender.setRegisteredAddress(registeredAddress);
+            }
+            senderRepository.save(sender);
         }
     }
 

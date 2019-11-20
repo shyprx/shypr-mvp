@@ -1,4 +1,5 @@
 package com.elm.shypr.domain;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -6,8 +7,6 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-
-import java.io.Serializable;
 
 /**
  * A Sender.
@@ -23,6 +22,10 @@ public class Sender extends User {
 
     @Column(name = "name")
     private String name;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "REGISTERED_ADDRESS_ID")
+    private RegisteredAddress registeredAddress;
 
     public Sender(Long id) {
         super.setId(id);

@@ -1,6 +1,6 @@
 package com.elm.shypr.web;
 
-import com.elm.shypr.dto.UserDto;
+import com.elm.shypr.dto.UserAddressDto;
 import com.elm.shypr.exception.ShyprException;
 import com.elm.shypr.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -20,8 +20,8 @@ public class UserResource {
         this.userService = userService;
     }
 
-    @PostMapping
-    public ResponseEntity createUser(@RequestBody UserDto user) throws ShyprException {
+    @PostMapping("/register")
+    public ResponseEntity createUser(@RequestBody UserAddressDto user) throws ShyprException {
         userService.createUser(user);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
