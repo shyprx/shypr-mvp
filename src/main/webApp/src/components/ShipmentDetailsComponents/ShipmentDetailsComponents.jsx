@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState,useContext} from 'react';
 import FileSaver from 'file-saver'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import { FormattedMessage } from 'react-intl';
 import { Paper, Typography, Tabs, Tab, Button } from '@material-ui/core';
+import OrderContext from '../../common/context/OrderContext';
 
 const Cities = [
   {
@@ -44,11 +45,11 @@ const dropPicks = [
 ];
 const enableCashOnDs = [
   {
-    value: '1',
+    value: true,
     label: 'Cash on Delivery'
   },
   {
-    value: '0',
+    value: false,
     label: 'no Cash on Delivery '
   },
 ];
@@ -56,6 +57,7 @@ const enableCashOnDs = [
 const useStyles = makeStyles(theme => ({
   container: {
     display: 'flex',
+    justifyContent: 'center',
     flexWrap: 'wrap',
   },
   root: {
@@ -81,26 +83,39 @@ const useStyles = makeStyles(theme => ({
 
 export default function ShipmentDetailsComponents() {
   const classes = useStyles();
-  const [fromCity, setFromCity] = React.useState('Riyadh');
-  const [toCity, setToCity] = React.useState('Riyadh');
-  const [weight, setWeight] = React.useState('5k');
-  const [enableCashOnD, setEnableCashOnD] = React.useState('COD')
-  const [dropPick, setDropPick] = React.useState('DropOff')
-
-  const handleChangeWeight = event => {
-    setWeight(event.target.value)
-  }; const handleChangeCOD = event => {
-    setEnableCashOnD(event.target.value)
-  };
+  const [fromCity, setFromCity] = useState('Riyadh');
+  const [toCity, setToCity] = useState('Riyadh');
+  const [weightCategory, setWeightCategory] = useState('5k');
+  const [enableCashOnD, setEnableCashOnD] = useState('COD')
+  const [dropPick, setDropPick] = useState('DropOff')
+  const [parcelValue, setParcelValue] = useState(0)
+  const Order = useContext(OrderContext)
+  
+  
   const handleChangeFromCity = event => {
     setFromCity(event.target.value)
   };
+
   const handleChangeToCity = event => {
     setToCity(event.target.value)
   };
+
+  const handleChangeWeight = event => {
+    setWeightCategory(event.target.value)
+  }; 
+  
+  const handleChangeCOD = event => {
+    setEnableCashOnD(event.target.value)
+  };
+
   const handleChangeDropPick = event => {
     setDropPick(event.target.value)
   }
+
+  const handleChangeParcelValue = event => {
+    setParcelValue(event.target.value)
+  };
+
   const doGenerateBarcode = (awbNumber) => {
     const headers = { 'Accept': 'application/pdf' }
     const params = { 'aWBId': awbNumber }
@@ -116,6 +131,10 @@ export default function ShipmentDetailsComponents() {
         //     document.getElementById('blockScreen').style.display = 'none';
       })
   }
+ const  mergeFields = () => {
+   const packageDetailsObj = {fromCityId:fromCity,toCityId:toCity,weightCategory:weightCategory,cashOnDelivery:enableCashOnD,dropPick:dropPick,parcelValue:parcelValue}
+   Order.setOrder({packageDetails:packageDetailsObj})
+ }
   return (
     <div>
       <Paper className={classes.root}>
@@ -177,7 +196,7 @@ export default function ShipmentDetailsComponents() {
           select
           label={<FormattedMessage id='shipmentWight' />}
           className={classes.textField}
-          value={weight}
+          value={weightCategory}
           onChange={handleChangeWeight}
           SelectProps={{
             MenuProps: {
@@ -222,6 +241,8 @@ export default function ShipmentDetailsComponents() {
           id="outlined-basic"
           className={classes.textField}
           label={<FormattedMessage id="shipmentValue" />}
+          value={parcelValue}
+          onChange={handleChangeParcelValue}
           margin="normal"
           variant="standard"
         />
@@ -251,12 +272,12 @@ export default function ShipmentDetailsComponents() {
     <form className={classes.container} noValidate autoComplete="off">
       <div>
       <Link to='/self-Registration' style={{ margin: '0 auto' }}>
-      <Button variant="contained" href="/to-destination" className={classes.button}>
+      <Button variant="contained" className={classes.button}>
         <FormattedMessage id="back" />
       </Button>
       </Link>
       <Link to='/shipment-rates' style={{ margin: '0 auto' }}>
-      <Button variant="contained" color="primary" className={classes.button}>
+      <Button variant="contained" color="primary" className={classes.button} onClick={() => mergeFields()}>
         <FormattedMessage id="next" />
       </Button>
       </Link>

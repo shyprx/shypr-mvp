@@ -68,6 +68,7 @@
     "selectShippingCompany":"أختر شركة الشحن",
     "shippingCompanies":"شركات الشحن",
     "_1_DAY":"يوم عمل",
-    "_3_DAYS":"ثلاث أيام عمل"
-    
+    "_3_DAYS":"ثلاث أيام عمل",
+    "returnToPage": "العودة الى ",
+    "orderSavedSuccessfully":"تم إرسال الطلب بنجاح!"
 }

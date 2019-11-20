@@ -24,6 +24,7 @@ import ShipmentOriginComponents from './components/ShippingDetailsComponents/Shi
 import ShipmentDetailsComponents from './components/ShipmentDetailsComponents/ShipmentDetailsComponents';
 import ShipmentRatesComponents from './components/order/ShippingRatesComponent'
 import FooterComponents from './components/FooterComponrnt/FooterComponents';
+import SuccessMessageComponent from './components/ConfirmationComponent/SuccessMessageComponent'
 
 const messages = {
   'ar': messages_ar,
@@ -79,6 +80,7 @@ function App() {
                       <Route path="/to-destination" exact component={ShipmentDestinationComponents} />
                       <Route path="/shipment-details" exact component={ShipmentDetailsComponents} />
                       <Route path="/shipment-rates" exact component={ShipmentRatesComponents} />
+                      <Route path="/viewSuccess" exact component={SuccessMessageComponent} />
                     </OrderProvider>
                     <AuthenticatedRoute path="/new-order/" component={OrderComponent} />
                   </Switch>

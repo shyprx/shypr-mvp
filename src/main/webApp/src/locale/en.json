@@ -58,5 +58,7 @@
     "selectShippingCompany":"Select Shipping Company",
     "shippingCompanies": "Shipping Companies",
     "_1_DAY":"One day's work ",
-    "_3_DAYS":"Three days' work"
+    "_3_DAYS":"Three days' work",
+    "returnToPage": "Back to ",
+    "orderSavedSuccessfully":"Order sent successfully!"
 }

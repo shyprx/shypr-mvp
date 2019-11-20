@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {useState,useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { FormattedMessage } from 'react-intl';
 import { Paper, Typography, Tabs, Tab, FormGroup, FormControlLabel, Switch, FormControl} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom'
+import OrderContext from '../../common/context/OrderContext';
+
 const useStyles = makeStyles(theme => ({
   container: {
     display: 'flex',
+    justifyContent: 'center',
     flexWrap: 'wrap',
   },
   root: {
@@ -24,6 +27,7 @@ const useStyles = makeStyles(theme => ({
     width: 415,
   },
   button: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
   },
@@ -34,16 +38,17 @@ const useStyles = makeStyles(theme => ({
 
 export default function ShipmentOriginComponents(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(2);
-  const [state, setState] = React.useState({
+  const [value, setValue] = useState(2);
+  const [state, setState] = useState({
     checkedA: true,
     checkedB: true,
   });
+  const Order = useContext(OrderContext)
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-console.log("PROPS",props);
+console.log("Order",Order);
 
   return (
       <div>
