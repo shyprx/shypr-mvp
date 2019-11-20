@@ -88,7 +88,7 @@ export default function ShipmentOriginComponents() {
             </React.Fragment>
         </div>
         </form>
-        <form className={classes.container} noValidate autoComplete="off">
+        <form className={classes.container} noValidate autoComplete="on">
         <div>
             <React.Fragment>
             <TextField
@@ -101,7 +101,7 @@ export default function ShipmentOriginComponents() {
             </React.Fragment>
         </div>
         </form>
-    <form className={classes.container} noValidate autoComplete="off">
+    <form className={classes.container} noValidate autoComplete="on">
       <div>
         <React.Fragment>
         <TextField
@@ -123,7 +123,7 @@ export default function ShipmentOriginComponents() {
         </React.Fragment>
       </div>
     </form>
-    <form className={classes.container} noValidate autoComplete="off">
+    <form className={classes.container} noValidate autoComplete="on">
       <div>
         <React.Fragment>
         <TextField
@@ -143,7 +143,7 @@ export default function ShipmentOriginComponents() {
         </React.Fragment>
       </div>
     </form>
-        <form className={classes.container} noValidate autoComplete="off">
+        <form className={classes.container} noValidate autoComplete="on">
         <div>
           <React.Fragment>
           <TextField
@@ -163,7 +163,7 @@ export default function ShipmentOriginComponents() {
           </React.Fragment>
         </div>
       </form>
-      <form className={classes.container} noValidate autoComplete="off">
+      <form className={classes.container} noValidate autoComplete="on">
       <div>
       <Button variant="contained" href="/shipment-details" className={classes.button}>
         <FormattedMessage id="back" />

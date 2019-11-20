@@ -1,12 +1,18 @@
-import React from 'react';
-import FileSaver from 'file-saver'
-import axios from 'axios'
+/* eslint-disable indent */
+/* eslint-disable linebreak-style */
+/* eslint-disable react/jsx-indent */
+/* eslint-disable react/jsx-indent-props */
+import React ,{useState}from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import { FormattedMessage } from 'react-intl';
-import { Paper, Typography, Tabs, Tab, Button } from '@material-ui/core';
-
+import { Link } from 'react-router-dom'
+import { Paper, Typography, Tabs, Tab, Button} from '@material-ui/core';
+import PageContentComponent from '../PageContent/PageContentComponent'
+// import LocationContainer from '../../../containers/LocationContainer';
+import FormGroupComponent from '../Form/FromGroupComponent';
+import FormControlComponent from '../Form/FormControlComponent';
 const Cities = [
   {
     value: '1',
@@ -39,6 +45,20 @@ const dropPicks = [
   {
     value: 'Pickup',
     label: 'Pickup'
+  },
+];
+const parcelSizes = [
+  {
+    value: 'Small',
+    label: 'small'
+  },
+  {
+    value: 'Medium',
+    label: 'Medium'
+  },
+  {
+    value: 'Large',
+    label: 'Large'
   },
 ];
 const enableCashOnDs = [
@@ -80,18 +100,20 @@ const useStyles = makeStyles(theme => ({
 
 export default function ShipmentDetailsComponents() {
   const classes = useStyles();
-  const [fromCity, setFromCity] = React.useState('Riyadh');
-  const [toCity, setToCity] = React.useState('Riyadh');
-  const [weight, setWeight] = React.useState('5k');
-  const [enableCashOnD, setEnableCashOnD] = React.useState('COD')
-  const [dropPick, setDropPick] = React.useState('DropOff')
-
+  const [fromCity, setFromCity] = useState('Riyadh');
+  const [toCity, setToCity] = useState('Riyadh');
+  const [weight, setWeight] = useState('5k');
+  const [enableCashOnD, setEnableCashOnD] = useState('COD')
+  const [shipmentValue, setShipmentValue] = useState('')
+  const [dropPick, setDropPick] = useState('DropOff')
+  const [parcelSize, setParcelSize] = useState('Small')
   const handleChangeWeight = event => {
     setWeight(event.target.value)
-  }; const handleChangeCOD = event => {
+  };  
+  const handleChangeCOD = event => {
     setEnableCashOnD(event.target.value)
   };
-  const handleChangeFromCity = event => {
+   const handleChangeFromCity = event => {
     setFromCity(event.target.value)
   };
   const handleChangeToCity = event => {
@@ -100,169 +122,156 @@ export default function ShipmentDetailsComponents() {
   const handleChangeDropPick = event => {
     setDropPick(event.target.value)
   }
-  const doGenerateBarcode = (awbNumber) => {
-    const headers = { 'Accept': 'application/pdf' }
-    const params = { 'aWBId': awbNumber }
-    //  document.getElementById('blockScreen').style.display = 'block';
-    axios.get('/api/shipping-rates/print-barcode', { params, headers, responseType: 'arraybuffer' })
-      .then(response => {
-        const fileName = response.headers['content-disposition'].split(';')[1].split('=')[1];
-        var blob = new Blob([response.data], { type: 'application/pdf' });
-        FileSaver.saveAs(blob, fileName);
-        //   document.getElementById('blockScreen').style.display = 'none';
-      })
-      .catch(error => {
-        //     document.getElementById('blockScreen').style.display = 'none';
-      })
+  const handleChangeParcelSize = event => {
+    setParcelSize(event.target.value)
   }
-  return (
-    <div>
-      <Paper className={classes.root}>
-        <Typography className={classes.container} variant="h5" component="h3">
-          <FormattedMessage id='shipmenntDetails' />
-        </Typography>
-        <Typography component="p">
-          <form className={classes.container} noValidate autoComplete="off">
-            <div>
-              <TextField
-                id="standard-select-currency"
-                select
-                label={<FormattedMessage id='fromCity' />}
-                className={classes.textField}
-                value={fromCity}
-                name='fromCity'
-                onChange={handleChangeFromCity}
-                SelectProps={{
-                  MenuProps: {
-                    className: classes.menu,
-                  },
-                }}
-                helperText="From"
-                margin="normal"
-              >
-                {Cities.map(option => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-              <TextField
-                id="standard-select-currency"
-                label={<FormattedMessage id='toCity' />}
-                select
-                className={classes.textField}
-                value={toCity}
-                onChange={handleChangeToCity}
-                SelectProps={{
-                  MenuProps: {
-                    className: classes.menu,
-                  },
-                }}
-                helperText="To"
-                margin="normal"
-              >
-                {Cities.map(option => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </div>
-          </form>
-          <form className={classes.container} noValidate autoComplete="off">
-            <div>
-              <TextField
-                id="standard-select-currency"
-                select
-                label={<FormattedMessage id='shipmentWight' />}
-                className={classes.textField}
-                value={weight}
-                onChange={handleChangeWeight}
-                SelectProps={{
-                  MenuProps: {
-                    className: classes.menu,
-                  },
-                }}
-                helperText="From"
-                margin="normal"
-              >
-                {weights.map(option => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-              <TextField
-                id="standard-select-currency"
-                select
-                label={<FormattedMessage id='cashOnDelivery' />}
-                className={classes.textField}
-                value={enableCashOnD}
-                onChange={handleChangeCOD}
-                SelectProps={{
-                  MenuProps: {
-                    className: classes.menu,
-                  },
-                }}
-                helperText="From"
-                margin="normal"
-              >
-                {enableCashOnDs.map(option => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </div>
-          </form>
-          <form className={classes.container} noValidate autoComplete="off">
-            <div>
-              <TextField
-                id="outlined-basic"
-                className={classes.textField}
-                label={<FormattedMessage id="shipmentValue" />}
-                margin="normal"
-                variant="standard"
-              />
-              <TextField
-                id="standard-select-currency"
-                select
-                label={<FormattedMessage id='cashOnDelivery' />}
-                className={classes.textField}
-                value={dropPick}
-                onChange={handleChangeDropPick}
-                SelectProps={{
-                  MenuProps: {
-                    className: classes.menu,
-                  },
-                }}
-                helperText="From"
-                margin="normal"
-              >
-                {dropPicks.map(option => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </div>
-          </form>
-          <form className={classes.container} noValidate autoComplete="off">
-            <div>
-              <Button variant="contained" href="/to-destination" className={classes.button}>
-                <FormattedMessage id="back" />
-              </Button>
-              <Button variant="contained" color="primary" href="/from-destination" className={classes.button}>
-                <FormattedMessage id="next" />
-              </Button>
 
-            </div>
-          </form>
-          <button className={classes.button} onClick={() => doGenerateBarcode('123213')}>
-            print
-              </button>
-        </Typography>
-      </Paper>
+  return (
+
+      <PageContentComponent title={<FormattedMessage id='requestNewShipment' />}>  
+      <form className={classes.container} noValidate autoComplete="off">
+      <div>
+      <FormGroupComponent>
+      <FormControlComponent
+                    label={<FormattedMessage id='fromCity' />}
+                    fieldId='fromCity'
+                    value={fromCity}
+                    required                    
+                    colSize={[2, 4]}
+
+                    onChange={handleChangeFromCity}
+                    // errorMessage={this.getError('phoneNumber')}
+                >
+                  <select>
+                <option value="">Select City</option>
+                {Cities.map(option => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                  ))}
+                  </select>
+                </FormControlComponent>
+                <FormControlComponent
+                    label={<FormattedMessage id='toCity' />}
+                    fieldId='toCity'
+                    value={toCity}
+                    required
+                    colSize={[2, 4]}
+                    onChange={handleChangeToCity}
+                    // errorMessage={this.getError('phoneNumber')}
+                >
+                  <select>
+                <option value="">Select City</option>
+                {Cities.map(option => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                  ))}
+                  </select>
+                </FormControlComponent>
+            </FormGroupComponent>
+            <FormGroupComponent>
+      <FormControlComponent
+          label={<FormattedMessage id='shipmentWight' />}
+          value={weight}
+          onChange={handleChangeWeight}
+                    fieldId='weight'
+
+                    required
+                      colSize={[2, 4]}
+
+                >
+                  <select>
+                <option value="">Select Weights</option>
+                {weights.map(option => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                  ))}
+                  </select>
+                </FormControlComponent>
+                <FormControlComponent
+                    label={<FormattedMessage id='cashOnDelivery' />}
+                    fieldId='enableCashOnD'
+                    value={enableCashOnD}
+                    required
+                     colSize={[2, 4]}
+                    onChange={handleChangeCOD}
+                    // errorMessage={this.getError('phoneNumber')}
+                >
+                  <select>
+                {enableCashOnDs.map(option => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                  ))}
+                  </select>
+                </FormControlComponent>
+            </FormGroupComponent>
+            <FormGroupComponent>
+      <FormControlComponent
+          label={<FormattedMessage id='shipmentValue' />}
+          value={shipmentValue}
+          onChange={handleChangeWeight}
+                    fieldId='weight'
+
+                    required
+                     colSize={[2, 4]}
+
+                >
+            <input type="text" placeholder="SAR" maxLength="9" className="form-control"  />
+
+                </FormControlComponent>
+                <FormControlComponent
+                    label={<FormattedMessage id='pickOrDrop' />}
+                    fieldId='dropPick'
+                    value={dropPick}
+                    required
+                     colSize={[2, 4]}
+                    onChange={handleChangeDropPick}
+                    // errorMessage={this.getError('phoneNumber')}
+                >
+                  <select>
+                {dropPicks.map(option => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                  ))}
+                  </select>
+                </FormControlComponent>
+            </FormGroupComponent>
+            <FormGroupComponent>
+                <FormControlComponent
+                    label={<FormattedMessage id='shipmentSize' />}
+                    fieldId='parcelSize'
+                    value={parcelSize}
+                    required
+                     colSize={[2, 4]}
+                    onChange={handleChangeParcelSize}
+                    // errorMessage={this.getError('phoneNumber')}
+                >
+                  <select>
+                {parcelSizes.map(option => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                  ))}
+                  </select>
+                </FormControlComponent>
+            </FormGroupComponent>
+      </div>
+    </form>
+    <form className={classes.container} noValidate autoComplete="off">
+      <div>
+        <tr/>
+      <Link to='/shipment-rates' style={{ margin: '0 auto' }}>
+          <button className="btn btn-primary" type='submit'>
+          <FormattedMessage id="next" />
+          </button>
+      </Link>
     </div>
+    </form>
+  </PageContentComponent>
+
   );
 }
