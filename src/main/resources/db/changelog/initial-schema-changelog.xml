@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="bghali (generated)" id="1574226994567-1">
+        <createTable tableName="ADDRESS">
+            <column name="ADDRESS_TYPE" type="VARCHAR(31)">
+                <constraints nullable="false"/>
+            </column>
+            <column autoIncrement="true" name="ID" type="BIGINT(19)">
+                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_E"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(255)"/>
+            <column name="MOBILE_NO" type="VARCHAR(255)"/>
+            <column name="PERSON_NAME" type="VARCHAR(255)"/>
+            <column name="CITY_ID" type="BIGINT(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-3">
+        <createTable tableName="CARRIER">
+            <column name="NAME" type="VARCHAR(255)"/>
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-4">
+        <createTable tableName="CITY">
+            <column autoIncrement="true" name="ID" type="BIGINT(19)">
+                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_1"/>
+            </column>
+            <column name="NAME_AR" type="VARCHAR(255)"/>
+            <column name="NAME_EN" type="VARCHAR(255)"/>
+            <column name="REGION_ID" type="BIGINT(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-5">
+        <createTable tableName="ORDERS">
+            <column autoIncrement="true" name="ID" type="BIGINT(19)">
+                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_8"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE" type="TIMESTAMP"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(50)"/>
+            <column name="LAST_MODIFIED_DATE" type="TIMESTAMP"/>
+            <column name="PAYMENT_TYPE" type="VARCHAR(255)"/>
+            <column name="STATUS" type="VARCHAR(255)"/>
+            <column name="TOTAL_PRICE" type="DECIMAL(21, 2)"/>
+            <column name="SENDER_ID" type="BIGINT(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-6">
+        <createTable tableName="ORDER_ITEM">
+            <column autoIncrement="true" name="ID" type="BIGINT(19)">
+                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_4B"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE" type="TIMESTAMP"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(50)"/>
+            <column name="LAST_MODIFIED_DATE" type="TIMESTAMP"/>
+            <column name="FROM_ADDRESS_ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORDER_ID" type="BIGINT(19)"/>
+            <column name="PARCEL_ID" type="BIGINT(19)"/>
+            <column name="SHIPPING_RATE_ID" type="BIGINT(19)"/>
+            <column name="TO_ADDRESS_ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-7">
+        <createTable tableName="PARCEL">
+            <column autoIncrement="true" name="ID" type="BIGINT(19)">
+                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_8C"/>
+            </column>
+            <column name="CASH_ON_DELIVERY" type="BOOLEAN(1)"/>
+            <column name="DELIVERY_LOCATION" type="VARCHAR(255)"/>
+            <column name="DELIVERY_TIME" type="VARCHAR(255)"/>
+            <column name="PARCEL_VALUE" type="DECIMAL(19, 2)"/>
+            <column name="WEIGHT_CATEGORY" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-8">
+        <createTable tableName="PAYMENT">
+            <column autoIncrement="true" name="ID" type="BIGINT(19)">
+                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_FB"/>
+            </column>
+            <column name="PAYMENT_TYPE" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-9">
+        <createTable tableName="REGION">
+            <column autoIncrement="true" name="ID" type="BIGINT(19)">
+                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_8F"/>
+            </column>
+            <column name="NAME_AR" type="VARCHAR(255)"/>
+            <column name="NAME_EN" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-10">
+        <createTable tableName="SENDER">
+            <column name="NAME" type="VARCHAR(255)"/>
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REGISTERED_ADDRESS_ID" type="BIGINT(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-11">
+        <createTable tableName="SHIPPING_LABEL">
+            <column name="STATUS" type="VARCHAR(255)"/>
+            <column name="TRACKING_NUMBER" type="VARCHAR(255)"/>
+            <column name="ORDER_ITEM_ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CARRIER_ID" type="BIGINT(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-12">
+        <createTable tableName="SHIPPING_RATE">
+            <column autoIncrement="true" name="ID" type="BIGINT(19)">
+                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_D"/>
+            </column>
+            <column name="CASH_ON_DELIVERY" type="BOOLEAN(1)"/>
+            <column name="DELIVERY_LOCATION" type="VARCHAR(255)"/>
+            <column name="DELIVERY_TIME" type="VARCHAR(255)"/>
+            <column name="PRICE" type="DECIMAL(21, 2)"/>
+            <column name="WEIGHT_CATEGORY" type="VARCHAR(255)"/>
+            <column name="CARRIER_ID" type="BIGINT(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-13">
+        <createTable tableName="USERS">
+            <column name="USER_TYPE" type="VARCHAR(31)">
+                <constraints nullable="false"/>
+            </column>
+            <column autoIncrement="true" name="ID" type="BIGINT(19)">
+                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_4D"/>
+            </column>
+            <column name="EMAIL" type="VARCHAR(255)"/>
+            <column name="FIRST_NAME" type="VARCHAR(255)"/>
+            <column name="LAST_NAME" type="VARCHAR(255)"/>
+            <column name="MOBILE_NO" type="VARCHAR(255)"/>
+            <column name="PASSWORD" type="VARCHAR(255)"/>
+            <column name="USERNAME" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-14">
+        <addPrimaryKey columnNames="ID" constraintName="CONSTRAINT_4" tableName="CARRIER"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-15">
+        <addPrimaryKey columnNames="ID" constraintName="CONSTRAINT_9" tableName="SENDER"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-16">
+        <addPrimaryKey columnNames="ORDER_ITEM_ID" constraintName="CONSTRAINT_A" tableName="SHIPPING_LABEL"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-18">
+        <addUniqueConstraint columnNames="EMAIL" constraintName="UK_6DOTKOTT2KJSP8VW4D0M25FB7" tableName="USERS"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-19">
+        <addUniqueConstraint columnNames="TRACKING_NUMBER" constraintName="UK_9I6PJ6HMJLLF2CW970DK4RHDI"
+                             tableName="SHIPPING_LABEL"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-20">
+        <addUniqueConstraint columnNames="MOBILE_NO" constraintName="UK_P0PH17E6328J6UU1CR2TYD8VB" tableName="USERS"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-21">
+        <addUniqueConstraint columnNames="USERNAME" constraintName="UK_R43AF9AP4EDM43MMTQ01ODDJ6" tableName="USERS"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-22">
+        <createIndex indexName="FK2WMAXLQCS1RR7RHAVMAKWWP30_INDEX_4" tableName="ORDER_ITEM">
+            <column name="SHIPPING_RATE_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-23">
+        <createIndex indexName="FK5JX6W8M71F05J067X66ABWYFR_INDEX_D" tableName="SHIPPING_RATE">
+            <column name="CARRIER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-24">
+        <createIndex indexName="FK8P4HI0M7WSPJBKNLK4CBW6YAN_INDEX_9" tableName="SENDER">
+            <column name="REGISTERED_ADDRESS_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-25">
+        <createIndex indexName="FKCAFEGT1WLVD49631E8GV0RJA4_INDEX_4" tableName="ORDER_ITEM">
+            <column name="FROM_ADDRESS_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-26">
+        <createIndex indexName="FKHLD4UO8AFIWFLKUUV3BBANON9_INDEX_4" tableName="ORDER_ITEM">
+            <column name="TO_ADDRESS_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-27">
+        <createIndex indexName="FKME7VCK19O3S54O16T69ORI3XX_INDEX_A" tableName="SHIPPING_LABEL">
+            <column name="CARRIER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-28">
+        <createIndex indexName="FKPO044NG5X4GYNB291CV24VTEA_INDEX_E" tableName="ADDRESS">
+            <column name="CITY_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-29">
+        <createIndex indexName="FKR9EVVT02NPEO4VNQKT6O8A6SN_INDEX_4" tableName="ORDER_ITEM">
+            <column name="PARCEL_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-30">
+        <createIndex indexName="FKSI0DKM9KK6DYUEDMC0J18T770_INDEX_1" tableName="CITY">
+            <column name="REGION_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-31">
+        <createIndex indexName="FKSKQEGAFX6RP5FT5UEGID9UULY_INDEX_8" tableName="ORDERS">
+            <column name="SENDER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-32">
+        <createIndex indexName="FKT4DC2R9NBVBUJRLJV3E23IIBT_INDEX_4" tableName="ORDER_ITEM">
+            <column name="ORDER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-33">
+        <addForeignKeyConstraint baseColumnNames="ORDER_ITEM_ID" baseTableName="SHIPPING_LABEL"
+                                 constraintName="FK24QTQK8LEIH10RAIVSNMLQT8S" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="ORDER_ITEM"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-34">
+        <addForeignKeyConstraint baseColumnNames="SHIPPING_RATE_ID" baseTableName="ORDER_ITEM"
+                                 constraintName="FK2WMAXLQCS1RR7RHAVMAKWWP30" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="SHIPPING_RATE"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-35">
+        <addForeignKeyConstraint baseColumnNames="ID" baseTableName="SENDER"
+                                 constraintName="FK3W7MTNRHNAE994T49473MVCUU" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="USERS"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-36">
+        <addForeignKeyConstraint baseColumnNames="CARRIER_ID" baseTableName="SHIPPING_RATE"
+                                 constraintName="FK5JX6W8M71F05J067X66ABWYFR" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="CARRIER"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-37">
+        <addForeignKeyConstraint baseColumnNames="REGISTERED_ADDRESS_ID" baseTableName="SENDER"
+                                 constraintName="FK8P4HI0M7WSPJBKNLK4CBW6YAN" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="ADDRESS"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-38">
+        <addForeignKeyConstraint baseColumnNames="FROM_ADDRESS_ID" baseTableName="ORDER_ITEM"
+                                 constraintName="FKCAFEGT1WLVD49631E8GV0RJA4" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="ADDRESS"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-39">
+        <addForeignKeyConstraint baseColumnNames="TO_ADDRESS_ID" baseTableName="ORDER_ITEM"
+                                 constraintName="FKHLD4UO8AFIWFLKUUV3BBANON9" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="ADDRESS"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-40">
+        <addForeignKeyConstraint baseColumnNames="CARRIER_ID" baseTableName="SHIPPING_LABEL"
+                                 constraintName="FKME7VCK19O3S54O16T69ORI3XX" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="CARRIER"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-41">
+        <addForeignKeyConstraint baseColumnNames="ID" baseTableName="CARRIER"
+                                 constraintName="FKPHSYXJBDK3J1LDRGBNB368TT6" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="USERS"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-42">
+        <addForeignKeyConstraint baseColumnNames="CITY_ID" baseTableName="ADDRESS"
+                                 constraintName="FKPO044NG5X4GYNB291CV24VTEA" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="CITY"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-43">
+        <addForeignKeyConstraint baseColumnNames="PARCEL_ID" baseTableName="ORDER_ITEM"
+                                 constraintName="FKR9EVVT02NPEO4VNQKT6O8A6SN" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="PARCEL"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-44">
+        <addForeignKeyConstraint baseColumnNames="REGION_ID" baseTableName="CITY"
+                                 constraintName="FKSI0DKM9KK6DYUEDMC0J18T770" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="REGION"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-45">
+        <addForeignKeyConstraint baseColumnNames="SENDER_ID" baseTableName="ORDERS"
+                                 constraintName="FKSKQEGAFX6RP5FT5UEGID9UULY" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="SENDER"/>
+    </changeSet>
+    <changeSet author="bghali (generated)" id="1574226994567-46">
+        <addForeignKeyConstraint baseColumnNames="ORDER_ID" baseTableName="ORDER_ITEM"
+                                 constraintName="FKT4DC2R9NBVBUJRLJV3E23IIBT" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="ID" referencedTableName="ORDERS"/>
+    </changeSet>
+</databaseChangeLog>
