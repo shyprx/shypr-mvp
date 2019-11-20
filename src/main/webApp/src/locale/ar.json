@@ -59,12 +59,15 @@
     "WEDNESDAY":"الإربعاء",
     "THURSDAY":"الخميس",
     "FRIDAY":"الجمعة",
-    "deliveryOn":"التوصيل يوم ",
+    "deliveryOn":"التوصيل خلال ",
     "SAR":"ريال",
     "requestNewShipment":"طلب شحنة",
     "shipmentList":"قائمة الشحنات",
     "getRate":"الحصول على السعر",
     "shipNow":"أشحن الآن!",
     "selectShippingCompany":"أختر شركة الشحن",
-    "shippingCompanies":"شركات الشحن"
+    "shippingCompanies":"شركات الشحن",
+    "_1_DAY":"يوم عمل",
+    "_3_DAYS":"ثلاث أيام عمل"
+    
 }

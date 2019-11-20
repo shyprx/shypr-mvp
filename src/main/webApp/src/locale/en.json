@@ -56,5 +56,7 @@
     "getRate":"Get rate",
     "shipNow":"Ship Now!",
     "selectShippingCompany":"Select Shipping Company",
-    "shippingCompanies": "Shipping Companies"
+    "shippingCompanies": "Shipping Companies",
+    "_1_DAY":"One day's work ",
+    "_3_DAYS":"Three days' work"
 }

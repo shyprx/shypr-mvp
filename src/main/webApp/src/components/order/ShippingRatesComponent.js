@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {FormattedMessage} from 'react-intl'
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
@@ -6,10 +6,12 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import InfoIcon from '@material-ui/icons/LocalShipping';
-import ARAMEX from './../../assets/images/logoWithName.png'
+import ShyprLogo from './../../assets/images/logoWithName.png'
 import SMSA from './../../assets/images/logoWithName.png'
 import DHL from './../../assets/images/logoWithName.png'
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
+import { WeightCategory, PaymentType, DeliveryTime } from './../../common/enums'
 
 const useStyles = makeStyles(theme => ({
   gridList: {
@@ -47,24 +49,32 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const tileData = [
-{img: ARAMEX,title: 'ARAMEX',price: '34',date: '10-12-2019',day:<FormattedMessage id='SATURDAY'/>},
-{img: DHL,title: 'DHL',price: '54',date: '22-1-2019',day:<FormattedMessage id='SUNDAY'/>},
-{img: SMSA,title: 'SMSA',price: '39',date: '21-11-2019',day:<FormattedMessage id='MONDAY'/>},
-{img: ARAMEX,title: 'ARAMEX',price: '24',date: '21-12-2019',day:<FormattedMessage id='TUESDAY'/>},
-{img: DHL,title: 'DHL',price: '55',date: '19-11-2019',day:<FormattedMessage id='WEDNESDAY'/>},
-{img: SMSA,title: 'SMSA',price: '44',date: '29-11-2019',day:<FormattedMessage id='THURSDAY'/>},
-{img: SMSA,title: 'SMSA',price: '25',date: '21-12-2019',day:<FormattedMessage id='FRIDAY'/>},
-{img: ARAMEX,title: 'ARAMEX',price: '24',date: '16-12-2019',day:<FormattedMessage id='SATURDAY'/>}];
-
-
 const ShippingRatesComponent = (props)=> {
     const classes = useStyles();
-    const sortedData = tileData.sort((a,b) => a.price < b.price)
-    const [company,setCompany] = useState(null)
+    const [rates,setRates] = useState([]);
+    console.log("rates",rates);
+    
+    useEffect(() => {
+      getAllRates()
+  }, [])
+
+  const getAllRates = () => {
+    axios.get('/api/shipping-rates/parcel-details', {params:{
+      fromCityId:1,
+      toCityId:2,
+      weightCategory:WeightCategory.KG_0_15,
+      cashOnDelivery:1,
+      parcelValue:1000}})
+    .then(response => {
+      setRates(response.data)
+    }).catch((error) =>{
+      console.log("Cannot fetch shipping rates!");
+      
+    })
+}
 
     const handleSelectRate = (rate) => {
-        setCompany(rate);
+        //setCompany(rate);
         props.history.push("/from-destination");
     }
 
@@ -72,14 +82,14 @@ const ShippingRatesComponent = (props)=> {
         <GridList cellHeight={180} className={classes.gridList}>
           <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
           </GridListTile>
-          {tileData.map(tile => (
-            <GridListTile key={tile.img}>
-              <img src={tile.img} alt={tile.title} />
+          {rates.map(rate => (
+            <GridListTile key={ShyprLogo}>
+              <img src={ShyprLogo} />
               <GridListTileBar 
-                title={<p className={classes.title}>{tile.price} <FormattedMessage id='SAR'/></p>}
-                subtitle={<p className ={classes.subtitle}><FormattedMessage id='deliveryOn'/>{tile.day}     {tile.date}</p>}
+                title={<p className={classes.title}>{rate.price} <FormattedMessage id='SAR'/></p>}
+                subtitle={<p className ={classes.subtitle}><FormattedMessage id='deliveryOn'/>{<FormattedMessage id={rate.deliveryTime}/>}</p>}
                 actionIcon={
-                    <button className={`btn btn-outline-light ${classes.icon}`} type='submit' onClick={() => handleSelectRate(tile)}>
+                    <button className={`btn btn-outline-light ${classes.icon}`} type='submit' onClick={() => handleSelectRate(rate.id)}>
                        <FormattedMessage id='shipNow'/>
                     </button>
                 }

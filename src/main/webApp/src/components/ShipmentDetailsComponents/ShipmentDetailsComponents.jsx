@@ -1,6 +1,7 @@
 import React from 'react';
 import FileSaver from 'file-saver'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -249,12 +250,16 @@ export default function ShipmentDetailsComponents() {
     </form>
     <form className={classes.container} noValidate autoComplete="off">
       <div>
+      <Link to='/self-Registration' style={{ margin: '0 auto' }}>
       <Button variant="contained" href="/to-destination" className={classes.button}>
         <FormattedMessage id="back" />
       </Button>
-      <Button variant="contained" color="primary"  href="/shipment-rates"  className={classes.button}>
+      </Link>
+      <Link to='/shipment-rates' style={{ margin: '0 auto' }}>
+      <Button variant="contained" color="primary" className={classes.button}>
         <FormattedMessage id="next" />
       </Button>
+      </Link>
     </div>
     </form>
     <button className={classes.button} onClick={() => doGenerateBarcode('123213')}>

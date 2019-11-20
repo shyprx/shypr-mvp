@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import { FormattedMessage } from 'react-intl';
 import { Paper, Typography, Tabs, Tab} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-
+import { Link } from 'react-router-dom'
 const useStyles = makeStyles(theme => ({
   container: {
     display: 'flex',
@@ -147,12 +147,16 @@ export default function ShipmentDestinationComponents() {
       </form>
       <form className={classes.container} noValidate autoComplete="off">
       <div>
-      <Button variant="contained" href="/from-destination" className={classes.button}>
+      <Link to='/from-destination' style={{ margin: '0 auto' }}>
+      <Button variant="contained" className={classes.button}>
         <FormattedMessage id="back" />
       </Button>
+      </Link>
+      <Link to='/viewSuccess' style={{ margin: '0 auto' }}>
       <Button variant="contained" color="primary" className={classes.button}>
         <FormattedMessage id="next" />
       </Button>
+      </Link>
     </div>
     </form>
           </Typography>
