@@ -1,0 +1,51 @@
+/**
+ * @Author: moalsabih
+ * @Date:   12-10-2017
+ * @Project: GACA - PERMITS
+ * @Last modified by:
+ * @Last modified time: 17-12-2017
+ */
+
+
+
+.inlineMessage {
+  padding: 10px 15px 23px;
+  line-height: 20px;
+  font-size: 17px;
+
+}
+
+.inlineInfo {
+  background-color: #daebf5;
+  color: #286c79;
+  animation: pulse 3s;
+}
+
+.inlineWarn {
+  background-color: #f5ebd4;
+  color: #826613;
+}
+
+.inlineSuccess{
+  background-color: #e2f5da;
+  color: #407928;
+}
+
+.changeColor {
+  animation: aerror 1s linear;
+}
+
+.inlineError {
+  animation: aerror 1s linear!important;
+  background-color: #f5dfda!important;
+  color: #b32828;
+}
+
+@keyframes aerror {
+  0% {
+    background-color: #f5b5a7;
+  }
+  100% {
+    background-color: #f5dfda;
+  }
+}

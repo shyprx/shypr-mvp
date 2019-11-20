@@ -1,0 +1,19 @@
+.col-form-label {
+    color: #99A6A6;
+}
+
+.required:after {
+    content: "*";
+    color: #cd2326;
+    display: inline;
+    line-height: 1;
+    padding-right: 3px;
+}
+
+.input-group-addon, .input-group-addon:hover, .input-group-addon:focus {
+    font-size: 1.2rem;
+    /* border-radius: 0; */
+    min-width: 40px;
+    background-color: #f1f1f1;
+    color: #4f5b66;
+}

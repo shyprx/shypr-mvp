@@ -1,0 +1,19 @@
+ 
+.status {padding: 3px 6px 4px 6px;font-size: 15px;line-height: 8px;color: #fff;text-align: center;white-space: nowrap;border-radius: 2px;display: inline-block;height: 21px;vertical-align: top;min-width: 60px;}
+.actions {text-align: center; min-width: 60px;}
+.action {color: #777;font-size: 20px;line-height: 16px;display: inline-block;margin: 0 5px;width: 20px;height: 20px;}
+.action .fa-eye{color: #e9ab15;}
+.action .fa-trash{color: #e36566;}
+.action .fa-pencil{color: #5cbdd5;}
+.action .fa-times{color: #e94848;}
+.action .fa-check{color: #22bf30;}
+.action .fa-gear{color: #797979;}
+.action .fa-copy{color: #d26ea5;}
+.action .fa-lock{color: #9a7017;}
+.action .fa-unlock-alt{ color: #bd9541;}
+.action.disabled .fa { color: #c1c1c1;}
+.action.disabled{ pointer-events: none; opacity: 0.5}
+.fa-power-on{ opacity: 0.4}
+.fa-power-on:before{content:"\f011"}
+.fa-power-off{color: #22c222;}
+.fa-file-excel{color: #555;}

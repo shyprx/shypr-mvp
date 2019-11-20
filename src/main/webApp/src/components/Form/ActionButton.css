@@ -1,0 +1,84 @@
+.action {
+  line-height: 16px;
+  margin: 0 3px;
+  width: 20px;
+  font: normal normal normal 14px/1 'Font Awesome 5';
+  display: inline-block;
+  text-rendering: auto;
+  cursor: pointer;
+}
+
+.action::before {
+  font-size: 20px;
+}
+
+.view, .edit, .delete, .lock, .unlock, .pdf, .excel,.play,.pause,.aprove ,.reject,.security{
+  line-height: 16px;
+  margin: 0 3px;
+  width: 20px;
+  font: normal normal normal 14px/1 'Font Awesome 5';
+  display: inline-block;
+  text-rendering: auto;
+  cursor: pointer;
+  float: none!important;
+}
+
+.view::before {
+  content: '\f06e';
+  color: #a47aba;
+  font-weight: bold;
+}
+
+.edit::before {
+  content: '\f040';
+  color: #5cbdd5;
+}
+
+.delete::before {
+  content: '\f1f8';
+  color: #e36566;
+}
+
+.lock::before {
+  content: '\f023';
+  color: #9a7017;
+}
+
+.unlock::before {
+  content: '\f13e';
+  color: #bd9541;
+}
+
+.pdf::before {
+  content: '\f1c1';
+  color: #e36566;
+}
+
+.excel::before {
+  content: '\f1c3';
+  color: #bd9541;
+}
+.play::before {
+  content: '\f04b';
+  color: #79bf82;
+}
+.pause::before {
+  content: '\f04c';
+  color: #c2185b;
+}
+.aprove::before {
+  content: '\f087';
+  color: #6eb76c;
+}
+.reject::before {
+  content: '\f088';
+  color: #e36566;
+}
+.security::before {
+  content: '\f080';
+  color: #222;
+}
+.tranfer::before {
+  content: '\f064';
+  color: #222;
+}

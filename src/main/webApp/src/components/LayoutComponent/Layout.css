@@ -1,0 +1,122 @@
+.page-wrapper {
+    min-height: 100vh;
+    min-height: calc(100vh - 60px);
+    overflow: hidden;
+  }
+  @media (min-width: 1470px){
+	.container {
+    width: 1400px;
+    max-width: 100%;
+}
+}
+a, a:hover, a:focus {
+    text-decoration: none;
+    color: inherit;
+}
+a, input, button {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.1s ease;
+    transition: all 0.5s ease;
+}
+.breadcrumb > .active {
+    color: #ccc;
+}
+.breadcrumb-item, .breadcrumb a {
+    color: #999;
+    display: inline-block;
+}
+a, a:hover, a:focus {
+    text-decoration: none;
+    color: inherit;
+}
+a, input, button {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.1s ease;
+    transition: all 0.5s ease;
+}
+.breadcrumb {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background-color: transparent;
+    color: #555;
+    font-size: 0.85rem;
+}
+
+.page-header {
+    position: relative;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    color: #e76908;
+    line-height: 2rem;
+    margin: 12px 0 28px;
+}
+.h1, .h2, .h3, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0px;
+    margin-bottom: 2rem;
+    font-family: 'ElmRegular', serif;
+    font-weight: 100;
+}
+
+
+.btn.btn-secondary {
+    color: #777;
+    background: #fff;
+}
+.page-header .btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #bd955b;
+}
+
+.pageContent {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 1px;
+    border: 1px solid rgb(240, 240, 240);
+    min-height: 275px;
+    box-shadow: 0px 0px 14.7px 0.3px rgba(0, 0, 0, 0.08);
+}
+body {
+    font-family: 'ElmRegular', serif;
+    padding: 0;
+    margin: 0;
+    direction: rtl;
+    font-size: inherit;
+    text-align: right;
+    background: #f6f6f6;
+}
+
+.btn.btn-primary {
+    background: #e76908;
+    color: #fff!important;
+    border-color: #c59e64;
+    border-radius: 0;
+}
+.btn {
+    border: 1px solid;
+    border-radius: 0;
+    cursor: pointer;
+    padding: 0.2rem 1.0rem 0.5rem;
+    font-size: 1.25rem;
+    min-width: 7rem;
+    text-transform: capitalize;
+}
+.form-control, input[type=file] {
+    box-shadow: 0 0 0;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    height: 2.625rem!important;
+    transition: all 0.5s ease-in-out;
+}
+hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
