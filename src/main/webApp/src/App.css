@@ -18,7 +18,7 @@
     margin: auto;
 }
 .container{
-    background-image: url("../src/assets/images/riyadh-background.png");
+    /* background-image: url("../src/assets/images/riyadh-background.png"); */
     background-repeat: no-repeat;
     background-size: 100%;
     margin: center

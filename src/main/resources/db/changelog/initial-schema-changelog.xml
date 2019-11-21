@@ -115,10 +115,12 @@
     </changeSet>
     <changeSet author="bghali (generated)" id="1574317629981-10">
         <createTable tableName="SHIPPING_LABEL">
+            <column autoIncrement="true" name="ID" type="BIGINT(19)">
+                <constraints primaryKey="true"/>
+            </column>
             <column name="STATUS" type="VARCHAR(255)"/>
             <column name="TRACKING_NUMBER" type="VARCHAR(255)"/>
             <column name="ORDER_ITEM_ID" type="BIGINT(19)">
-                <constraints nullable="false"/>
             </column>
             <column name="CARRIER_ID" type="BIGINT(19)"/>
         </createTable>
@@ -159,9 +161,6 @@
     </changeSet>
     <changeSet author="bghali (generated)" id="1574317629981-14">
         <addPrimaryKey columnNames="ID" constraintName="CONSTRAINT_9" tableName="SENDER"/>
-    </changeSet>
-    <changeSet author="bghali (generated)" id="1574317629981-15">
-        <addPrimaryKey columnNames="ORDER_ITEM_ID" constraintName="CONSTRAINT_A" tableName="SHIPPING_LABEL"/>
     </changeSet>
     <changeSet author="bghali (generated)" id="1574317629981-16">
         <addUniqueConstraint columnNames="EMAIL" constraintName="UK_6DOTKOTT2KJSP8VW4D0M25FB7" tableName="USERS"/>

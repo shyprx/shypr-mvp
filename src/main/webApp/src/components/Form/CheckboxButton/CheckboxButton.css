@@ -1,0 +1,169 @@
+/**
+ * @Author: moalsabih
+ * @Date:   28-11-2017
+ * @Project: GACA - PERMITS
+ * @Last modified by:   moalsabih
+ * @Last modified time: 28-11-2017
+ */
+
+
+
+.permitCheckbox {
+  display: none;
+}
+
+.permitCheckboxButton {
+  float: left;
+  position: relative;
+  font-size: 16px;
+  line-height: 38px;
+  margin-right: 0px;
+  margin-left: 10px;
+}
+
+.permitCheckboxButtonHidden {
+  float: left;
+  position: relative;
+  font-size: 16px;
+  line-height: 38px;
+  display: none;
+}
+
+
+*[dir=rtl] .permitCheckboxButton{
+  float: right;
+  margin-right: 10px;
+  margin-left: 0px;
+}
+
+.permitCheckboxButton label {
+  margin: 0 6px 0 30px;
+  cursor: pointer;
+}
+
+*[dir=rtl] .permitCheckboxButton label {
+  margin: -5px 30px 0 6px;
+
+}
+
+.permitCheckboxButton input[type=checkbox] + label:before {
+  content:"";
+  display:inline-block;
+  width: 22px;
+  height: 22px;
+  background: #fff url(../../assets/images/blue.png) no-repeat;
+  border: none;
+  cursor: pointer;
+  position:absolute;
+  right: inherit;
+  left: 0;
+  top: 10px;
+  background-position: -72px 0;
+}
+
+*[dir=rtl] .permitCheckboxButton input[type=checkbox] + label:before {
+  right: 0;
+  left: inherit;
+}
+
+.permitCheckboxButton input[type=checkbox]:checked + label:before {
+  background-position: -48px 0;
+}
+
+.choiceID {
+    padding: 0 7px 2px;
+    border-radius: 3px;
+    font-size: 13px;
+    background: #efefef;
+    color: #444;
+    margin: 0 6px 0 0;
+}
+
+*[dir=rtl] .choiceID {
+  padding: 0 7px 2px;
+  border-radius: 3px;
+  font-size: 13px;
+  background: #efefef;
+  color: #444;
+  margin: 0 0 0 5px;
+}
+
+.labelCheckbox {
+  font-weight: normal;
+width: 100%;
+height: 76%;
+-o-text-overflow: ellipsis;
+   text-overflow: ellipsis;
+overflow: hidden;
+line-height: 2.3;
+cursor: pointer
+}
+
+
+*[dir=rtl] .labelCheckbox{
+  line-height: 3;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+
+
+ .switch {
+   position: relative;
+   display: inline-block;
+   width: 60px;
+   height: 24px;
+ }
+
+ .switch input {display:none;}
+
+ .slider {
+   position: absolute;
+   cursor: pointer;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   /*background-color: #ccc;*/
+   background-color: #e91e4d;
+   -webkit-transition: .4s;
+   transition: .4s;
+ }
+
+ .slider:before {
+   position: absolute;
+   content: "";
+   height: 20px;
+   width: 20px;
+   left: 5px;
+   bottom: 2px;
+   background-color: blue;
+   -webkit-transition: .4s;
+   transition: .4s;
+ }
+
+ input:checked + .slider {
+   background-color: #8bc34a;
+ }
+
+ input:focus + .slider {
+   box-shadow: 0 0 1px #2196F3;
+ }
+
+ input:checked + .slider:before {
+   -webkit-transform: translateX(26px);
+   -ms-transform: translateX(26px);
+   transform: translateX(26px);
+   left: 9px;
+ }
+
+ /* Rounded sliders */
+ .slider.round {
+   border-radius: 34px;
+ }
+
+ .slider.round:before {
+   border-radius: 50%;
+ }

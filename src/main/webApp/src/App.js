@@ -22,7 +22,15 @@ import { Switch } from 'react-router-dom';
 import ShipmentDestinationComponents from './components/ShippingDetailsComponents/ShipmentDestinationComponents';
 import ShipmentOriginComponents from './components/ShippingDetailsComponents/ShipmentOriginComponents';
 import ShipmentDetailsComponents from './components/ShipmentDetailsComponents/ShipmentDetailsComponents';
-import FooterComponents from './components/FooterComponrnt/FooterComponents';
+import ShipmentRatesComponents from './components/order/ShippingRatesComponent';
+import ViewRegistration from './components/Registration/ViewRegistrationComponent'
+import SelfRegistrationComponent from './components/Registration/SelfRegistrationComponent'
+
+import LayoutComponent from './components/LayoutComponent/LayoutComponent';
+import RegistirationListComponent from './components/Registration/RegistirationListComponent';
+
+
+
 
 const messages = {
   'ar': messages_ar,
@@ -66,22 +74,23 @@ function App() {
           <IntlProvider locale={locale} messages={messages[locale]}>
             <AlertProvider template={AlertTemplate} {...alertOptions}>
               <Router>
-                <div className="container">
-                
-                  <Navbar />
+                  <LayoutComponent>
                   <Switch>
+                  <Route path='/self-Registration' component={SelfRegistrationComponent} />
+                  <Route path='/registration-list' component={RegistirationListComponent} />
+                  <Route path='/ViewRegistration' component={ViewRegistration} />
                     <Route path="/" exact component={HomeComponent} />
                     <Route path="/login" exact component={LoginComponent} className="center" />
                     <Route path="/home" exact component={HomeComponent} />
                     <OrderProvider>
                       <Route path="/from-destination" exact component={ShipmentOriginComponents} />
                       <Route path="/to-destination" exact component={ShipmentDestinationComponents} />
+                      <Route path="/shipment-rates" exact component={ShipmentRatesComponents} />
                       <Route path="/shipment-details" exact component={ShipmentDetailsComponents} />
                     </OrderProvider>
                     <AuthenticatedRoute path="/new-order/" component={OrderComponent} />
                   </Switch>
-                  <FooterComponents />
-                </div>
+                  </LayoutComponent>
               </Router>
             </AlertProvider>
           </IntlProvider>

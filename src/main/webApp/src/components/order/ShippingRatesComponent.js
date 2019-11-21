@@ -5,33 +5,32 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import IconButton from '@material-ui/core/IconButton';
-// import InfoIcon from '@material-ui/icons/LocalShipping';
+import InfoIcon from '@material-ui/icons/LocalShipping';
 import ARAMEX from './../../assets/images/aramex.svg'
 import SMSA from './../../assets/images/smsa-express.svg'
 import DHL from './../../assets/images/DHL_Logo.png'
+import { withRouter } from 'react-router-dom';
+import PageContentComponent from '../PageContent/PageContentComponent'
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
+  test:{
+    margin: '-11% 52% 12% 0',
   },
   gridList: {
-    width: 500,
+    //width: 500,
     height: 900,
   },
   icon: {
-    color: 'rgba(255, 255, 255, 0.54)',
+    marginLeft: '20px',
   },
   title:{
-    overflow: 'hidden',
-    fontSize: '1.2rem',
+    overflow: 'initial',
+    fontSize: '1.9rem',
     lineHeight: '24px',
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',
+    margin: '17% 5% 0 0',
+    
   },
   subtitle: {
     overflow: 'hidden',
@@ -39,9 +38,16 @@ const useStyles = makeStyles(theme => ({
     lineHeight: '1.5',
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',
+    margin: '0 45% 8% 0',
+    fontFamily:'unset'
   },
   titleFont:{
-    fontSize:'x-large'
+    fontSize:'x-large',
+  },
+  button: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
   },
 }));
 
@@ -56,40 +62,38 @@ const tileData = [
 {img: ARAMEX,title: 'ARAMEX',price: '24',date: '16-12-2019',day:<FormattedMessage id='SATURDAY'/>}];
 
 
-const ShippingRatesComponent = ()=> {
+const ShippingRatesComponent = (props)=> {
     const classes = useStyles();
     const sortedData = tileData.sort((a,b) => a.price < b.price)
     const [company,setCompany] = useState(null)
 
     const handleSelectRate = (rate) => {
         setCompany(rate);
-        this.props.selectedCompany()
+        props.history.push("/from-destination");
     }
-    console.log("company",company);
-    
+
     return (
-      <div className={classes.root}>
+      <PageContentComponent title={<FormattedMessage id='shippingCompanies' />}> 
         <GridList cellHeight={200} className={classes.gridList}>
           <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-            <ListSubheader component="div" className={classes.titleFont}><b>Rates</b></ListSubheader>
           </GridListTile>
           {tileData.map(tile => (
             <GridListTile key={tile.img}>
               <img src={tile.img} alt={tile.title} />
-              <GridListTileBar
-                title={<span>{tile.price} <FormattedMessage id='SAR'/></span>}
+              <GridListTileBar 
+                title={<p className={classes.title}>{tile.price} <FormattedMessage id='SAR'/></p>}
                 subtitle={<span className ={classes.subtitle}><FormattedMessage id='deliveryOn'/>{tile.day} <br/>{tile.date}</span>}
                 actionIcon={
-                    <button className={classes.icon} onClick={() => handleSelectRate(tile)}>
-                        {/* <InfoIcon /> */}
+                    <button className={`btn btn-outline-light ${classes.icon}`} type='submit' onClick={() => handleSelectRate(tile)}>
+                       <FormattedMessage id='shipNow'/>
                     </button>
                 }
               />
             </GridListTile>
           ))}
         </GridList>
-      </div>
+        </PageContentComponent>
     );
 }
 
-export default ShippingRatesComponent
+export default withRouter(ShippingRatesComponent)

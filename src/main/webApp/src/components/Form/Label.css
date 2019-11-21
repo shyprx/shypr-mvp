@@ -1,0 +1,33 @@
+/**
+ * @Author: moalsabih
+ * @Date:   12-10-2017
+ * @Project: GACA - PERMITS
+ * @Last modified by:   moalsabih
+ * @Last modified time: 04-11-2017
+ */
+
+
+
+.formLabel {
+  color: #555;
+  text-align: left;
+  font-weight: normal;
+  line-height: 28px;
+  padding-top: 5px;
+}
+
+*[dir=rtl] .formLabel {
+  text-align: right;
+}
+
+.required:after {
+  content: ' *';
+  color: red;
+}
+
+
+@media screen and (min-width: 480px) {
+  .formLabel {
+    white-space: nowrap;
+  }
+}

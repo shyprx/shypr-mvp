@@ -1,0 +1,181 @@
+
+ .button {
+    padding: 2px 30px 10px 30px;
+    font-size: 20px;
+    margin: 4px 2px;
+    min-width: 120px;
+  }
+  
+  .addButton {
+    outline: 0;
+    color: #666;
+    border: 1px solid #666;
+    font-size: 16px;
+    padding: 6px 30px 9px;
+    margin-left: 21px;
+  }
+  
+  .addButton:active, .addButton:focus, .addButton:hover {
+    text-decoration: none;
+    background-color: #F9FEFF;
+    color: #2a7fc2;
+    border: 1px solid #2a7fc2;
+  }
+  
+  .addButton::before {
+    content: '\f067';
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    padding: 0 8px 0 0;
+  }
+  
+  *[dir=rtl] .addButton::before {
+    padding: 0 0 0 8px;
+  }
+  
+  .defaultButton {
+    padding: 2px 30px 10px 30px;
+    font-size: 20px;
+    margin: 4px 2px;
+    min-width: 120px;
+    background: #f9f9f9;
+    color: #2a7fc2;
+    border: 1px solid #2a7fc2;
+  }
+  
+  .defaultButtonDisabled {
+    padding: 2px 30px 10px 30px;
+    font-size: 20px;
+    margin: 4px 2px;
+    min-width: 120px;
+    background-color: rgba(92, 163, 90, 0.18);
+    color: #6eb76c;
+    border: 1px solid #6eb76c;
+    cursor: default;
+  }
+  
+  .defaultButton:hover , .defaultButton:focus {
+    background-color: #2a7fc2;
+    color: #fff;
+    border: 1px solid #2a7fc2;
+  }
+  
+  .primaryButton {
+    padding: 2px 30px 10px 30px;
+    font-size: 20px;
+    margin: 4px 2px;
+    min-width: 120px;
+    color: #fff;
+    background-color: #2a7fc2;
+    border: 1px solid #274479;
+  }
+  .primaryButtonDisabled {
+    padding: 2px 30px 10px 30px;
+    font-size: 20px;
+    margin: 4px 2px;
+    min-width: 120px;
+    color: #fff;
+    opacity: .35;
+    background-color: #2a7fc2;
+    border: 1px solid #274479;
+  }
+  
+  .primaryButton:hover , .primaryButton:focus{
+    background-color: #274479;
+    border: 1px solid #274479;
+  }
+  
+  .primaryButton:active, .defaultButton:active {
+    box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+  }
+  
+  .disabled {
+    cursor: default;
+  }
+  
+  .primaryButton.disabled, .primaryButton.disabled:hover, .primaryButton.disabled:focus,
+   .primaryButton.disabled:active, .defaultButton.disabled, .defaultButton.disabled:hover, .defaultButton.disabled:focus,
+    .defaultButton.disabled:active {
+    background-color: rgba(92, 163, 90, 0.5);
+  }
+  
+  
+  a:focus, button:focus, a:visited, button:visited {
+    outline: 0 !important;
+    filter: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  
+  .btnPrimary {
+    background-color: #6eb76c;
+    border: 1px solid #5ca35a;
+    color: #fff;
+    padding: 3px 40px 10px;
+  }
+  
+  .btn {
+    font-family: din;
+    padding: 2px 30px 10px 30px;
+    font-size: 20px;
+    display: inline-block;
+    margin: 0 0.3em;
+  }
+  
+  .dangerousButton{
+    padding: 2px 30px 10px 30px;
+    font-size: 20px;
+    margin: 4px 5px;
+    min-width: 120px;
+    color: #fff;
+    background-color: #d9534f;
+    border: 1px solid #d43f3a;
+  }
+  
+  .dangerousButton:hover , .dangerousButton:focus{
+    background-color: #d43f3a;
+  }
+  
+  .smallButton{
+    color: #777;
+    border: 1px solid #999;
+    font-size: 16px;
+    padding: 1px 20px 5px;
+    height: 28px;
+    margin-top: 6px;
+    margin-left: 6px;
+    line-height: 17px;
+  }
+  
+  .smallButton:active, .smallButton:focus, .smallButton:hover {
+    text-decoration: none;
+    background-color: #f9fff9;
+    color: #52a250;
+    border: 1px solid #52a250;
+  }
+  
+  .greenButton{
+    padding: 2px 30px 10px 30px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #6eb76c;
+    border: 1px solid #5ca35a;
+    margin: 4px 5px;
+    min-width: 3em;
+  }
+
+  .printButton{
+    padding: 2px 30px 10px 30px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #ff6c00;
+    border: 1px solid #271b1738;
+    margin: 4px 5px;
+    min-width: 3em;
+  }
+  
+  .greenButton:hover , .greenButton:focus{
+    background-color: #61aa5f;
+  }
+  

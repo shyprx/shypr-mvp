@@ -1,0 +1,31 @@
+/* .container {
+  background: white;
+  color: #555;
+  font-size: 17px;
+  margin: -30px -30px 30px;
+  padding: 10px 30px;
+  height: 54px;
+  border-bottom: 1px solid #ececec;
+  background-color: #fbfbfb;
+}
+
+
+.export{color: #777;border: 1px solid #999;font-size: 16px;padding: 1px 20px 0px;height: 28px;margin-top: 6px;line-height: 17px;border-radius: 5px;}
+.export{float: right;margin: 1px 0 0 10px;}
+.export i{margin: 4px 8px 0 0;float:left;}
+.pdf:hover{color: #d81f1f;border: 1px solid #d81f1f;background-color: #fff;}
+.pdf:focus{color: #d81f1f;border: 1px solid #d81f1f;background-color: #fff;}
+.excel:hover{color: #37af34;border: 1px solid #37af34;background-color: #fff;}
+.excel:focus{color: #37af34;border: 1px solid #37af34;background-color: #fff;}
+
+
+*[dir=rtl] .export{color: #777;border: 1px solid #999;font-size: 16px;padding: 1px 20px 0px;height: 28px;margin-top: 6px;line-height: 17px;border-radius: 5px;}
+*[dir=rtl] .export {float: left;margin: 1px 10px 0 0;}
+*[dir=rtl] .export i{margin:4px 0 0 8px;float:right}
+*[dir=rtl] .pdf:hover{color: #d81f1f;border: 1px solid #d81f1f;background-color: #fff;}
+*[dir=rtl] .pdf:focus{color: #d81f1f;border: 1px solid #d81f1f;background-color: #fff;}
+*[dir=rtl] .excel:hover{color: #37af34;border: 1px solid #37af34;background-color: #fff;}
+*[dir=rtl] .excel:focus{color: #37af34;border: 1px solid #37af34;background-color: #fff;}
+*[dir=rtl] .container {
+  text-align: left;
+} */

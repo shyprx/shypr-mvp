@@ -1,0 +1,116 @@
+/**
+ * @Author: moalsabih
+ * @Date:   22-10-2017
+ * @Project: GACA - PERMITS
+ * @Last modified by:   moalsabih
+ * @Last modified time: 29-10-2017
+ */
+
+
+
+.progressBar {
+  position: relative;
+  height: 4px;
+  display: block;
+  width: 100%;
+  background-color: #13213541;
+  border-radius: 2px;
+  background-clip: padding-box;
+  overflow: hidden;
+}
+
+.progressBarBar .determinate {
+  position: absolute;
+  background-color: inherit;
+  top: 0;
+  bottom: 0;
+  background-color: #26a69a;
+  transition: width .3s linear;
+}
+
+.progressBar .indeterminate {
+  background-color: #2a7fc2;
+}
+
+.progressBar .indeterminate:before {
+  content: '';
+  position: absolute;
+  background-color: inherit;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  will-change: left, right;
+  animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+}
+
+.progressBar .indeterminate:after {
+  content: '';
+  position: absolute;
+  background-color: inherit;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  will-change: left, right;
+  animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+  animation-delay: 1.15s;
+}
+
+@-webkit-keyframes indeterminate {
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+  60% {
+    left: 100%;
+    right: -90%;
+  }
+  100% {
+    left: 100%;
+    right: -90%;
+  }
+}
+
+@keyframes indeterminate {
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+  60% {
+    left: 100%;
+    right: -90%;
+  }
+  100% {
+    left: 100%;
+    right: -90%;
+  }
+}
+
+@-webkit-keyframes indeterminate-short {
+  0% {
+    left: -200%;
+    right: 100%;
+  }
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+  100% {
+    left: 107%;
+    right: -8%;
+  }
+}
+
+@keyframes indeterminate-short {
+  0% {
+    left: -200%;
+    right: 100%;
+  }
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+  100% {
+    left: 107%;
+    right: -8%;
+  }
+}
