@@ -1,9 +1,3 @@
-/* eslint-disable react/jsx-indent */
-/* eslint-disable indent */
-/* eslint-disable react/sort-comp */
-/* eslint-disable space-before-blocks */
-/* eslint-disable import/order */
-/* eslint-disable no-unused-vars */
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
 import CheckboxButtonGroupComponent from '../Form/CheckboxButton/CheckboxButtonGroupComponent'
@@ -32,13 +26,13 @@ export default class SelfRegistrationComponent extends React.Component{
         this.handleRegisterByTypeChange = this.handleRegisterByTypeChange.bind(this)
         this.handleUserTypeChange = this.handleUserTypeChange.bind(this)
     }
-    getError(fieldId) {
-        const errors = this.props.valiadationErrors
-        if (errors[fieldId]) {
-            return <FormattedMessage id={errors[fieldId]} values={{ fieldName: <FormattedMessage id={fieldId} /> }} />
-        }
-        return null
-    }
+    // getError(fieldId) {
+    //     const errors = this.props.valiadationErrors
+    //     if (errors[fieldId]) {
+    //         return <FormattedMessage id={errors[fieldId]} values={{ fieldName: <FormattedMessage id={fieldId} /> }} />
+    //     }
+    //     return null
+    // }
 
     handleOrganizationTypeChange = (event) => {
         this.props.handleFieldUpdate('organizationType', event.target.id)
@@ -52,98 +46,53 @@ export default class SelfRegistrationComponent extends React.Component{
 
     
     renderCorpprateInfo(){
-        let { handleFieldUpdate, fields,locale } = this.props
-        let registerByTypes = [
-            {
-                value: <FormattedMessage id='iqamaId' />,
-                id: 'iqamaId',
-                show: true,
-                checked: fields.registerByTypes === 'iqamaId',
-            },
-            {
-                value: <FormattedMessage id='numberOfSponsors' />,
-                id: 'numberOfSponsors',
-                show: true,
-                checked: fields.registerByTypes === 'numberOfSponsors',
-            },
-        ]
-        let orgTypes = [
-
-            {
-                value: <FormattedMessage id='company' />,
-                id: 'company',
-                show: true,
-                checked: fields.organizationType === 'company',
-            },
-            {
-                value: <FormattedMessage id='corporation' />,
-                id: 'corporation',
-                show: true,
-                checked: fields.organizationType === 'corporation',
-            },
-        ]
+        let { handleFieldUpdate, fields,locale, crNumber } = this.props
    
         return(
             <div>
                 <SubtitleComponent title={<FormattedMessage id='orgInfo' />} isFirst={true} />
-                <RadioButtonGroupComponent groupName={locale =='en'?'organizationType':'نوع المنشأة'} radioItems={orgTypes}
+                {/* <RadioButtonGroupComponent groupName={locale =='en'?'organizationType':'نوع المنشأة'} 
                     onChange={this.handleOrganizationTypeChange}
-                />
+                /> */}
                 <FormGroupComponent>
-
-                    {fields['registerByTypes'] === 'iqamaId' ? null
-                        :
-                    <FormControlComponent
-                            label={<FormattedMessage id='numberOfSponsors' />}
-                        fieldId='sponsoredNumber'
-                        value={fields['sponsoredNumber']}
-                        required
-                        colSize={[2, 4]}
-                        onChange={handleFieldUpdate}
-                        errorMessage={this.getError('sponsoredNumber')}
-                    >
-                        <input type='text' />
-                        </FormControlComponent>}
                 </FormGroupComponent>
-                    {fields['organizationType'] !== 'government' ?
                         <FormGroupComponent>
                         <FormControlComponent
                             label={<FormattedMessage id='crNumber' />}
                             fieldId='crNumber'
-                            value={fields['crNumber']}
+                            // // value={crNumber}
                             required
                             colSize={[2, 4]}
                             onChange={handleFieldUpdate}
-                            errorMessage={this.getError('crNumber')}
+                            // errorMessage={this.getError('crNumber')}
                         >
                             <input type='text' />
                         </FormControlComponent>
                             <FormControlComponent
                                 label={<FormattedMessage id='crIssueDate' />}
                                 fieldId='crIssueDate'
-                                value={fields['crIssueDate']}
+                                // // value={fields['crIssueDate']}
                                 required
                                 colSize={[2, 4]}
                                 onChange={handleFieldUpdate}
-                                errorMessage={this.getError('crIssueDate')}
+                                // errorMessage={this.getError('crIssueDate')}
                             >
                                 <input type='text' />
                             </FormControlComponent>
-                            </FormGroupComponent>: null}
-                {fields['organizationType'] !== 'government'?
+                            </FormGroupComponent>
                 <FormGroupComponent>
                     <FormControlComponent
                             label={<FormattedMessage id='crEndDate' />}
                         fieldId='crEndDate'
-                        value={fields['crEndDate']}
+                        // // value={fields['crEndDate']}
                         required
                         colSize={[2, 4]}
                         onChange={handleFieldUpdate}
-                        errorMessage={this.getError('crEndDate')}
+                        // errorMessage={this.getError('crEndDate')}
                     >
                         <input  type='text' />
                     </FormControlComponent>
-                </FormGroupComponent>: null}
+                </FormGroupComponent>
             </div>
         )
     }
@@ -155,7 +104,7 @@ export default class SelfRegistrationComponent extends React.Component{
 
         <div className="form-horizontal">
             <div className="formGroup">
-                    {this.getError('location')}
+                    {/* {this.getError('location')} */}
                 {/* <LocationContainer handleFieldUpdate={handleFieldUpdate} isEditable={true} /> */}
             </div>
          </div>
@@ -179,22 +128,22 @@ export default class SelfRegistrationComponent extends React.Component{
                     <FormControlComponent
                         label={<FormattedMessage id='email' />}
                         fieldId='email'
-                        value={fields['email']}
+                        // value={fields['email']}
                         required
                         colSize={[2, 4]}
                         onChange={handleFieldUpdate}
-                        errorMessage={this.getError('email')}
+                        // errorMessage={this.getError('email')}
                     >
                         <input type='text' />
                     </FormControlComponent>
                     <FormControlComponent
                         label={<FormattedMessage id='mobileNumber' />}
                         fieldId='mobileNumber'
-                        value={fields['mobileNumber']}
+                        // value={fields['mobileNumber']}
                         required
                         colSize={[2, 4]}
                         onChange={handleFieldUpdate}
-                        errorMessage={this.getError('mobileNumber')}
+                        // errorMessage={this.getError('mobileNumber')}
                     >
                         <input type='text' />
                     </FormControlComponent>
@@ -203,22 +152,22 @@ export default class SelfRegistrationComponent extends React.Component{
                     <FormControlComponent
                         label={<FormattedMessage id='password' />}
                         fieldId='email'
-                        value={fields['email']}
+                        // value={fields['email']}
                         required
                         colSize={[2, 4]}
                         onChange={handleFieldUpdate}
-                        errorMessage={this.getError('email')}
+                        // errorMessage={this.getError('email')}
                     >
                         <input type='text' />
                     </FormControlComponent>
                     <FormControlComponent
                         label={<FormattedMessage id='rePassword' />}
                         fieldId='mobileNumber'
-                        value={fields['mobileNumber']}
+                        // value={fields['mobileNumber']}
                         required
                         colSize={[2, 4]}
                         onChange={handleFieldUpdate}
-                        errorMessage={this.getError('mobileNumber')}
+                        // errorMessage={this.getError('mobileNumber')}
                     >
                         <input type='text' />
                     </FormControlComponent>
@@ -236,22 +185,22 @@ export default class SelfRegistrationComponent extends React.Component{
                     <FormControlComponent
                         label={<FormattedMessage id='bankIBAN' />}
                         fieldId='email'
-                        value={fields['email']}
+                        // value={fields['email']}
                         
                         colSize={[2, 4]}
                         onChange={handleFieldUpdate}
-                        errorMessage={this.getError('email')}
+                        // errorMessage={this.getError('email')}
                     >
                         <input type='text' />
                     </FormControlComponent>
                     <FormControlComponent
                         label={<FormattedMessage id='bankIBANOwnerName' />}
                         fieldId='mobileNumber'
-                        value={fields['mobileNumber']}
+                        // value={fields['mobileNumber']}
                         
                         colSize={[2, 4]}
                         onChange={handleFieldUpdate}
-                        errorMessage={this.getError('mobileNumber')}
+                        // errorMessage={this.getError('mobileNumber')}
                     >
                         <input type='text' />
                     </FormControlComponent>
@@ -288,7 +237,7 @@ renderTerms(){
                                 <b> الشروط والاحكام </b>
                             </a>
                         </label>
-                    <span className="error-block px-4">  {this.getError('termsAndConditions')} </span>
+                    {/* <span className="error-block px-4">  {this.getError('termsAndConditions')} </span> */}
 
                         </div>
                 </div>

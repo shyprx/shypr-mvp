@@ -1,0 +1,183 @@
+@font-face {
+	font-family: "ElmRegular";
+	src: url('../../../assets/fonts/230163575-DINNextLTArabic-Regular.eot');
+	src: url('../../../assets/fonts/230163575-DINNextLTArabic-Regular.eot?#iefix') format('embedded-opentype'), url('../../../assets/fonts/230163575-DINNextLTArabic-Regular.svg#DIN Next LT Arabic') format('svg'), url('../../../assets/fonts/230163575-DINNextLTArabic-Regular.woff') format('woff'), url('../../../assets/fonts/230163575-DINNextLTArabic-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "ElmBold";
+	src: url('../../../assets/fonts/147277833-DINNextLTArabic-Medium.eot');
+	src: url('../../../assets/fonts/147277833-DINNextLTArabic-Medium.eot?#iefix') format('embedded-opentype'), url('../../../assets/fonts/147277833-DINNextLTArabic-Medium.svg#DIN Next LT Arabic') format('svg'), url('../../../assets/fonts/147277833-DINNextLTArabic-Medium.woff') format('woff'), url('../../../assets/fonts/147277833-DINNextLTArabic-Medium.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.page-wrapper {
+    min-height: 100vh;
+    min-height: calc(100vh - 60px);
+    overflow: hidden;
+  }
+  @media (min-width: 1470px){
+	.container {
+    width: 1400px;
+    max-width: 100%;
+}
+}
+a, a:hover, a:focus {
+    text-decoration: none;
+    color: inherit;
+}
+a, input, button {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.1s ease;
+    transition: all 0.5s ease;
+}
+.breadcrumb > .active {
+    color: #ccc;
+}
+.breadcrumb-item, .breadcrumb a {
+    color: #999;
+    display: inline-block;
+}
+a, a:hover, a:focus {
+    text-decoration: none;
+    color: inherit;
+}
+a, input, button {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.1s ease;
+    transition: all 0.5s ease;
+}
+.attachment {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.1s ease;
+    transition: all 0.5s ease;
+    color: #795548;
+    margin-top: 6px;
+    cursor: pointer;
+}
+.breadcrumb {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background-color: transparent;
+    color: #555;
+    font-size: 0.85rem;
+}
+
+.h1, .h2, .h3, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0px;
+    margin-bottom: 2rem;
+    font-weight: 100;
+}
+
+
+.btn.btn-secondary {
+    color: #777;
+    background: #fff;
+}
+
+
+.pageContent {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 1px;
+    border: 1px solid rgb(240, 240, 240);
+    min-height: 275px;
+    box-shadow: 0px 0px 14.7px 0.3px rgba(0, 0, 0, 0.08);
+}
+body {
+    padding: 0;
+    margin: 0;
+    direction: rtl;
+    font-size: inherit;
+    background: #f6f6f6;
+}
+
+.btn.btn-primary {
+    background: #BC955C;
+    color: #fff!important;
+    border-color: #c59e64;
+    border-radius: 0;
+    margin-right: 10px;
+}
+*[dir=ltr] .btn.btn-primary{
+    margin-left: 10px; 
+}
+
+.btn {
+    border: 1px solid;
+    border-radius: 0;
+    cursor: pointer;
+    padding: 0.2rem 1.0rem 0.5rem;
+    font-size: 1.25rem;
+    min-width: 7rem;
+    text-transform: capitalize;
+}
+
+.form-control, input[type=file] {
+    box-shadow: 0 0 0;
+    border-radius: 0px;
+    border: 1px solid #d5d5d5;
+    height: 2.625rem!important;
+    transition: all 0.5s ease-in-out;
+}
+hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.pageActions {
+    overflow: hidden;
+    background: #fdfdfd;
+    border: 0;
+    border-top: 1px solid #f1f1f1;
+    margin: 30px -20px -20px;
+    padding: 20px;
+    border-radius: 0;
+    text-align: center;
+}
+
+.successMessage{
+	font-size: 2rem;
+}
+.successHeader {
+	background: #22bf30;
+	margin: -20px -20px 30px;
+	padding: 20px 150px 20px 40px;
+	color: #fff;
+	position: relative;
+	border-radius: 0;
+	min-height: 140px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.successHeader:before{
+	content: "\f058";
+	display: inline-block;
+	font-family: 'Font Awesome 5', FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   position: absolute;
+   left: 40px;
+   top: 20px;
+   font-size: 70px;
+   color: #fff;
+}
+*[dir=ltr] .successHeader:before{
+    left: 900px;
+}
+.successHeader p{
+   font-size: 21px;
+   color: #ffffff;
+   margin: 10px 0;
+}

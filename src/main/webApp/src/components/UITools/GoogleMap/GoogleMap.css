@@ -1,0 +1,11 @@
+.formGroup {margin-bottom: 15px;}
+.formGroup .controlLabel {font-weight: normal;color: #555;line-height: 28px;padding-top: 5px;}
+.mapContainer{height: 300px;width: 100%;margin-bottom: 30px;/* border: 1px solid #dedede; */}
+.mapLocation{margin: -30px 0 10px;padding: 10px 20px 10px 20px;/* border: 1px solid #dedede; */border-top: none;}
+.addressDetails{border-radius: 10px;border: 1px solid #dedede;background: #fff;overflow: hidden;margin-top: 10px;}
+.addressDetailsError{border-radius: 10px;border: 2px solid red;background: #fff;overflow: hidden;margin-top: 10px;}
+.staticLabels{font-weight: normal;color: #555;padding-top: 5px;width: 100%}
+.formControlStatic{color: #6a8ba9;padding: 8px 0 0;}
+*[dir=ltr] .formControlStatic{text-align:left}
+*[dir=ltr] .staticLabels {text-align:left}
+/* .error{color: #E8120D;font-size: 13px;margin-bottom: 14px;display:block;line-height: 24px;} */

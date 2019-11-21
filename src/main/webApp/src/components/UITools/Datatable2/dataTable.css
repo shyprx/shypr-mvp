@@ -1,0 +1,101 @@
+.ReactTable{
+    border:0;
+}
+
+.ReactTable .rt-thead.-header {
+    box-shadow: none;
+    background: #f7f7f7;
+    border-bottom: 2px solid #000;
+}
+
+.ReactTable .rt-thead .rt-th,
+.ReactTable .rt-thead .rt-td{
+    color: #555;
+    font-size: 17px;
+    font-weight: 700;
+    background: none;
+    text-align: right;
+    vertical-align: text-top;
+    padding: 13px!important;
+    
+    border: 0;
+    line-height: 24px;
+    box-shadow: none;
+}
+*[dir=ltr] .ReactTable .rt-thead .rt-th,
+.ReactTable .rt-thead .rt-td{
+    color: #555;
+    font-size: 17px;
+    font-weight: 700;
+    background: none;
+    text-align: left;
+    vertical-align: text-top;
+    padding: 13px!important;
+    
+    border: 0;
+    line-height: 24px;
+    box-shadow: none;
+}
+
+.ReactTable .-pagination .-btn{
+    background: #fff
+}
+
+.ReactTable .-pagination .-btn:not([disabled]):hover{
+    background: #fff;
+    color: #000;
+}
+
+.ReactTable .-pagination{
+    box-shadow:none!important;
+    border: 0;
+    display:-webkit-box;
+    border-top: 1px solid;
+}
+
+
+
+.fromDateFilter{
+    float: right;
+    cursor: pointer;
+}
+.toDateFilter{
+    float: left;
+    cursor: pointer;
+}
+
+
+.ReactTable .rt-thead .rt-th.-cursor-pointer,
+.ReactTable .rt-thead .rt-td.-cursor-pointer{
+    padding-right:25px !important;
+}
+
+.ReactTable .rt-thead .rt-th.-cursor-pointer:before,
+.ReactTable .rt-thead .rt-td.-cursor-pointer:before{
+    content: "\f0dc";
+    font-family: "Font Awesome 5";
+    font-size: 12px;
+    color: #333333;
+    padding-right: 0.5em;
+    position: absolute;
+    right: 0;
+}
+
+
+.ReactTable .rt-thead .rt-th.-sort-asc,
+.ReactTable .rt-thead .rt-td.-sort-asc,
+.ReactTable .rt-thead .rt-th.-sort-desc,
+.ReactTable .rt-thead .rt-td.-sort-desc{
+    box-shadow: none;
+}
+ 
+.ReactTable .rt-thead .rt-th.-sort-desc:before,
+.ReactTable .rt-thead .rt-td.-sort-desc:before {
+    content: "\f0dd";
+}
+
+
+.ReactTable .rt-thead .rt-th.-sort-asc:before,
+.ReactTable .rt-thead .rt-td.-sort-asc:before {
+    content: "\f0de";
+}

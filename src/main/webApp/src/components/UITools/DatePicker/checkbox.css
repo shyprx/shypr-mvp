@@ -1,0 +1,62 @@
+/* input[type=checkbox] {
+    position: relative;
+    visibility: hidden;
+    cursor: pointer;
+}*/
+
+input[type=checkbox]:after {
+    display: block;
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 45px;
+    visibility: visible;
+    height: 25px;
+    line-height: 25px;
+    width: 25px;
+    text-align: center;
+    background: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    outline: 1px solid #000;
+}
+
+input[type=checkbox]:checked:after {
+    content: "\F14A";
+    color: #e9ab15;
+    font-family: FontAwesome;
+    height: 25px;
+    width: 25px;
+} 
+
+.marginR{
+margin-right:35% !important;
+}
+.marginB{
+margin-bottom:21%
+}
+
+.labelR{
+  margin-right: 0!important;
+}
+@media (max-width: 750px) {
+  .marginR{
+  margin-right:17% !important;
+  }
+
+  .labelR{
+    margin-right: 0!important;
+  }
+
+  }
+  @media (max-width: 1260px) and (min-width: 991px) {
+    .marginR{
+    margin-right:104% !important;
+    }
+
+labelR{
+  margin-right: 16px!important;
+}
+
+  }
