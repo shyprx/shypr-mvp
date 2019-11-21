@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import './App.css'
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import OrderComponent from './components/order/OrderComponent'
-import LoginComponent from './components/authentication/LoginComponent';
+import LoginComponent from './components/Login/LoginComponent';
 import AuthenticatedRoute from './components/authentication/AuthenticatedRoute';
 import configureAxiosInterceptors from './components/authentication/AxiosConfig'
 import { Provider as AlertProvider } from 'react-alert'
@@ -74,23 +74,23 @@ function App() {
           <IntlProvider locale={locale} messages={messages[locale]}>
             <AlertProvider template={AlertTemplate} {...alertOptions}>
               <Router>
-                  <LayoutComponent>
+                <LayoutComponent>
                   <Switch>
-                  <Route path='/self-Registration' component={SelfRegistrationComponent} />
-                  <Route path='/registration-list' component={RegistirationListComponent} />
-                  <Route path='/ViewRegistration' component={ViewRegistration} />
-                    <Route path="/" exact component={HomeComponent} />
-                    <Route path="/login" exact component={LoginComponent} className="center" />
+                    <Route path='/self-Registration' component={SelfRegistrationComponent} />
+                    <Route path='/registration-list' component={RegistirationListComponent} />
+                    <Route path='/ViewRegistration' component={ViewRegistration} />
+                    {/* <Route path="/" exact component={HomeComponent} /> */}
+                    {/* <Route path="/login" exact component={LoginComponent} className="center" /> */}
                     <Route path="/home" exact component={HomeComponent} />
                     <OrderProvider>
+                      <AuthenticatedRoute path="/new-order/" component={OrderComponent} />
                       <Route path="/from-destination" exact component={ShipmentOriginComponents} />
                       <Route path="/to-destination" exact component={ShipmentDestinationComponents} />
                       <Route path="/shipment-rates" exact component={ShipmentRatesComponents} />
                       <Route path="/shipment-details" exact component={ShipmentDetailsComponents} />
                     </OrderProvider>
-                    <AuthenticatedRoute path="/new-order/" component={OrderComponent} />
                   </Switch>
-                  </LayoutComponent>
+                </LayoutComponent>
               </Router>
             </AlertProvider>
           </IntlProvider>

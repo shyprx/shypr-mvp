@@ -2,8 +2,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { FormattedMessage } from 'react-intl';
-import { Paper, Typography, Tabs, Tab} from '@material-ui/core';
+import { Paper, Typography, Tabs, Tab } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import { NavLink } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -17,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
     width: 200,
-  },  
+  },
   textFieldBig: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
@@ -41,13 +42,13 @@ export default function ShipmentDestinationComponents() {
   };
 
   return (
-      <div>
-        <Paper className={classes.root}>
-        
-          <Typography className={classes.container} variant="h5" component="h3">
-            <FormattedMessage id='shipmenntDestination' />
-          </Typography>
-          <Typography component="p">
+    <div>
+      <Paper className={classes.root}>
+
+        <Typography className={classes.container} variant="h5" component="h3">
+          <FormattedMessage id='shipmenntDestination' />
+        </Typography>
+        <Typography component="p">
           <Tabs
             value={value}
             indicatorColor="primary"
@@ -55,110 +56,110 @@ export default function ShipmentDestinationComponents() {
             onChange={handleChange}
             aria-label="disabled tabs example"
           >
-            <Tab label={<FormattedMessage id='shipmenntOrigin' />} onClick="/from-destination"/>
+            <Tab label={<FormattedMessage id='shipmenntOrigin' />} onClick="/from-destination" />
             <Tab label="Active" />
             <Tab label={<FormattedMessage id='shipmenntDestination' />} onClick="/to-destination" />
           </Tabs>
           <form className={classes.container} noValidate autoComplete="on">
-        <div>
-            <React.Fragment>
-            <TextField
-            id="outlined-basic"
-            className={classes.textFieldBig}
-            label={<FormattedMessage id="fullName" />}
-            margin="normal"
-            variant="outlined"
-            />
-            </React.Fragment>
-        </div>
-        </form>
-        <form className={classes.container} noValidate autoComplete="off">
-        <div>
-            <React.Fragment>
-            <TextField
-            id="outlined-basic"
-            className={classes.textFieldBig}
-            label={<FormattedMessage id="dropOffAddress" />}
-            margin="normal"
-            variant="outlined"
-            />
-            </React.Fragment>
-        </div>
-        </form>
-    <form className={classes.container} noValidate autoComplete="off">
-      <div>
-        <React.Fragment>
-        <TextField
-          id="outlined-basic"
-          className={classes.textField}
-          label={<FormattedMessage id="region" />}
-          margin="normal"
-          variant="outlined"
-        />
-         <TextField
-          id="outlined-basic"
-          className={classes.textField}
-          label={<FormattedMessage id="city" />}
-          margin="normal"
-          variant="outlined"
-        />
-        </React.Fragment>
-      </div>
-    </form>
-    <form className={classes.container} noValidate autoComplete="off">
-      <div>
-        <React.Fragment>
-        <TextField
-          id="outlined-basic"
-          className={classes.textField}
-          label={<FormattedMessage id="district" />}
-          margin="normal"
-          variant="outlined"
-        />
-         <TextField
-          id="outlined-basic"
-          className={classes.textField}
-          label={<FormattedMessage id="zipCode" />}
-          margin="normal"
-          variant="outlined"
-        />
-        </React.Fragment>
-      </div>
-    </form>
-        <form className={classes.container} noValidate autoComplete="off">
-        <div>
-          <React.Fragment>
-          <TextField
-            id="outlined-basic"
-            className={classes.textField}
-            label={<FormattedMessage id="phone" />}
-            margin="normal"
-            variant="outlined"
-          />
-           <TextField
-            id="outlined-basic"
-            className={classes.textField} 
-            label={<FormattedMessage id="email" />}
-            margin="normal"
-            variant="outlined"
-          />
-          </React.Fragment>
-        </div>
-      </form>
-      <form className={classes.container} noValidate autoComplete="off">
-      <div>
-      <Button variant="contained" href="/from-destination" className={classes.button}>
-        <FormattedMessage id="back" />
-      </Button>
-      <Button variant="contained" color="primary" className={classes.button}>
+            <div>
+              <React.Fragment>
+                <TextField
+                  id="outlined-basic"
+                  className={classes.textFieldBig}
+                  label={<FormattedMessage id="fullName" />}
+                  margin="normal"
+                  variant="outlined"
+                />
+              </React.Fragment>
+            </div>
+          </form>
+          <form className={classes.container} noValidate autoComplete="off">
+            <div>
+              <React.Fragment>
+                <TextField
+                  id="outlined-basic"
+                  className={classes.textFieldBig}
+                  label={<FormattedMessage id="dropOffAddress" />}
+                  margin="normal"
+                  variant="outlined"
+                />
+              </React.Fragment>
+            </div>
+          </form>
+          <form className={classes.container} noValidate autoComplete="off">
+            <div>
+              <React.Fragment>
+                <TextField
+                  id="outlined-basic"
+                  className={classes.textField}
+                  label={<FormattedMessage id="region" />}
+                  margin="normal"
+                  variant="outlined"
+                />
+                <TextField
+                  id="outlined-basic"
+                  className={classes.textField}
+                  label={<FormattedMessage id="city" />}
+                  margin="normal"
+                  variant="outlined"
+                />
+              </React.Fragment>
+            </div>
+          </form>
+          <form className={classes.container} noValidate autoComplete="off">
+            <div>
+              <React.Fragment>
+                <TextField
+                  id="outlined-basic"
+                  className={classes.textField}
+                  label={<FormattedMessage id="district" />}
+                  margin="normal"
+                  variant="outlined"
+                />
+                <TextField
+                  id="outlined-basic"
+                  className={classes.textField}
+                  label={<FormattedMessage id="zipCode" />}
+                  margin="normal"
+                  variant="outlined"
+                />
+              </React.Fragment>
+            </div>
+          </form>
+          <form className={classes.container} noValidate autoComplete="off">
+            <div>
+              <React.Fragment>
+                <TextField
+                  id="outlined-basic"
+                  className={classes.textField}
+                  label={<FormattedMessage id="phone" />}
+                  margin="normal"
+                  variant="outlined"
+                />
+                <TextField
+                  id="outlined-basic"
+                  className={classes.textField}
+                  label={<FormattedMessage id="email" />}
+                  margin="normal"
+                  variant="outlined"
+                />
+              </React.Fragment>
+            </div>
+          </form>
+          <form className={classes.container} noValidate autoComplete="off">
+            <div>
+              <Button variant="contained" href="/from-destination" className={classes.button}>
+                <FormattedMessage id="back" />
+              </Button>
+              {/* <Button variant="contained" color="primary" className={classes.button}>
         <FormattedMessage id="next" />
-      </Button>
+      </Button> */}
+              <NavLink to="/to-destination"><FormattedMessage id="next" /></NavLink>
+            </div>
+          </form>
+        </Typography>
+      </Paper>
     </div>
-    </form>
-          </Typography>
-        </Paper>
-      </div>
   );
 }
- 
- 
+
