@@ -4,10 +4,10 @@ import OrderContext from '../context/OrderContext'
 const OrderProvider = (props) => {
 
     const [order, setOrder] = useState({
-        packageDetails: {},
-        pickUpAddress: {},
-        dropOffAddress: {},
-        quoteDetails: {},
+        parcel: {},
+        fromAddress: {},
+        toAddress: {},
+        shippingRate: {},
         labelDetails: {},
     })
 

@@ -38,17 +38,59 @@ const useStyles = makeStyles(theme => ({
 
 export default function ShipmentOriginComponents(props) {
   const classes = useStyles();
-  const [value, setValue] = useState(2);
-  const [state, setState] = useState({
-    checkedA: true,
-    checkedB: true,
-  });
+  const [personName, setPersonName] = useState(null);
+  const [description, setDescription] = useState(null);
+  const [mobileNo, setMobileNo] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [cityId, setCityId] = useState(null);
+  const [region, setRegion] = useState(null);
+  const [city, setCity] = useState(null);
+  const [district, setDistrict] = useState(null);
+  const [zipCode, setZipCode] = useState(null);
   const Order = useContext(OrderContext)
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const parcel = Order.order.parcel
+console.log("Parcel:",parcel);
+console.log("Order.order:",Order.order);
+  const handleChangePersonName = event => {
+    setPersonName(event.target.value)
   };
-console.log("Order",Order);
+
+  const handleChangeDescription = event => {
+    setDescription(event.target.value)
+  };
+
+  const handleChangeMobileNo = event => {
+    setMobileNo(event.target.value)
+  }; 
+  
+  const handleChangeEmail = event => {
+    setEmail(event.target.value)
+  }
+
+  const handleChangeCityId = event => {
+    setCityId(event.target.value)
+  }
+
+  const handleChangeRegion = event => {
+    setRegion(event.target.value)
+  }
+
+  const handleChangeCity = event => {
+    setCity(event.target.value)
+  }
+
+  const handleChangeDistrict = event => {
+    setDistrict(event.target.value)
+  }
+
+  const handleChangeZipCode = event => {
+    setZipCode(event.target.value)
+  }
+
+  const  mergeFields = () => {
+    const fromAddressObj = {personName:personName,description:description,mobileNo:mobileNo,cityId:cityId}
+    Order.setOrder({...Order.order,fromAddress:fromAddressObj})
+  }
 
   return (
       <div>
@@ -57,18 +99,6 @@ console.log("Order",Order);
             <FormattedMessage id='shipmenntOrigin' />
           </Typography>
           <Typography component="p">
-          {/* <Tabs
-            value={value}
-            indicatorColor="primary"
-            textColor="primary"
-            onChange={handleChange}
-            aria-label="disabled tabs example"
-          >
-            <Tab label={<FormattedMessage id='shipmenntOrigin' />} onClick="/from-destination"/>
-            <Tab label="Active" />
-            <Tab label={<FormattedMessage id='shipmenntDestination' />} onClick="/to-destination" />
-          </Tabs> */}
-          
            <form className={classes.container} noValidate autoComplete="on">
               <FormControl component="fieldset">
                 <FormGroup aria-label="position" row>
@@ -90,6 +120,9 @@ console.log("Order",Order);
             label={<FormattedMessage id="fullName" />}
             margin="normal"
             variant="outlined"
+            value={personName}
+            name='personName'
+            onChange={handleChangePersonName}
             />
             </React.Fragment>
         </div>
@@ -103,6 +136,9 @@ console.log("Order",Order);
             label={<FormattedMessage id="pickupAddress" />}
             margin="normal"
             variant="outlined"
+            value={description}
+            name='description'
+            onChange={handleChangeDescription}
             />
             </React.Fragment>
         </div>
@@ -117,6 +153,9 @@ console.log("Order",Order);
           label={<FormattedMessage id="region" />}
           margin="normal"
           variant="outlined"
+          value={region}
+          name='region'
+          onChange={handleChangeRegion}
         />
          <TextField 
           disabled
@@ -125,6 +164,9 @@ console.log("Order",Order);
           label={<FormattedMessage id="city" />}
           margin="normal"
           variant="outlined"
+          value={city}
+          name='city'
+          onChange={handleChangeCity}
         />
         </React.Fragment>
       </div>
@@ -138,6 +180,9 @@ console.log("Order",Order);
           label={<FormattedMessage id="district" />}
           margin="normal"
           variant="outlined"
+          value={district}
+          name='district'
+          onChange={handleChangeDistrict}
         />
          <TextField
           id="outlined-basic"
@@ -145,6 +190,9 @@ console.log("Order",Order);
           label={<FormattedMessage id="zipCode" />}
           margin="normal"
           variant="outlined"
+          value={zipCode}
+          name='zipCode'
+          onChange={handleChangeZipCode}
         />
         </React.Fragment>
       </div>
@@ -158,6 +206,9 @@ console.log("Order",Order);
             label={<FormattedMessage id="phone" />}
             margin="normal"
             variant="outlined"
+            value={mobileNo}
+            name='mobileNo'
+            onChange={handleChangeMobileNo}
           />
            <TextField
             id="outlined-basic"
@@ -165,6 +216,9 @@ console.log("Order",Order);
             label={<FormattedMessage id="email" />}
             margin="normal"
             variant="outlined"
+            value={email}
+            name='email'
+            onChange={handleChangeEmail}
           />
           </React.Fragment>
         </div>
@@ -177,7 +231,7 @@ console.log("Order",Order);
       </Button>
       </Link>
       <Link to='/to-destination' style={{ margin: '0 auto' }}>
-      <Button variant="contained" color="primary"  href="/to-destination"  className={classes.button}>
+      <Button variant="contained" color="primary" className={classes.button} onClick={() => mergeFields()}>
         <FormattedMessage id="next" />
       </Button>
       </Link>

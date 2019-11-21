@@ -57,8 +57,8 @@ const ShippingRatesComponent = (props)=> {
     const classes = useStyles();
     const [rates,setRates] = useState([]);
     const Order = useContext(OrderContext)
-    const packageDetails = Order.order.packageDetails
-    console.log("packageDetails",packageDetails);
+    const parcel = Order.order.parcel
+    console.log("packageDetails",parcel);
     
     
     useEffect(() => {
@@ -67,11 +67,11 @@ const ShippingRatesComponent = (props)=> {
 
   const getAllRates = () => {
     axios.get('/api/shipping-rates/parcel-details', {params:{
-      fromCityId:packageDetails.fromCityId,
-      toCityId:packageDetails.toCityId,
-      weightCategory:packageDetails.weightCategory,
-      cashOnDelivery:packageDetails.cashOnDelivery,
-      parcelValue:packageDetails.parcelValue}})
+      fromCityId:parcel.fromCityId,
+      toCityId:parcel.toCityId,
+      weightCategory:parcel.weightCategory,
+      cashOnDelivery:parcel.cashOnDelivery,
+      parcelValue:parcel.parcelValue}})
     .then(response => {
       setRates(response.data)
     }).catch((error) =>{
@@ -81,10 +81,7 @@ const ShippingRatesComponent = (props)=> {
 }
 
     const handleSelectRate = (rate) => {
-      const quoteDetails = {id:rate.id};
-      Order.setOrder({quoteDetails:quoteDetails});
-      // <Link to='/shipment-details' style={{ margin: '0 auto' }}/>
-      //props.history.push("/")
+      Order.setOrder({...Order.order,shippingRate:{id:rate}});
     }
 
     return (
@@ -99,9 +96,11 @@ const ShippingRatesComponent = (props)=> {
                 title={<p className={classes.title}>{rate.price} <FormattedMessage id='SAR'/></p>}
                 subtitle={<p className ={classes.subtitle}><FormattedMessage id='deliveryOn'/>{<FormattedMessage id={rate.deliveryTime}/>}</p>}
                 actionIcon={
-                    <button className={`btn btn-outline-light ${classes.icon}`} type='submit' onClick={() => handleSelectRate(rate.id)}>
-                       <FormattedMessage id='shipNow'/>
-                    </button>
+                      <Link to='/from-destination' style={{ margin: '0 auto' }}>
+                          <button className={`btn btn-outline-light ${classes.icon}`} type='submit' onClick={() => handleSelectRate(rate.id)}>
+                            <FormattedMessage id='shipNow'/>
+                          </button>
+                      </Link>
                 }
               />
             </GridListTile>

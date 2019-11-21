@@ -132,8 +132,8 @@ export default function ShipmentDetailsComponents() {
       })
   }
  const  mergeFields = () => {
-   const packageDetailsObj = {fromCityId:fromCity,toCityId:toCity,weightCategory:weightCategory,cashOnDelivery:enableCashOnD,dropPick:dropPick,parcelValue:parcelValue}
-   Order.setOrder({packageDetails:packageDetailsObj})
+   const parcelObj = {fromCityId:fromCity,toCityId:toCity,weightCategory:weightCategory,cashOnDelivery:enableCashOnD,dropPick:dropPick,parcelValue:parcelValue}
+   Order.setOrder({parcel:parcelObj})
  }
   return (
     <div>
