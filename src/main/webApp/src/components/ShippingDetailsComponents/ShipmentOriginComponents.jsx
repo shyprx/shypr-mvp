@@ -127,7 +127,7 @@ console.log("Order.order:",Order.order);
             </React.Fragment>
         </div>
         </form>
-        <form className={classes.container} noValidate autoComplete="off">
+        <form className={classes.container} noValidate autoComplete="on">
         <div>
             <React.Fragment>
             <TextField
@@ -143,7 +143,7 @@ console.log("Order.order:",Order.order);
             </React.Fragment>
         </div>
         </form>
-    <form className={classes.container} noValidate autoComplete="off">
+    <form className={classes.container} noValidate autoComplete="on">
       <div>
         <React.Fragment>
         <TextField
@@ -171,7 +171,7 @@ console.log("Order.order:",Order.order);
         </React.Fragment>
       </div>
     </form>
-    <form className={classes.container} noValidate autoComplete="off">
+    <form className={classes.container} noValidate autoComplete="on">
       <div>
         <React.Fragment>
         <TextField
@@ -197,7 +197,7 @@ console.log("Order.order:",Order.order);
         </React.Fragment>
       </div>
     </form>
-        <form className={classes.container} noValidate autoComplete="off">
+        <form className={classes.container} noValidate autoComplete="on">
         <div>
           <React.Fragment>
           <TextField
@@ -223,7 +223,7 @@ console.log("Order.order:",Order.order);
           </React.Fragment>
         </div>
       </form>
-      <form className={classes.container} noValidate autoComplete="off">
+      <form className={classes.container} noValidate autoComplete="on">
       <div>
       <Link to='/shipment-rates' style={{ margin: '0 auto' }}>
       <Button variant="contained" href="/shipment-rates" className={classes.button}>

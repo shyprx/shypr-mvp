@@ -30,6 +30,10 @@ public class OrderItem extends AbstractAuditingEntity {
     @JoinColumn(name = "shipping_rate_id")
     private ShippingRate shippingRate;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "SHIPPING_LABEL_ID")
+    private ShippingLabel shippingLabel;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     private Order order;

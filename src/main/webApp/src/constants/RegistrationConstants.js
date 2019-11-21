@@ -1,0 +1,12 @@
+
+const constants = {
+    UPDATE_FIELD : 'UPDATE_FIELD',
+    FIELD_HAS_ERROR: 'FIELD_HAS_ERROR',
+    FIELD_IS_VALID: 'FIELD_IS_VALID',
+    ADD_REGISTRATION:'ADD_REGISTRATION',
+    SHOW_MODAL: 'SHOW_MODAL',
+    HIDE_MODAL:'HIDE_MODAL',
+    RESET:'RESET',
+}
+
+export default constants

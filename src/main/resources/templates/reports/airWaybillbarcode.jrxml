@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="288" pageHeight="432" columnWidth="288" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="a2658fd0-5609-434b-bc28-a55ae70dc2a9">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
@@ -55,53 +55,33 @@
 			<variableExpression><![CDATA[$F{description}]]></variableExpression>
 		</variable>
 	</subDataset>
-	<parameter name="DataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<parameter name="ImagesDir" class="java.lang.String"/>
-	<parameter name="IsArabic" class="java.lang.Boolean"/>
-	<parameter name="Barcode" class="java.lang.String">
-		<parameterDescription><![CDATA[]]></parameterDescription>
-	</parameter>
-	<parameter name="destnation" class="java.lang.String">
-		<parameterDescription><![CDATA[]]></parameterDescription>
-	</parameter>
-	<parameter name="AirportName" class="java.lang.String"/>
-	<parameter name="IssuedBy" class="java.lang.String"/>
-	<parameter name="Packages" class="java.lang.String"/>
-	<parameter name="Rate" class="java.lang.String"/>
-	<parameter name="Dimension" class="java.lang.String">
-		<parameterDescription><![CDATA[]]></parameterDescription>
-	</parameter>
-	<parameter name="Description" class="java.lang.String"/>
-	<parameter name="Note" class="java.lang.String"/>
-	<parameter name="From" class="java.lang.String"/>
-	<parameter name="TO" class="java.lang.String">
-		<parameterDescription><![CDATA[]]></parameterDescription>
-	</parameter>
-	<parameter name="pickupDate" class="java.util.Date">
-		<parameterDescription><![CDATA[]]></parameterDescription>
-	</parameter>
-	<parameter name="shprref" class="java.lang.String"/>
-	<parameter name="ConsRef" class="java.lang.String"/>
-	<parameter name="Weight" class="java.lang.Double">
-		<parameterDescription><![CDATA[]]></parameterDescription>
-	</parameter>
-	<parameter name="PkgWeight" class="java.lang.Double">
-		<parameterDescription><![CDATA[]]></parameterDescription>
-	</parameter>
-	<parameter name="Origin" class="java.lang.String">
-		<parameterDescription><![CDATA[]]></parameterDescription>
-	</parameter>
+	<parameter name="senderName" class="java.lang.String"/>
+	<parameter name="fromAddress" class="java.lang.String"/>
+	<parameter name="fromCity" class="java.lang.String"/>
+	<parameter name="fromMobileNo" class="java.lang.String"/>
+	<parameter name="receiverName" class="java.lang.String"/>
+	<parameter name="toAddress" class="java.lang.String"/>
+	<parameter name="toCity" class="java.lang.String"/>
+	<parameter name="toMobileNo" class="java.lang.String"/>
+	<parameter name="carrierName" class="java.lang.String"/>
+	<parameter name="price" class="java.math.BigDecimal"/>
+	<parameter name="pickupType" class="java.lang.String"/>
+	<parameter name="deliveryType" class="java.lang.String"/>
+	<parameter name="barcode" class="java.lang.String"/>
+	<parameter name="shyprLogo" class="java.io.InputStream"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
 	<title>
 		<band height="60" splitType="Stretch">
-			<componentElement>
-				<reportElement x="90" y="20" width="244" height="30" uuid="5fdb4b8b-67d4-4614-a11a-83631e840a7d"/>
-				<jr:Code39 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<jr:codeExpression><![CDATA[$P{Barcode}]]></jr:codeExpression>
-				</jr:Code39>
-			</componentElement>
+			<image>
+				<reportElement x="19" y="4" width="250" height="56" uuid="8c74a36c-41ca-4167-9b9d-d21c523013c7">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<imageExpression><![CDATA[$P{shyprLogo}]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<columnHeader>
@@ -110,85 +90,86 @@
 	<detail>
 		<band height="356">
 			<rectangle>
-				<reportElement x="1" y="0" width="149" height="53" uuid="9d6393d3-9641-4328-b854-751e5ad5bddb"/>
+				<reportElement x="1" y="0" width="149" height="140" uuid="9d6393d3-9641-4328-b854-751e5ad5bddb"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="150" y="0" width="138" height="53" uuid="80fb60c1-9c19-4d32-be99-bbba3ebbee8f"/>
-			</rectangle>
-			<textField>
-				<reportElement x="9" y="5" width="131" height="20" uuid="cade850b-4f67-49dc-9c43-da61495c7191"/>
-				<textFieldExpression><![CDATA["Destination:"]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="10" y="23" width="130" height="30" uuid="582f4ec1-8fbf-405c-bbb0-4e31f71c227e"/>
-				<textFieldExpression><![CDATA[$P{destnation}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="160" y="5" width="120" height="30" uuid="7a4c9e1f-035c-46d5-9f04-39ea28425d60"/>
-				<textFieldExpression><![CDATA["Airport"]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="160" y="30" width="120" height="30" uuid="b779c205-77e7-4c57-83f2-33290f8d1cc6"/>
-				<textFieldExpression><![CDATA[$P{AirportName}]]></textFieldExpression>
-			</textField>
-			<rectangle>
-				<reportElement x="1" y="53" width="149" height="37" uuid="5fc49e81-3e3d-43b8-9b4d-e5a8297d13d7"/>
+				<reportElement x="150" y="0" width="138" height="140" uuid="80fb60c1-9c19-4d32-be99-bbba3ebbee8f"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="150" y="53" width="138" height="37" uuid="fd744fef-6689-450c-9fe3-83e64beee24c"/>
+				<reportElement x="1" y="140" width="287" height="100" uuid="cc35f3b6-1fd3-4da0-a60a-7fcefc5150a7"/>
 			</rectangle>
-			<rectangle>
-				<reportElement x="1" y="90" width="149" height="29" uuid="d4b2e648-3681-448e-a8dd-853c6b2c0277"/>
-			</rectangle>
-			<rectangle>
-				<reportElement x="150" y="90" width="138" height="29" uuid="446d88e7-0397-468d-9239-6ff12320d709"/>
-			</rectangle>
-			<rectangle>
-				<reportElement x="150" y="119" width="138" height="31" uuid="4a655ed4-acc2-4efc-a4c9-5bd0c25d8b3b"/>
-			</rectangle>
-			<rectangle>
-				<reportElement x="1" y="119" width="149" height="31" uuid="f48e2826-288b-4084-a928-93af44239166"/>
-			</rectangle>
-			<rectangle>
-				<reportElement x="1" y="150" width="287" height="50" uuid="cc35f3b6-1fd3-4da0-a60a-7fcefc5150a7"/>
-			</rectangle>
-			<rectangle>
-				<reportElement x="1" y="200" width="287" height="50" uuid="04d3073f-019c-464c-9cd4-a809cccc6f65"/>
-			</rectangle>
-			<rectangle>
-				<reportElement x="1" y="250" width="287" height="40" uuid="77829b57-74c0-4746-8f6c-1194e8409e8e"/>
-			</rectangle>
+			<componentElement>
+				<reportElement x="49" y="310" width="190" height="30" uuid="5fdb4b8b-67d4-4614-a11a-83631e840a7d"/>
+				<jr:Code39 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA[$P{barcode}]]></jr:codeExpression>
+				</jr:Code39>
+			</componentElement>
+			<staticText>
+				<reportElement x="10" y="10" width="60" height="20" uuid="19c6819a-eef1-4200-a7a2-4dd65f564828"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[From]]></text>
+			</staticText>
 			<textField>
-				<reportElement x="9" y="53" width="131" height="30" uuid="4074f206-74cb-4417-98a1-f7ee0d2233fa"/>
-				<textFieldExpression><![CDATA["Issued By:"+$P{IssuedBy}]]></textFieldExpression>
+				<reportElement x="10" y="30" width="100" height="20" uuid="9c6d6650-f154-4096-8973-b02e88bd6b95"/>
+				<textFieldExpression><![CDATA[$P{senderName}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="160" y="53" width="120" height="30" uuid="913bf206-5cd2-4eee-9603-16a185bcd4aa"/>
-				<textFieldExpression><![CDATA["Origin :"+$P{Origin}]]></textFieldExpression>
+				<reportElement x="10" y="50" width="100" height="20" uuid="95927242-dcb6-4778-ba36-aa398ef3b152"/>
+				<textFieldExpression><![CDATA[$P{fromAddress}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="9" y="90" width="131" height="30" uuid="d1ba608f-5bc0-410c-bfef-e05c2acb26ae"/>
-				<textFieldExpression><![CDATA["Packages: "+$P{Packages}]]></textFieldExpression>
+				<reportElement x="10" y="70" width="100" height="20" uuid="cab110bd-a5d8-48d9-8bd7-fe47d884c08c"/>
+				<textFieldExpression><![CDATA[$P{fromCity}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="160" y="90" width="120" height="30" uuid="721b9b9b-9500-4146-a9f0-72751533d9a3"/>
-				<textFieldExpression><![CDATA["Gross Weight: "+$P{Weight}+" KG"]]></textFieldExpression>
+				<reportElement x="10" y="90" width="100" height="20" uuid="07327c75-1e05-4531-a7db-8908205ce39d"/>
+				<textFieldExpression><![CDATA[$P{fromMobileNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="160" y="10" width="60" height="20" uuid="7479cddb-7d6f-4b0a-a777-c615acceb8fe"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[To]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="160" y="30" width="100" height="20" uuid="6ed84ddb-4518-450f-a7ad-9f21feb9572c"/>
+				<textFieldExpression><![CDATA[$P{receiverName}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="10" y="119" width="130" height="30" uuid="84c1a4c7-b24f-4ab1-a34d-fba652990151"/>
-				<textFieldExpression><![CDATA["FROM:"+$P{From}]]></textFieldExpression>
+				<reportElement x="160" y="50" width="100" height="20" uuid="7c2b5910-f005-4392-9e07-347c59af5bdb"/>
+				<textFieldExpression><![CDATA[$P{toAddress}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="160" y="120" width="120" height="30" uuid="fc6cf5dc-368a-4b9e-80b9-60b55bc03e20"/>
-				<textFieldExpression><![CDATA["TO :"+$P{TO}]]></textFieldExpression>
+				<reportElement x="160" y="70" width="100" height="20" uuid="31a955dc-04bb-498b-b660-955f55cae21f"/>
+				<textFieldExpression><![CDATA[$P{toCity}]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="20" y="300" width="310" height="56" uuid="8c74a36c-41ca-4167-9b9d-d21c523013c7">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<imageExpression><![CDATA[$P{ImagesDir}+"shypr-logo.png"]]></imageExpression>
-			</image>
+			<textField>
+				<reportElement x="160" y="90" width="100" height="20" uuid="54a7117a-506a-4298-bb9b-cbc53e2ff250"/>
+				<textFieldExpression><![CDATA[$P{toMobileNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="150" width="220" height="20" uuid="948d8d05-4ef1-4ac8-96e0-a96288229e71"/>
+				<textFieldExpression><![CDATA[$P{carrierName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="170" width="50" height="20" uuid="3737ecf4-eec6-4f12-a9e0-6dfb19bdb08d"/>
+				<text><![CDATA[Total price: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="170" width="50" height="20" uuid="d83c7e14-64c9-4981-83a5-eab5763df461"/>
+				<textFieldExpression><![CDATA[$P{price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="190" width="100" height="20" uuid="912551cf-dfa0-4933-b203-f452a71608a0"/>
+				<textFieldExpression><![CDATA[$P{deliveryType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="210" width="100" height="20" uuid="24824563-c66b-414d-832e-304e3ec4f742"/>
+				<textFieldExpression><![CDATA[$P{pickupType}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 </jasperReport>

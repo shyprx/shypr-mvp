@@ -1,0 +1,44 @@
+/**
+ * @Author: moalsabih
+ * @Date:   31-10-2017
+ * @Project: GACA - PERMITS
+ * @Last modified by:   moalsabih
+ * @Last modified time: 31-10-2017
+ */
+
+
+
+ .staticDataGroup{
+   margin: -30px -30px 0px;
+   background-color: #fff;
+   padding: 20px 30px 30px 30px;
+ }
+
+ .staticElement {
+   color: #3399ff;
+   padding: 8px 5px 0;
+   line-height: 38px;
+ }
+
+ .staticContainer {
+   margin-bottom: 0
+ }
+
+ .staticViewButton {
+   padding: 8px 0 0;
+   margin-left: 6px;
+   margin-top: 6px;
+ }
+ .dashIt {
+  border-bottom: #33b4e4 dashed 0.1em;
+  cursor: pointer;
+  padding: 0;
+}
+
+.staticDisplay {
+  display: contents;
+}
+
+.dashedPostion {
+  margin-top: 0.4em;
+}

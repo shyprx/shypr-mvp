@@ -1,0 +1,56 @@
+/* .hideRadio {
+  display: none;
+}
+
+.radioButton {
+  float: left;
+  position: relative;
+  font-size: 16px;
+  line-height: 38px;
+}
+
+.radioButtonHidden {
+  float: left;
+  position: relative;
+  font-size: 16px;
+  line-height: 38px;
+  display: none;
+}
+
+*[dir=rtl] .radioButton{
+  float: right
+}
+
+.radioButton label {
+  margin: 0 20px 0 30px;
+  cursor: pointer;
+}
+
+*[dir=rtl] .radioButton label {
+  margin: 0 30px 0 20px;
+}
+
+.radioButton input[type=radio] + label:before {
+  content:"";
+  display:inline-block;
+  width: 22px;
+  height: 22px;
+  background: #fff url(../../../assets/images/blue.png) no-repeat;
+  border: none;
+  cursor: pointer;
+  position:absolute;
+  right: inherit;
+  left: 0;
+  top: 10px;
+  background-position: -120px 0;
+  border-radius: 50%;
+}
+
+*[dir=rtl] .radioButton input[type=radio] + label:before {
+  right: 0;
+  left: inherit;
+}
+
+.radioButton input[type=radio]:checked + label:before {
+  background-position: -168px 0;
+} */

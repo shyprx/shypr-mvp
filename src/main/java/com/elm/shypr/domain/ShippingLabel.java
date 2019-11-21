@@ -23,6 +23,7 @@ public class ShippingLabel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "tracking_number", unique = true)
@@ -33,10 +34,10 @@ public class ShippingLabel implements Serializable {
     private LabelStatus status;
 
     @ManyToOne
-    @JsonIgnoreProperties("labels")
+    @JoinColumn(name = "CARRIER_ID")
     private Carrier carrier;
 
-    @MapsId
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ORDER_ITEM_ID")
     private OrderItem orderItem;
 }

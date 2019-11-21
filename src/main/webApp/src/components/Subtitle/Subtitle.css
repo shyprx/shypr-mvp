@@ -1,0 +1,45 @@
+/**
+ * @Author: moalsabih
+ * @Date:   22-10-2017
+ * @Project: GACA - PERMITS
+ * @Last modified by:   moalsabih
+ * @Last modified time: 26-11-2017
+ */
+
+.subtitle {
+  margin: 0px -20px 30px -20px;
+  padding: 8px 10px;
+  height: 55px;
+  border-top: 1px solid #d2d6de;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #f7f7f7;
+}
+
+.subtitle h2 {
+    float: left;
+    font-weight: lighter;
+    color: #444;
+}
+
+.subtitle img {
+  float: left;
+  margin-left: 5px;
+  margin-top: 7px;
+}
+
+*[dir='rtl'] .subtitle img{
+  float: right;
+  transform: initial;
+}
+
+*[dir='rtl'] .subtitle h2{
+  float: right;
+}
+
+.subtitle a {
+  float: right;
+}
+
+*[dir='rtl'] .subtitle a{
+  float: left;
+}

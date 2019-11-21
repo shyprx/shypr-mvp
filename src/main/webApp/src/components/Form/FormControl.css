@@ -1,0 +1,62 @@
+/**
+ * @Author: moalsabih
+ * @Date:   12-10-2017
+ * @Project: GACA - PERMITS
+ * @Last modified by:   moalsabih
+ * @Last modified time: 04-11-2017
+ */
+
+
+
+.formField {
+  box-shadow: none!important;
+  border-radius: 0!important;
+  font-size: 16px!important;
+  border: 1px solid #d2d6de!important;
+  height: 42px!important;
+  color: #666666!important;
+  padding: 5px 12px 8px 12px!important;
+}
+
+.formField:focus {
+  border-color: #2a7fc2!important;
+  outline: 0!important;
+  -webkit-box-shadow: none!important;
+  box-shadow: none!important;
+  color: #1371bb!important;
+}
+
+.hasError, .hasError:focus {
+  border-color: #e89fb3!important;
+  outline: 0!important;
+  background-color: #fffcfc!important;
+  box-shadow: none!important;
+}
+
+.error {
+  color: #E8120D!important;
+  font-size: 13px!important;
+  line-height: 18px!important;
+  background: none;
+  animation: none;
+  margin: 0;
+}
+
+.help {
+  font-size: 13px!important;
+  line-height: 18px!important;
+  color: #7d7d7d!important;
+}
+
+.uploadError{
+  color: #E8120D!important;
+  font-size: 13px!important;
+  line-height: 18px!important;
+  animation: aerror 1s linear;
+  background-color: #f5dfda;
+
+}
+
+*[dir=rtl] .changeDirection {
+         direction:ltr;
+    }
