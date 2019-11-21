@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import './App.css'
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import OrderComponent from './components/order/OrderComponent'
-import LoginComponent from './components/Login/LoginComponent';
+import LoginComponent from './components/Login/loginComponent';
 import AuthenticatedRoute from './components/authentication/AuthenticatedRoute';
 import configureAxiosInterceptors from './components/authentication/AxiosConfig'
 import { Provider as AlertProvider } from 'react-alert'
