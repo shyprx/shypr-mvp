@@ -2,8 +2,9 @@ import React, {useState,useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { FormattedMessage } from 'react-intl';
-import { Paper, Typography, Tabs, Tab, FormGroup, FormControlLabel, Switch, FormControl} from '@material-ui/core';
+import { Paper, Typography, Tabs, Tab, FormGroup, FormControlLabel, Switch, FormControl } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import { NavLink } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import OrderContext from '../../common/context/OrderContext';
 
@@ -20,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
     width: 200,
-  },  
+  },
   textFieldBig: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
@@ -61,8 +62,8 @@ console.log("Order.order:",Order.order);
 
   const handleChangeMobileNo = event => {
     setMobileNo(event.target.value)
-  }; 
-  
+  };
+
   const handleChangeEmail = event => {
     setEmail(event.target.value)
   }
@@ -157,7 +158,7 @@ console.log("Order.order:",Order.order);
           name='region'
           onChange={handleChangeRegion}
         />
-         <TextField 
+         <TextField
           disabled
           id="outlined-basic"
           className={classes.textField}
@@ -212,7 +213,7 @@ console.log("Order.order:",Order.order);
           />
            <TextField
             id="outlined-basic"
-            className={classes.textField} 
+            className={classes.textField}
             label={<FormattedMessage id="email" />}
             margin="normal"
             variant="outlined"
@@ -226,12 +227,12 @@ console.log("Order.order:",Order.order);
       <form className={classes.container} noValidate autoComplete="on">
       <div>
       <Link to='/shipment-rates' style={{ margin: '0 auto' }}>
-      <Button variant="contained" href="/shipment-rates" className={classes.button}>
+      <Button  className={"btn btn-secondary"}>
         <FormattedMessage id="back" />
       </Button>
       </Link>
       <Link to='/to-destination' style={{ margin: '0 auto' }}>
-      <Button variant="contained" color="primary" className={classes.button} onClick={() => mergeFields()}>
+      <Button  className={"btn btn-primary"} onClick={() => mergeFields()}>
         <FormattedMessage id="next" />
       </Button>
       </Link>
@@ -242,4 +243,3 @@ console.log("Order.order:",Order.order);
       </div>
   );
 }
- 

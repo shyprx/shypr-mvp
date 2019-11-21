@@ -1,0 +1,92 @@
+.checkboxSearch {
+    position: relative;
+    padding-left: 1em;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+*[dir=rtl] .checkboxSearch {
+    position: relative;
+    padding-right: 1em;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.checkboxSearch:before {
+    position: absolute;
+    content: "\f002";
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 11px 0;
+    font-size: 17px;
+    color: #ccc;
+    width: 50px;
+    text-align: center;
+    right: 0;
+    left: unset;
+}
+
+*[dir=rtl] .checkboxSearch:before {
+    position: absolute;
+    content: "\f002";
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 11px 0;
+    font-size: 17px;
+    color: #ccc;
+    width: 50px;
+    text-align: center;
+    left: 0;
+    right: unset;
+}
+
+.checkboxSearch .form_control {
+    border: none;
+    padding: 1px 0 8px 0;
+    outline: none;
+}
+
+.form_control {
+    box-shadow: none;
+    font-size: 16px;
+    color: #666666;
+    height: 42px;
+    border-radius: 8px;
+}
+.form_control {
+    display: block;
+    width: 100%;
+    line-height: 1.42857143;
+    background-color: #fff;
+    background-image: none;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.checkboxContainer, .listBoxContainer {
+    margin: 0;
+    border: 1px solid #f1f1f1;
+    overflow: hidden;
+    background: #fff;
+}
+
+.checkboxContainer .slimScrollDiv {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+    width: auto;
+    height: 165px;
+    overflow-y: auto;
+}
+
+.slimScrollDiv .scroll {
+    margin: 2px 15px 5px 15px;
+    overflow: hidden;
+    width: auto;
+    height: 160px;
+}

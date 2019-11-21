@@ -1,0 +1,19 @@
+.page-header{ position: relative}
+*[dir=ltr] .page-header{ position: right}
+.page-header h1{font-size: 2rem;color: #BC955C;line-height: 2rem;margin: 12px 0 28px;font-family: 'din', serif; }
+*[dir=ltr] .page-header h1{font-size: 2rem;color: #BC955C;line-height: 2rem;margin: 12px 0 28px; text-align: left;font-family: 'din', serif;}
+
+.page-header .btn{position: absolute;top: 0;left: 0;color: #bd955b;}
+*[dir='ltr'] .page-header .btn{right: 0;left: auto;}
+
+.page-header .btn.printAddress { left: 140px;}
+.page-header .btn:hover,.page-header .btn:focus{color: #fff;background: #bd955b;border-color: #bd955b;}
+
+
+.pageContent {background-color: #fff;padding: 20px;border-radius: 0px;border: 1px solid rgb(240, 240, 240);min-height: 275px;box-shadow: 0px 0px 14.7px 0.3px rgba(0, 0, 0, 0.08);}
+*[dir=ltr] .pageContent {
+    direction: ltr!important;
+    text-align: left!important;
+}
+*[dir=ltr].pageContent{text-align: left}
+

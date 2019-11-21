@@ -69,11 +69,11 @@ const ShippingRatesComponent = (props)=> {
 
 const getAllRates = () => {
   axios.get('/api/shipping-rates/parcel-details', {params:{
-    fromCityId:parcel.fromCityId,
-    toCityId:parcel.toCityId,
-    weightCategory:parcel.weightCategory,
-    cashOnDelivery:parcel.cashOnDelivery,
-    parcelValue:parcel.parcelValue}})
+    fromCityId:1,
+    toCityId:2,
+    weightCategory:WeightCategory.KG_0_15,
+    cashOnDelivery:true,
+    parcelValue:1000}})
   .then(response => {
     setRates(response.data)
   }).catch((error) =>{

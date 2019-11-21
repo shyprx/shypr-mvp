@@ -1,0 +1,29 @@
+
+/* .lang-switch {
+    position: absolute;
+    top: -1px;
+    left: 710px;
+    padding: 3px 10px 5px;
+    font-size: 14px;
+    color: #34b4e4;
+    background: #ffffff;
+    border: 1px solid;
+    border-radius: 0 0 10px 10px;
+    border-top: 0;
+    z-index: 11;
+    font-family: inherit;
+} */
+
+.rmButton{
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+.rmButton:focus {
+    outline: none;
+}
+

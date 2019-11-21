@@ -7,13 +7,13 @@ import './NavMenu.css'
 // import '../../assets/css/bootstrap-ar.min.css'
 
 const navbarItems = [
-  {
-    path: '/',
-    allowedRoles: ['admin', 'normal'],
-    icon: <i className="fa fa-home" />,
-    name: <FormattedMessage id='home' />,
-    chiledrens: [],
-  },
+  // {
+  //   path: '/',
+  //   allowedRoles: ['admin', 'normal'],
+  //   icon: <i className="fa fa-home" />,
+  //   name: <FormattedMessage id='home' />,
+  //   chiledrens: [],
+  // },
   // {
   //   path: '/self-Registration',
   //   icon: <i className="fa fa-sticky-note" />,
@@ -21,27 +21,27 @@ const navbarItems = [
   //   name: <FormattedMessage id='selfRegistraion' />,
   //   chiledrens: [],
   // },
-  {
-    path: '/registration-list',
-    icon: <i className="fa fa-list" />,
-    allowedRoles: ['admin', 'normal'],
-    name: <FormattedMessage id='registrationList' />,
-    chiledrens: [],
-  },
+  // {
+  //   path: '/registration-list',
+  //   icon: <i className="fa fa-list" />,
+  //   allowedRoles: ['admin', 'normal'],
+  //   name: <FormattedMessage id='registrationList' />,
+  //   chiledrens: [],
+  // },
   {
     path: '/shipment-details',
     icon: <i className="fa fa-file-alt" />,
     allowedRoles: ['admin', 'normal'],
-    name: <FormattedMessage id='requestNewShipment' />,
+    name: <FormattedMessage id='newOrder' />,
     chiledrens: [],
-  },
-  {
-    path: '/shipment-rates',
-    icon: <i className="fa fa-list" />,
-    allowedRoles: ['admin', 'normal'],
-    name: <FormattedMessage id='shipmentList' />,
-    chiledrens: [],
-  },
+  }
+  // {
+  //   path: '/shipment-rates',
+  //   icon: <i className="fa fa-list" />,
+  //   allowedRoles: ['admin', 'normal'],
+  //   name: <FormattedMessage id='shipmentList' />,
+  //   chiledrens: [],
+  // },
   // {
   //   path: '/operation-cards',
   //   // main: () => <OperationCardsComponent />,
@@ -79,22 +79,22 @@ export default class NavMenuComponent extends React.Component {
         <ul className='list-group'>
           {
             navbarItems.map(item => (item.chiledrens.length === 0 ? (
-              <li onClick={() => { document.body.classList.remove('nav-open') }} className={location === item.path? 'list-group-item active': 'list-group-item'}>
+              <li onClick={() => { document.body.classList.remove('nav-open') }} className={location === item.path ? 'list-group-item active' : 'list-group-item'}>
                 {this.renderLink(item)}
               </li>
             ) : (
-              <li onClick={() => { document.body.classList.remove('nav-open') }} className={location === item.path? 'list-group-item active': 'list-group-item'}>
-                <Section name={item.name} children={item.chiledrens}>
-                  {item.chiledrens.map(subItem => (
-                    <NavLink to={subItem.path}>
-                      <div className='chiled'>
-                        {subItem.name}
-                      </div>
-                    </NavLink>
-                  ))}
-                </Section>
-              </li>
-            )))
+                <li onClick={() => { document.body.classList.remove('nav-open') }} className={location === item.path ? 'list-group-item active' : 'list-group-item'}>
+                  <Section name={item.name} children={item.chiledrens}>
+                    {item.chiledrens.map(subItem => (
+                      <NavLink to={subItem.path}>
+                        <div className='chiled'>
+                          {subItem.name}
+                        </div>
+                      </NavLink>
+                    ))}
+                  </Section>
+                </li>
+              )))
           }
         </ul>
       </div>)

@@ -24,6 +24,10 @@ export default class FormControlComponent extends React.Component {
   }
 
   onChange(event) {
+    console.log("event",event);
+    console.log("target",event.target);
+    
+    
     if(this.props.onChange){
       this.props.onChange(event.target.id, event.target.value)
     }

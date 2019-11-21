@@ -42,6 +42,7 @@ const LoginComponent = (props) => {
                 AuthenticationService.registerSuccessfulLogin(credentials.username)
                 publishAuthenticated(response.data)
                 userContext.setUser(response.data)
+                props.onLoginSuccess(true)
                 props.history.push('/home')
             })
             .catch(error => {
@@ -67,10 +68,10 @@ const LoginComponent = (props) => {
             <br />
             <br />
             <form onKeyPress={event => {
-                                if (event.key === 'Enter') {
-                                    attemptLogin(event)
-                                }
-                              }} >
+                if (event.key === 'Enter') {
+                    attemptLogin(event)
+                }
+            }} >
                 <div className={classnames('form-group', 'row')} >
                     <label className="col-sm-2 col-form-label"><FormattedMessage id='username' /></label>
                     <div className='col-sm-4'>
@@ -88,7 +89,7 @@ const LoginComponent = (props) => {
                             className={classnames('form-control', formErrors.password && 'border-danger')}
                             placeholder="Password"
                             onChange={handleCredentialsChange} value={credentials.password}
-                            />
+                        />
                         {formErrors.password && <span className='text-danger'>{formErrors.password}</span>}
 
                     </div>
@@ -100,8 +101,8 @@ const LoginComponent = (props) => {
             </div>
             <br />
             {loginError && <div className={classnames('col-sm-6', 'alert', 'alert-danger')}><FormattedMessage id="badCredentials" /></div>}
-                
-            
+
+
         </div >
     )
 }

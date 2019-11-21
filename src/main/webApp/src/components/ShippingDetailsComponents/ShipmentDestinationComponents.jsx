@@ -2,12 +2,13 @@ import React, {useState,useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { FormattedMessage } from 'react-intl';
-import { Paper, Typography, Tabs, Tab} from '@material-ui/core';
+import { Paper, Typography, Tabs, Tab } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom'
 import OrderContext from '../../common/context/OrderContext';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -22,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
     width: 200,
-  },  
+  },
   textFieldBig: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
@@ -63,8 +64,8 @@ console.log("Order.order - Destination:",Order.order);
 
   const handleChangeMobileNo = event => {
     setMobileNo(event.target.value)
-  }; 
-  
+  };
+
   const handleChangeEmail = event => {
     setEmail(event.target.value)
   }
@@ -108,14 +109,14 @@ console.log("Order.order - Destination:",Order.order);
       props.history.push("/viewSuccess")
     }).catch((error) =>{
       console.log("Cannot RESPONSE FROM BACKEND");
-      
+
     })
 }
   return (
     <div>
     <Paper  className={classes.root}>
       <Typography className={classes.container} variant="h5" component="h3">
-        <FormattedMessage id='shipmenntOrigin' />
+        <FormattedMessage id='shipmenntDestination' />
       </Typography>
       <Typography component="p">
       <form className={classes.container} noValidate autoComplete="on">
@@ -164,7 +165,7 @@ console.log("Order.order - Destination:",Order.order);
       name='region'
       onChange={handleChangeRegion}
     />
-     <TextField 
+     <TextField
       disabled
       id="outlined-basic"
       className={classes.textField}
@@ -219,7 +220,7 @@ console.log("Order.order - Destination:",Order.order);
       />
        <TextField
         id="outlined-basic"
-        className={classes.textField} 
+        className={classes.textField}
         label={<FormattedMessage id="email" />}
         margin="normal"
         variant="outlined"
@@ -251,4 +252,3 @@ console.log("Order.order - Destination:",Order.order);
 }
  
 export default withRouter(ShipmentDestinationComponents)
- 

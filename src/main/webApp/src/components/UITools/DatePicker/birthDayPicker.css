@@ -1,0 +1,25 @@
+
+.formControl {box-shadow: none;border-radius: 0;font-size: 16px;border: 1px solid #e1e1e1;color: #666666;height: 42px;padding: 5px 12px  8px 12px;}
+.formControl[type=password]{padding: 6px 12px;}
+select.formControl {font-size: 16px;padding: 0 12px 6px;height: 40px;}
+.table select.formControl {padding: 1px 4px 1px 4px;font-size: 13px;height: 28px;}
+.formControl:focus {border-color: #aaa;outline: 0;-webkit-box-shadow: none;box-shadow: none;color: #444;}
+.formControl-static {color: #6a8ba9;padding: 8px 0 0;}
+.form-horizontal .has-feedback .formControl-feedback.fa { left: 0; padding: 7px; font-size: 21px; color: #CACACA; }
+.has-feedback .formControl:focus + .fa { color: #006BB6 }
+.formControl[disabled], .formControl[readonly], fieldset[disabled] .formControl { background-color: #F8FBFD; }
+.formControl-static {}
+.input-group .formControl[disabled],.date-picker .formControl[readonly]{background-color: #fff;}
+.lt-ie10 .formControl{padding: 0 10px 0 0}
+
+.formControl > option {line-height: 28px}
+
+
+/* iCheck
+----------------------------------- */
+
+.checkboxSearch .formControl{border: none;padding: 1px 0 8px 0;}
+.formControl::-webkit-input-placeholder {color: #ccc;}
+.formControl::-moz-placeholder {color: #ccc;}
+.formControl:-ms-input-placeholder {color: #ccc;}
+.formControl:-moz-placeholder {color: #ccc;}

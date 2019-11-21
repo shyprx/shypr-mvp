@@ -1,19 +1,16 @@
 import React from 'react'
-import StepZilla from "react-stepzilla"
 import '../../assets/css/StepZilla.css'
-import Home from '../HomeComponent'
-import classnames from 'classnames'
+import ShipmentDetailsComponents from '../ShipmentDetailsComponents/ShipmentDetailsComponents';
 
 
 
 
-const OrderComponent = ()=> {
 
-   
-    return(
+const OrderComponent = () => {
+    return (
         <div className="text-center">
-            <Home/>
-       </div>
+            <ShipmentDetailsComponents />
+        </div>
     )
 }
 
