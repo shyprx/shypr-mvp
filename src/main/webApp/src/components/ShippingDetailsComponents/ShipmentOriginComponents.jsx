@@ -172,7 +172,9 @@ export default function ShipmentOriginComponents() {
               {/* <Button variant="contained" color="primary"  href="/to-destination"  className={classes.button}>
         <FormattedMessage id="next" />
       </Button> */}
-              <NavLink to="/to-destination"><FormattedMessage id="next" /></NavLink>
+              <Button variant="contained" color="primary" className={classes.button}>
+                <NavLink to="/to-destination"><FormattedMessage id="next" /></NavLink>
+              </Button>
             </div>
           </form>
         </Typography>

@@ -28,7 +28,7 @@ import SelfRegistrationComponent from './components/Registration/SelfRegistratio
 
 import LayoutComponent from './components/LayoutComponent/LayoutComponent';
 import RegistirationListComponent from './components/Registration/RegistirationListComponent';
-
+import OrderSuccessfulComponent from './components/order/OrderSuccessfulComponent'
 
 
 
@@ -88,6 +88,7 @@ function App() {
                       <Route path="/to-destination" exact component={ShipmentDestinationComponents} />
                       <Route path="/shipment-rates" exact component={ShipmentRatesComponents} />
                       <Route path="/shipment-details" exact component={ShipmentDetailsComponents} />
+                      <AuthenticatedRoute exact path="/order-successful" component={OrderSuccessfulComponent} />
                     </OrderProvider>
                   </Switch>
                 </LayoutComponent>

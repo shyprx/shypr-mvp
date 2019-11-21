@@ -5,8 +5,8 @@ import ShipmentDetailsComponents from '../ShipmentDetailsComponents/ShipmentDeta
 
 
 
-const OrderComponent = () => {
 
+const OrderComponent = () => {
     return (
         <div className="text-center">
             <ShipmentDetailsComponents />

@@ -154,12 +154,14 @@ export default function ShipmentDestinationComponents() {
               {/* <Button variant="contained" color="primary" className={classes.button}>
         <FormattedMessage id="next" />
       </Button> */}
-              <NavLink to="/to-destination"><FormattedMessage id="next" /></NavLink>
+              <Button variant="contained" color="primary" className={classes.button}>
+                <NavLink to="/order-successful"><FormattedMessage id="next" /></NavLink>
+              </Button>
             </div>
           </form>
         </Typography>
       </Paper>
-    </div>
+    </div >
   );
 }
 
