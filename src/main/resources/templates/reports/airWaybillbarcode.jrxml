@@ -70,6 +70,7 @@
 	<parameter name="deliveryType" class="java.lang.String"/>
 	<parameter name="barcode" class="java.lang.String"/>
 	<parameter name="shyprLogo" class="java.io.InputStream"/>
+	<parameter name="packageValue" class="java.math.BigDecimal"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -170,6 +171,14 @@
 				<reportElement x="30" y="210" width="100" height="20" uuid="24824563-c66b-414d-832e-304e3ec4f742"/>
 				<textFieldExpression><![CDATA[$P{pickupType}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="200" y="170" width="58" height="20" uuid="d2af8c16-c827-42b2-96c2-b7172a2ab1b9"/>
+				<textFieldExpression><![CDATA[$P{packageValue}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="130" y="170" width="70" height="20" uuid="0d36eb78-6d50-45b8-ae95-276d77552d5e"/>
+				<text><![CDATA[Package value:]]></text>
+			</staticText>
 		</band>
 	</detail>
 </jasperReport>
