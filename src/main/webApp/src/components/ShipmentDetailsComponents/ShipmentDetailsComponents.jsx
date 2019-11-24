@@ -2,13 +2,15 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-indent-props */
-import React ,{useState}from 'react';
+import React, { useState } from 'react';
+import FileSaver from 'file-saver';
+import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom'
-import { Paper, Typography, Tabs, Tab, Button} from '@material-ui/core';
+import { Paper, Typography, Tabs, Tab, Button } from '@material-ui/core';
 import PageContentComponent from '../PageContent/PageContentComponent'
 // import LocationContainer from '../../../containers/LocationContainer';
 import FormGroupComponent from '../Form/FromGroupComponent';
@@ -111,11 +113,11 @@ export default function ShipmentDetailsComponents() {
 
   const handleChangeWeight = event => {
     setWeightCategory(weightCategory)
-  };  
+  };
   const handleChangeCOD = event => {
     setEnableCashOnD(enableCashOnD)
   };
-   const handleChangeFromCity = event => {
+  const handleChangeFromCity = event => {
     setFromCity(fromCity)
   };
   const handleChangeToCity = event => {
@@ -128,148 +130,166 @@ export default function ShipmentDetailsComponents() {
     setParcelValue(parcelValue)
   }
 
+  const doGenerateBarcode = (awbNumber) => {
+    const headers = { 'Accept': 'application/pdf' }
+    const params = { 'aWBId': awbNumber }
+    axios.get('/api/shipping-rates/print-barcode/', { headers, params, responseType: 'arraybuffer' })
+      .then(response => {
+        const fileName = response.headers['content-disposition'].split(';')[1].split('=')[1];
+        console.log("response", response);
+        var blob = new Blob([response.data], { type: 'application/pdf' });
+        console.log("blob", blob);
+
+        FileSaver.saveAs(blob, fileName);
+      })
+      .catch(error => {
+      })
+  };
   return (
 
 
-      <PageContentComponent title={<FormattedMessage id='requestNewShipment' />}>  
+    <PageContentComponent title={<FormattedMessage id='requestNewShipment' />}>
       <form className={classes.container} noValidate autoComplete="off">
         <div>
-      <TextField
-          id="standard-select-currency"
-          select
-          label={<FormattedMessage id='fromCity' />}
-          className={classes.textField}
-          value={fromCity}
-          name='fromCity'
-          onChange={handleChangeFromCity}
-          SelectProps={{
-            MenuProps: {
-              className: classes.menu,
-            },
-          }}
-          helperText="From"
-          margin="normal"
-        >
-          {Cities.map(option => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          id="standard-select-currency"
-          label={<FormattedMessage id='toCity' />}
-          select
-          className={classes.textField}
-          value={toCity}
-          onChange={handleChangeToCity}
-          SelectProps={{
-            MenuProps: {
-              className: classes.menu,
-            },
-          }}
-          helperText="To"
-          margin="normal"
-        >
-          {Cities.map(option => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-      </div>
-    </form>
-    <form className={classes.container} noValidate autoComplete="off">
-      <div>
-      <TextField
-          id="standard-select-currency"
-          select
-          label={<FormattedMessage id='shipmentWight' />}
-          className={classes.textField}
-          value={weightCategory}
-          onChange={handleChangeWeight}
-          SelectProps={{
-            MenuProps: {
-              className: classes.menu,
-            },
-          }}
-          helperText="From"
-          margin="normal"
-        >
-          {weights.map(option => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          id="standard-select-currency"
-          select
-          label={<FormattedMessage id='cashOnDelivery' />}
-          className={classes.textField}
-          value={enableCashOnD}
-          onChange={handleChangeCOD}
-          SelectProps={{
-            MenuProps: {
-              className: classes.menu,
-            },
-          }}
-          helperText="From"
-          margin="normal"
-        >
-          {enableCashOnDs.map(option => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-      </div>
-    </form>
-    <form className={classes.container} noValidate autoComplete="off">
-      <div>
-      <TextField
-          id="outlined-basic"
-          className={classes.textField}
-          label={<FormattedMessage id="shipmentValue" />}
-          value={parcelValue}
-          onChange={handleChangeParcelValue}
-          margin="normal"
-          variant="standard"
-        />
-         <TextField
-          id="standard-select-currency"
-          select
-          label={<FormattedMessage id='cashOnDelivery' />}
-          className={classes.textField}
-          value={dropPick}
-          onChange={handleChangeDropPick}
-          SelectProps={{
-            MenuProps: {
-              className: classes.menu,
-            },
-          }}
-          helperText="From"
-          margin="normal"
-        >
-          {dropPicks.map(option => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-      </div>
-    </form>
-    <form className={classes.container} noValidate autoComplete="off">
-      <div>
-        <tr/>
-      <Link to='/shipment-rates' style={{ margin: '0 auto' }}>
-          <button className="btn btn-primary" type='submit'>
-          <FormattedMessage id="next" />
-          </button>
-      </Link>
-    </div>
-    </form>
-  </PageContentComponent>
+          <TextField
+            id="standard-select-currency"
+            select
+            label={<FormattedMessage id='fromCity' />}
+            className={classes.textField}
+            value={fromCity}
+            name='fromCity'
+            onChange={handleChangeFromCity}
+            SelectProps={{
+              MenuProps: {
+                className: classes.menu,
+              },
+            }}
+            helperText="From"
+            margin="normal"
+          >
+            {Cities.map(option => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+          <TextField
+            id="standard-select-currency"
+            label={<FormattedMessage id='toCity' />}
+            select
+            className={classes.textField}
+            value={toCity}
+            onChange={handleChangeToCity}
+            SelectProps={{
+              MenuProps: {
+                className: classes.menu,
+              },
+            }}
+            helperText="To"
+            margin="normal"
+          >
+            {Cities.map(option => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+        </div>
+      </form>
+      <form className={classes.container} noValidate autoComplete="off">
+        <div>
+          <TextField
+            id="standard-select-currency"
+            select
+            label={<FormattedMessage id='shipmentWight' />}
+            className={classes.textField}
+            value={weightCategory}
+            onChange={handleChangeWeight}
+            SelectProps={{
+              MenuProps: {
+                className: classes.menu,
+              },
+            }}
+            helperText="From"
+            margin="normal"
+          >
+            {weights.map(option => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+          <TextField
+            id="standard-select-currency"
+            select
+            label={<FormattedMessage id='cashOnDelivery' />}
+            className={classes.textField}
+            value={enableCashOnD}
+            onChange={handleChangeCOD}
+            SelectProps={{
+              MenuProps: {
+                className: classes.menu,
+              },
+            }}
+            helperText="From"
+            margin="normal"
+          >
+            {enableCashOnDs.map(option => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+        </div>
+      </form>
+      <form className={classes.container} noValidate autoComplete="off">
+        <div>
+          <TextField
+            id="outlined-basic"
+            className={classes.textField}
+            label={<FormattedMessage id="shipmentValue" />}
+            value={parcelValue}
+            onChange={handleChangeParcelValue}
+            margin="normal"
+            variant="standard"
+          />
+          <TextField
+            id="standard-select-currency"
+            select
+            label={<FormattedMessage id='cashOnDelivery' />}
+            className={classes.textField}
+            value={dropPick}
+            onChange={handleChangeDropPick}
+            SelectProps={{
+              MenuProps: {
+                className: classes.menu,
+              },
+            }}
+            helperText="From"
+            margin="normal"
+          >
+            {dropPicks.map(option => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+        </div>
+      </form>
+      <form className={classes.container} noValidate autoComplete="off">
+        <div>
+          <tr />
+          <Link to='/shipment-rates' style={{ margin: '0 auto' }}>
+            <button className="btn btn-primary" type='submit'>
+              <FormattedMessage id="next" />
+            </button>
+          </Link>
+        </div>
+      </form>
+      {/* <button className={classes.button} onClick={() => doGenerateBarcode('123213')}>
+        print
+              </button> */}
+    </PageContentComponent>
 
   );
 }

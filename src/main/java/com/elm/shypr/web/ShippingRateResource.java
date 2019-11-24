@@ -30,8 +30,8 @@ public class ShippingRateResource {
     public ResponseEntity<Set<ShippingRateDto>> getShippingRatesByCriteria(@Valid ParcelDetailsDto parcelDetailsDto) {
         return ResponseEntity.ok(shippingRateService.getShippingRatesByCriteria(parcelDetailsDto));
     }
-    @RequestMapping(value ="/print-barcode",method = RequestMethod.GET, produces = {MediaType.APPLICATION_PDF_VALUE})
-    public  ResponseEntity<?> getBarcode(@Param("aWBId") String aWBId) throws ParseException, JRException {
-        return ResponseEntity.ok(shippingRateService.generateBarcode(aWBId));
+    @RequestMapping(value ="/print-barcode",method = RequestMethod.GET)
+    public  ResponseEntity<byte[]> getBarcode(@Param("aWBId") String aWBId) throws ParseException, JRException {
+        return shippingRateService.generateBarcode(aWBId);
     }
 }

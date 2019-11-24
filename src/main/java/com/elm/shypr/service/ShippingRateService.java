@@ -8,6 +8,7 @@ import com.elm.shypr.repository.ShippingRateRepository;
 import net.sf.jasperreports.engine.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -48,13 +49,13 @@ public class ShippingRateService {
     }
 
 
-    public ResponseEntity<?> generateBarcode(String awbNumber)
+    public ResponseEntity<byte[]> generateBarcode(String awbNumber)
             throws JRException, ParseException {
         InputStream template = getClass().getResourceAsStream("/templates/reports/airWaybillbarcode.jrxml");
         JasperReport report = JasperCompileManager.compileReport(template);
 
             HashMap<String, Object> map = new HashMap<>();
-            map.put("Barcode", "123-11111111");
+            map.put("barcode", "123-11111111");
             map.put("MasterAWBBarcode", "123-11111111");
             map.put("number", "pkg Numer");
             map.put("ImagesDir", this.getClass().getResource("/templates/reports/images/").toString());
@@ -75,6 +76,9 @@ public class ShippingRateService {
         JasperPrint jasperPrint = JasperFillManager.fillReport(report, map, new JREmptyDataSource());
         HttpHeaders headers = new HttpHeaders();
         headers.add("content-disposition", "attachment; filename=" + "ShipmentBarcode.pdf");
-        return ResponseEntity.ok().headers(headers).body(JasperExportManager.exportReportToPdf(jasperPrint));
+        return new ResponseEntity<byte[]> (JasperExportManager.exportReportToPdf(jasperPrint),
+                headers,
+                HttpStatus.OK);
+       // return ResponseEntity.ok().headers(headers).body(JasperExportManager.exportReportToPdf(jasperPrint));
     }
 }
