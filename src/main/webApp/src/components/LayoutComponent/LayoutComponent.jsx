@@ -6,7 +6,7 @@ import NavMenuComponent from '../NavMenu/NavMenuComponent'
 import FooterComponent from '../Footer/FooterComponent'
 import './Layout.css'
 import '../../assets/css/custom-ar.css'
-import LoginComponent from '../Login/LoginComponent'
+import LoginComponent from '../Login/loginComponent'
 import logoImg from '../../assets/images/shypr-logo-cut.png'
 import marker from '../../assets/images/header-bg-old.png'
 import HeaderComponent from '../Header/HeaderComponent';

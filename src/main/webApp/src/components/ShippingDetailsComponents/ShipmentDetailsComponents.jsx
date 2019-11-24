@@ -7,6 +7,7 @@ import { Paper, Typography, Tabs, Tab} from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
   container: {
     display: 'flex',
+    justifyContent: 'center',
     flexWrap: 'wrap',
   },
   root: {
@@ -21,6 +22,11 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
     width: 415,
+  },
+  button: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
   },
 }));
 

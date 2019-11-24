@@ -38,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .invalidateHttpSession(true)
                     .deleteCookies("JSESSIONID")
                 .and()
-                    .headers().frameOptions().disable();;
+                    .headers().frameOptions().disable();
     }
 
     @Override

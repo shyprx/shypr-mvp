@@ -50,5 +50,15 @@
     "THURSDAY":"Thursday",
     "FRIDAY":"Friday",
     "deliveryOn":"Delivery on ",
-    "SAR":"SR"
+    "SAR":"SR",
+    "requestNewShipment":"Request new Shipment",
+    "shipmentList":"Shipment List",
+    "getRate":"Get rate",
+    "shipNow":"Ship Now!",
+    "selectShippingCompany":"Select Shipping Company",
+    "shippingCompanies": "Shipping Companies",
+    "_1_DAY":"One day's work ",
+    "_3_DAYS":"Three days' work",
+    "returnToPage": "Back to ",
+    "orderSavedSuccessfully":"Order sent successfully!"
 }

@@ -102,163 +102,161 @@ export default function ShipmentDetailsComponents() {
   const classes = useStyles();
   const [fromCity, setFromCity] = useState('Riyadh');
   const [toCity, setToCity] = useState('Riyadh');
-  const [weight, setWeight] = useState('5k');
+  const [weightCategory, setWeightCategory] = useState('5k');
   const [enableCashOnD, setEnableCashOnD] = useState('COD')
-  const [shipmentValue, setShipmentValue] = useState('')
+  const [parcelValue, setParcelValue] = useState('')
   const [dropPick, setDropPick] = useState('DropOff')
-  const [parcelSize, setParcelSize] = useState('Small')
+  // const [parcelSize, setParcelSize] = useState('Small')
+
+
   const handleChangeWeight = event => {
-    setWeight(event.target.value)
+    setWeightCategory(weightCategory)
   };  
   const handleChangeCOD = event => {
-    setEnableCashOnD(event.target.value)
+    setEnableCashOnD(enableCashOnD)
   };
    const handleChangeFromCity = event => {
-    setFromCity(event.target.value)
+    setFromCity(fromCity)
   };
   const handleChangeToCity = event => {
-    setToCity(event.target.value)
+    setToCity(toCity)
   };
   const handleChangeDropPick = event => {
-    setDropPick(event.target.value)
+    setDropPick(dropPick)
   }
-  const handleChangeParcelSize = event => {
-    setParcelSize(event.target.value)
+  const handleChangeParcelValue = event => {
+    setParcelValue(parcelValue)
   }
 
   return (
 
+
       <PageContentComponent title={<FormattedMessage id='requestNewShipment' />}>  
       <form className={classes.container} noValidate autoComplete="off">
+        <div>
+      <TextField
+          id="standard-select-currency"
+          select
+          label={<FormattedMessage id='fromCity' />}
+          className={classes.textField}
+          value={fromCity}
+          name='fromCity'
+          onChange={handleChangeFromCity}
+          SelectProps={{
+            MenuProps: {
+              className: classes.menu,
+            },
+          }}
+          helperText="From"
+          margin="normal"
+        >
+          {Cities.map(option => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          id="standard-select-currency"
+          label={<FormattedMessage id='toCity' />}
+          select
+          className={classes.textField}
+          value={toCity}
+          onChange={handleChangeToCity}
+          SelectProps={{
+            MenuProps: {
+              className: classes.menu,
+            },
+          }}
+          helperText="To"
+          margin="normal"
+        >
+          {Cities.map(option => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+      </div>
+    </form>
+    <form className={classes.container} noValidate autoComplete="off">
       <div>
-      <FormGroupComponent>
-      <FormControlComponent
-                    label={<FormattedMessage id='fromCity' />}
-                    fieldId='fromCity'
-                    value={fromCity}
-                    required                    
-                    colSize={[2, 4]}
-
-                    onChange={handleChangeFromCity}
-                    // errorMessage={this.getError('phoneNumber')}
-                >
-                  <select>
-                <option value="">Select City</option>
-                {Cities.map(option => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                  ))}
-                  </select>
-                </FormControlComponent>
-                <FormControlComponent
-                    label={<FormattedMessage id='toCity' />}
-                    fieldId='toCity'
-                    value={toCity}
-                    required
-                    colSize={[2, 4]}
-                    onChange={handleChangeToCity}
-                    // errorMessage={this.getError('phoneNumber')}
-                >
-                  <select>
-                <option value="">Select City</option>
-                {Cities.map(option => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                  ))}
-                  </select>
-                </FormControlComponent>
-            </FormGroupComponent>
-            <FormGroupComponent>
-      <FormControlComponent
+      <TextField
+          id="standard-select-currency"
+          select
           label={<FormattedMessage id='shipmentWight' />}
-          value={weight}
+          className={classes.textField}
+          value={weightCategory}
           onChange={handleChangeWeight}
-                    fieldId='weight'
-
-                    required
-                      colSize={[2, 4]}
-
-                >
-                  <select>
-                <option value="">Select Weights</option>
-                {weights.map(option => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                  ))}
-                  </select>
-                </FormControlComponent>
-                <FormControlComponent
-                    label={<FormattedMessage id='cashOnDelivery' />}
-                    fieldId='enableCashOnD'
-                    value={enableCashOnD}
-                    required
-                     colSize={[2, 4]}
-                    onChange={handleChangeCOD}
-                    // errorMessage={this.getError('phoneNumber')}
-                >
-                  <select>
-                {enableCashOnDs.map(option => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                  ))}
-                  </select>
-                </FormControlComponent>
-            </FormGroupComponent>
-            <FormGroupComponent>
-      <FormControlComponent
-          label={<FormattedMessage id='shipmentValue' />}
-          value={shipmentValue}
-          onChange={handleChangeWeight}
-                    fieldId='weight'
-
-                    required
-                     colSize={[2, 4]}
-
-                >
-            <input type="text" placeholder="SAR" maxLength="9" className="form-control"  />
-
-                </FormControlComponent>
-                <FormControlComponent
-                    label={<FormattedMessage id='pickOrDrop' />}
-                    fieldId='dropPick'
-                    value={dropPick}
-                    required
-                     colSize={[2, 4]}
-                    onChange={handleChangeDropPick}
-                    // errorMessage={this.getError('phoneNumber')}
-                >
-                  <select>
-                {dropPicks.map(option => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                  ))}
-                  </select>
-                </FormControlComponent>
-            </FormGroupComponent>
-            <FormGroupComponent>
-                <FormControlComponent
-                    label={<FormattedMessage id='shipmentSize' />}
-                    fieldId='parcelSize'
-                    value={parcelSize}
-                    required
-                     colSize={[2, 4]}
-                    onChange={handleChangeParcelSize}
-                    // errorMessage={this.getError('phoneNumber')}
-                >
-                  <select>
-                {parcelSizes.map(option => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                  ))}
-                  </select>
-                </FormControlComponent>
-            </FormGroupComponent>
+          SelectProps={{
+            MenuProps: {
+              className: classes.menu,
+            },
+          }}
+          helperText="From"
+          margin="normal"
+        >
+          {weights.map(option => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          id="standard-select-currency"
+          select
+          label={<FormattedMessage id='cashOnDelivery' />}
+          className={classes.textField}
+          value={enableCashOnD}
+          onChange={handleChangeCOD}
+          SelectProps={{
+            MenuProps: {
+              className: classes.menu,
+            },
+          }}
+          helperText="From"
+          margin="normal"
+        >
+          {enableCashOnDs.map(option => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+      </div>
+    </form>
+    <form className={classes.container} noValidate autoComplete="off">
+      <div>
+      <TextField
+          id="outlined-basic"
+          className={classes.textField}
+          label={<FormattedMessage id="shipmentValue" />}
+          value={parcelValue}
+          onChange={handleChangeParcelValue}
+          margin="normal"
+          variant="standard"
+        />
+         <TextField
+          id="standard-select-currency"
+          select
+          label={<FormattedMessage id='cashOnDelivery' />}
+          className={classes.textField}
+          value={dropPick}
+          onChange={handleChangeDropPick}
+          SelectProps={{
+            MenuProps: {
+              className: classes.menu,
+            },
+          }}
+          helperText="From"
+          margin="normal"
+        >
+          {dropPicks.map(option => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
       </div>
     </form>
     <form className={classes.container} noValidate autoComplete="off">

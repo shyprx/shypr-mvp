@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css'
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import OrderComponent from './components/order/OrderComponent'
+import LoginComponent from './components/Login/LoginComponent';
 import AuthenticatedRoute from './components/authentication/AuthenticatedRoute';
 import configureAxiosInterceptors from './components/authentication/AxiosConfig'
 import { Provider as AlertProvider } from 'react-alert'
@@ -23,7 +24,6 @@ import ShipmentDetailsComponents from './components/ShipmentDetailsComponents/Sh
 import ShipmentRatesComponents from './components/order/ShippingRatesComponent';
 import ViewRegistration from './components/Registration/ViewRegistrationComponent'
 import SelfRegistrationComponent from './components/Registration/SelfRegistrationComponent'
-
 import LayoutComponent from './components/LayoutComponent/LayoutComponent';
 import RegistirationListComponent from './components/Registration/RegistirationListComponent';
 import OrderSuccessfulComponent from './components/order/OrderSuccessfulComponent'
