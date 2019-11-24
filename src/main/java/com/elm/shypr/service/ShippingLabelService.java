@@ -15,4 +15,7 @@ public class ShippingLabelService {
     }
 
 
+    public void printLabel(Long orderItemId) {
+
+    }
 }

@@ -25,8 +25,8 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "person_name")
-    private String personName;
+    @Column(name = "sender_name")
+    private String senderName;
 
     @Column(name = "description")
     private String description;

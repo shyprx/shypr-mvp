@@ -6,7 +6,7 @@ import NavMenuComponent from '../NavMenu/NavMenuComponent'
 import FooterComponent from '../Footer/FooterComponent'
 import './Layout.css'
 import '../../assets/css/custom-ar.css'
-import LoginComponent from '../Login/loginComponent'
+import LoginComponent from '../Login/LoginComponent'
 import logoImg from '../../assets/images/shypr-logo-cut.png'
 import marker from '../../assets/images/header-bg-old.png'
 import HeaderComponent from '../Header/HeaderComponent';
@@ -28,7 +28,8 @@ export default class LayoutComponent extends React.Component {
   render() {
     const { locale, children, history } = this.props
     const { isLoggedIn, selfRegiration } = this.state
-    const dir = AR === locale ? 'rtl' : 'ltr'
+    // const dir = AR === locale ? 'rtl' : 'ltr'
+    const dir = 'rtl'
 
     return (
       <div dir={dir} className={!isLoggedIn || !selfRegiration ? '' : 'page-wrapper '}>

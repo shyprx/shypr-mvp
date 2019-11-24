@@ -13,7 +13,7 @@
             </column>
             <column name="DESCRIPTION" type="VARCHAR(255)"/>
             <column name="MOBILE_NO" type="VARCHAR(255)"/>
-            <column name="PERSON_NAME" type="VARCHAR(255)"/>
+            <column name="SENDER_NAME" type="VARCHAR(255)"/>
             <column name="CITY_ID" type="BIGINT(19)"/>
         </createTable>
     </changeSet>

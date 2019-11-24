@@ -104,7 +104,7 @@ const LoginComponent = (props) => {
       <div className=" login-links">
         <div className="form-group mt-5">
           <Link to='/self-Registration' style={{ margin: '0 auto' }}>
-            <button className="btn btn-secondary" type='submit' onClick={() => { this.props.toSelfRegistration() }}>تسجيل جديد</button>
+            <button className="btn btn-secondary" onClick={() => { props.toSelfRegistration() }}>تسجيل جديد</button>
           </Link>
 
         </div>
@@ -140,14 +140,14 @@ const LoginComponent = (props) => {
         </a>
       </div>
       <div className="form-group">
-        <a href="javascript:;" className="border-0 btn btn-block btn-link btn-sm forget-password-trigger text-center" onClick={() => { this.showForm(1) }}> العودة لتسجيل الدخول </a>
+        <a href="javascript:;" className="border-0 btn btn-block btn-link btn-sm forget-password-trigger text-center" onClick={() => { showForm(1) }}> العودة لتسجيل الدخول </a>
       </div>
     </form>
 
   )
 
   const forgetUserName = () => (
-    <form className="forget-username-form " style={{ display: this.form == 3 }} >
+    <form className="forget-username-form " style={{ display: activeForm == 3 }} >
       <h3 className="form-title text-center"> استرجاع اسم المستخدم </h3>
       <div className="form-group">
         <label className="control-label visible-ie8 visible-ie9 "> رقم الهوية </label>
@@ -173,7 +173,7 @@ const LoginComponent = (props) => {
         </a>
       </div>
       <div className="form-group">
-        <a href="javascript:;" className="border-0 btn btn-block btn-link btn-sm forget-username-trigger text-center" onClick={() => { this.showForm(1) }}> العودة لتسجيل الدخول </a>
+        <a href="javascript:;" className="border-0 btn btn-block btn-link btn-sm forget-username-trigger text-center" onClick={() => { showForm(1) }}> العودة لتسجيل الدخول </a>
       </div>
     </form>
   )
