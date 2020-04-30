@@ -14,7 +14,7 @@
     "classnames": "^2.2.6",
     "css-baseline": "^1.1.10",
     "file-saver": "^2.0.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "popper": "^1.0.1",
     "popper.js": "^1.15.0",
     "react": "^16.11.0",
